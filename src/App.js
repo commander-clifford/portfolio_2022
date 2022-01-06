@@ -2,10 +2,14 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
-import './App.css';
+import './App.scss';
 import Home from './pages/home';
 
+import { projectData } from './data.js';
+import { resumeData } from './data.js';
+
 function App() {
+
   return (
     <div className="app">
       <div className="view-wrapper" style={{position: 'relative', height: '100%'}}>
@@ -23,7 +27,12 @@ function App() {
                 timeout={{enter: 1200, exit: 700 }}
                 >
                 <Switch location={location}>
-                  <Route exact path={['/', '/home']} render={({ ...props }) => { return <Home {...props} /> }}/>
+                  <Route
+                    exact path={['/', '/home']}
+                    render={({ ...props }) => {
+                      return <Home {...props} projectData={projectData} resumeData={resumeData} />
+                    }}
+                  />
                 </Switch>
               </Transition>
             </TransitionGroup>
