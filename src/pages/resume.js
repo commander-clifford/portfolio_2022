@@ -34,7 +34,7 @@ class Resume extends Component {
 
             <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
               <h2 className="headline">{item.title}</h2>
-              <p><i>{item.date} -{i}</i></p>
+              <p><i>{item.date}</i></p>
             </div>
 
             <div className="d-flex align-items-center justify-content- resume-item__employer-block">
