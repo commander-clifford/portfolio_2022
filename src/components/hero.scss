@@ -1,0 +1,35 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+@import './../variables';
+@import './../mixins';
+
+
+
+
+.hero {
+
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+  text-shadow: 3px 5px 10px rgba(0,0,0, .2);
+  @include cover-gradient(#dd0031);
+
+  &__container {
+    min-height: clamp(120px, 30vh, 260px);
+    display: flex;
+    align-items: center;
+    font-size: 2.2em;
+    color: var(--crn-white);
+
+    h1 {
+      display: flex;
+      flex-direction: column;
+      font-size: inherit;
+      .small {
+        font-size: 0.3em;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+}

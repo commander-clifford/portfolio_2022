@@ -4,9 +4,10 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
 import './App.scss';
 import Home from './pages/home';
+import Resume from './pages/resume';
 
 import { projectData } from './data.js';
-import { resumeData } from './data.js';
+import { resumeData } from './data';
 
 function App() {
 
@@ -31,6 +32,12 @@ function App() {
                     exact path={['/', '/home']}
                     render={({ ...props }) => {
                       return <Home {...props} projectData={projectData} resumeData={resumeData} />
+                    }}
+                  />
+                  <Route
+                    exact path={['/resume']}
+                    render={({ ...props }) => {
+                      return <Resume {...props} projectData={projectData} resumeData={resumeData} />
                     }}
                   />
                 </Switch>

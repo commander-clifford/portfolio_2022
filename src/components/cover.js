@@ -11,6 +11,7 @@ class Cover extends Component {
 
   componentDidMount(){
     let supLine = document.getElementById("sup");
+    let copyLine = document.getElementById("copy");
     let splitHeadline = document.getElementById("splitHeadline");
     splitHeadline = new SplitTextJS(splitHeadline);
 
@@ -20,11 +21,11 @@ class Cover extends Component {
 
     timeline.fromTo(supLine,
     {
-      autoAlpha: 0
+      opacity: 0
     },
     {
       duration: 0.4,
-      autoAlpha: 1
+      opacity: 1
     });
     timeline.fromTo(splitHeadline.chars,
     {
@@ -42,6 +43,15 @@ class Cover extends Component {
         amount: 0.3,
       },
     });
+    timeline.fromTo(copyLine,
+    {
+      opacity: 0
+    },
+    {
+      duration: 0.4,
+      opacity: 1
+    });
+
 
   }
 
@@ -50,16 +60,14 @@ class Cover extends Component {
       <div className="cover">
         <div className="cover__container container">
 
-          <div className="">
+          <div className="row">
             <div className="cover__headline">
               <p id="sup" className="sup">Hi! I'm</p>
               <h1 id="splitHeadline" className="headline">Clifford</h1>
             </div>
           </div>
 
-          <div className="cover__content row">
-
-
+          <div id="copy" className="cover__content row">
 
             <div className="col-md-7 d-flex align-items-end">
               <div>

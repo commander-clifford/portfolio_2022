@@ -1,18 +1,18 @@
-export const projectData = [
-  {
-    title: "Doodleverse",
-  },
-  {
-    title: "Uber Eats Pics",
-  },
-  {
-    title: "Windshield Wipers",
-  },
-];
-
 // import { Position } from './position';
 
-export const resumeData = [
+export const resumeData: any[] = [
+
+  // {
+  //   title: "title",
+  //   date: "1",
+  //   employer: "employee",
+  //   jobDesc: "",
+  //   list: [
+  //     "",
+  //     "",
+  //   ],
+  //   tags: null,
+  // },
 
   {
     title: "Teaching Assistant",
@@ -27,7 +27,7 @@ export const resumeData = [
       "Take detailed attendance reports",
       "Tutor students after class hours",
     ],
-    tags: [{title:"4.0 GPA",type:"education"}],
+    tags: ["4.0 GPA"],
   },
   {
     title: "Interaction Designer",
@@ -44,7 +44,7 @@ export const resumeData = [
       "Updating existing websites and web forms by adding responsive web design techniques",
       "Manage Source Control",
     ],
-    tags: [{title:"Prototyping"}, {title:"WordPress",type:"cms"}]
+    tags: ["Prototyping", "WordPress"]
   },
   {
     title: "Front-End Web Developer",
@@ -61,7 +61,7 @@ export const resumeData = [
       "Design and implement new features and tools",
       "Optimize web applications to maximize speed and scale for clients",
     ],
-    tags: [{title:"Grunt"}, {title:"LESS"}, {title:"WordPress",type:"cms"}],
+    tags: ["Grunt", "LESS", "WordPress"],
   },
   {
     title: "Interaction Designer",
@@ -76,7 +76,7 @@ export const resumeData = [
       "Integration with established LDAP",
       "Wire-framing and interaction design",
     ],
-    tags: [{title:"WordPress",type:"cms"}, {title:"HTML"}, {title:"PHP"}],
+    tags: ["WordPress", "HTML", "PHP"],
   },
   {
     title: "UI/UX Design Engineer",
@@ -91,7 +91,7 @@ export const resumeData = [
       "Provide feedback about the technical feasibility and usability",
       "Collaborate with other team members and stakeholders",
     ],
-    tags: [{title:"UX/UI"}, {title:"SCSS"}, {title:"JAVA"}],
+    tags: ["UX/UI", "SCSS", "JAVA"],
   },
   {
     title: "Front-End Software Engineer",
@@ -107,7 +107,7 @@ export const resumeData = [
       "Resolve defects/bugs during QA testing, pre-production, production, and post-release patches",
       "Agile Development, SCRUM, and Extreme Programming methodologies like MOB Programming",
     ],
-    tags: [{title:"Handlebars"}, {title:"SCSS"}],
+    tags: ["Handlebars", "SCSS"],
   },
   {
     title: "Experience Design Prototyper",
@@ -123,15 +123,7 @@ export const resumeData = [
       "Fulfill several project requests simultaneously while meeting tight deadlines",
       "Work with front-end engineers to ensure delivery of intended design",
     ],
-    tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"Angular",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-    ],
+    tags: ["Prototyping", "UX/UI"],
   },
   {
     title: "Senior Creative Developer",
@@ -144,12 +136,7 @@ export const resumeData = [
       "Developing direct mailers and .com experiences",
       "Contribute to internal development tools",
     ],
-    tags: [
-      {title:"Pixel Perfect", type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"YAML", type:"secodary"},
-    ],
+    tags: ["Pixel Perfect", "HTML", "CSS", "YAML"],
   },
   {
     title: "Design Engineer",
@@ -162,19 +149,11 @@ export const resumeData = [
       "Build internal tools to aid marketing efforts",
       "Integrate with Contentful CMS",
     ],
-    tags: [
-      {title:"Design Systems",type:"primary"},
-      {title:"React",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"Tooling",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-    ],
+    tags: ["React", "Design Systems", "Tools"],
   },
   {
     title: "Creative Technologist / Prototyper",
-    date: "2018-2019",
+    date: "2018-Present",
     employer: "Google",
     employerSecondary: "Synergis Creative",
     jobDesc: "Contribute to the 10 year vision of Google’s personality and brand. Generate prototypes to rapidly iterate through ideas in low to high-fidelity. Game design prototyping. Homepage prototyping for Doodles.",
@@ -184,15 +163,7 @@ export const resumeData = [
       "Motion Design, Game Design, UX Design",
       "Environments are ad-hoc, typically newest Angular + Material",
     ],
-    tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"Angular",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-    ],
+    tags: ["Prototyping"],
   },
   {
     title: "Design Prototyper",
@@ -206,18 +177,7 @@ export const resumeData = [
       "Motion Design, Game Design, UX Design",
       "Environments are ad-hoc, typically create-react-app plus internal design systems",
     ],
-    tags: [
-      {title:"React",type:"primary"},
-      {title:"GSAP",type:"primary"},
-      {title:"PIXI",type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-      {title:"Motion/Interaction Design", type:"tertiary"},
-    ]
-
+    tags: ["Prototyping", "React", "Motion/Interaction Design", "UX/UI"],
   },
   {
     title: "Web Design",
@@ -226,36 +186,27 @@ export const resumeData = [
     employerSecondary: "PRO Unlimited",
     jobDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     list: [],
-    tags: [
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"Wordpress",type:"tertiary"},
-    ],
+    tags: ["Wordpress", ".com", "CSS", "HTML"],
   },
   {
     title: "Full Stack Design",
     date: "2021-PRESENT",
     employer: "Warner Media / HBO Max",
     employerSecondary: null,
-    jobDesc: "Supporting the growth marketing department in driving the visual and technical success for the creative and visual execution of WarnerMedia’s digital and online marketing channels. Focused on coding and creating at the same time with the latest innovations in technology, HTML, CSS and beyond.",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     list: [],
-    tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-      {title:"Drupal",type:"tertiary"},
-    ],
+    tags: ["css", "html", "GSAP", "Drupal", ".com"],
+
   },
 
-  // {
-  //   title: "title",
-  //   date: "1",
-  //   employer: "employee",
-  //   jobDesc: "",
-  //   list: ["",""],
-  //   tags: ["",""],
-  // },
+
+
+
+
+
+
+
+
+
 
 ];

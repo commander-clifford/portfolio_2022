@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Cover from '../components/cover';
+import { gsap } from "gsap";
+import './home.scss';
+
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount(){
     // this.projects = this.props.projectData;
@@ -12,13 +15,28 @@ class Home extends Component {
     // console.log('PROJECTS',this.projects);
     // console.log('RESUME',this.resume);
 
+    let cover = document.getElementById("cover");
+
+    let timeline = new gsap.timeline({
+      delay: 2,
+      paused: true
+    });
+
+    timeline.to(cover,{
+      y: -200
+    });
+    timeline.to(cover,{
+      y: 0,
+      ease: "back.out(4)",
+    });
+
   }
 
   render() {
     return (
-      <article>
+      <article className="home">
 
-        <section className="cover__wrapper">
+        <section id="cover__wrapper" className="cover__wrapper full">
           <Cover></Cover>
         </section>
 
@@ -31,6 +49,9 @@ class Home extends Component {
                 </div>
               );
             })}
+        </section>
+        <section>
+          qwerty
         </section>
 
       </article>

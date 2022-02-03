@@ -1,0 +1,100 @@
+@import './../variables';
+
+.resume {
+  padding-block: 6rem;
+
+  &-item {
+    margin-block: 4rem 6rem;
+
+    &__description {
+      color: var(--bs-gray-800);
+      margin-bottom: 0.8em;
+    }
+    &__headline-block {
+      margin-bottom: 0.4em;
+      padding-block: 0.4em;
+      border-bottom: 1px solid var(--crn-gray-200);
+      .headline {
+        color: var(--crn-primary);
+      }
+      h2, p {
+        margin: 0;
+      }
+      p {
+        font-size: 0.8em;
+        color: var(--crn-gray-400);
+      }
+    }
+    &__employer-block {
+      margin-block: 0.4em 0.8em;
+      h3,p {
+        margin: 0;
+        font-size: 0.8em;
+      }
+      p {
+        color: var(--crn-gray-400);
+      }
+    }
+    &__badges {
+      padding-block: 0.4em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5em;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5em;
+        flex-wrap: wrap;
+        max-width: 240px;
+      }
+
+      .badge {
+        position: relative;
+        color: var(--crn-gray-800);
+        padding: 0.3em 0.7em 0.3em 1.6em;
+        border-radius: 50px 16px 16px 50px;
+        background: linear-gradient(135deg, var(--crn-gray-000), var(--crn-gray-100));
+        font-weight: 500;
+        font-size: 1rem;
+        text-transform: uppercase;
+        &.primary {
+          background: linear-gradient(135deg, var(--crn-red-000), var(--crn-red-100));
+          color: var(--crn-red-800);
+        }
+        &.secodary {
+          background: linear-gradient(135deg, var(--crn-blue-000), var(--crn-blue-100));
+          color: var(--crn-blue-800);
+        }
+        &.tertiary {
+          background: linear-gradient(135deg, var(--crn-orange-000), var(--crn-orange-100));
+          color: var(--crn-orange-800);
+        }
+        // &.cms {
+        //   background: linear-gradient(135deg, var(--crn-orange-100), var(--crn-orange-200));
+        //   color: var(--crn-orange-800);
+        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--crn-orange-100);
+        // }
+        // &.tech {
+        //   background: linear-gradient(135deg, var(--crn-purple-100), var(--crn-purple-200));
+        //   color: var(--crn-purple-800);
+        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--crn-purple-100);
+        // }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 6px;
+          transform: translateY(-50%);
+          background: white;
+          border-radius: 64px;
+          z-index: 1;
+          width: 4px;
+          height: 4px;
+        }
+      }
+    }
+  }
+}
