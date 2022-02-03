@@ -50,9 +50,6 @@ class Home extends Component {
               );
             })}
         </section>
-        <section>
-          qwerty
-        </section>
 
       </article>
     );

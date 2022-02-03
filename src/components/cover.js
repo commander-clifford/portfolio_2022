@@ -82,7 +82,7 @@ class Cover extends Component {
             <div className="col-md-5 d-flex align-items-end justify-content-end">
               <div>
                 <p>
-                  contact info
+                  
                 </p>
               </div>
             </div>
