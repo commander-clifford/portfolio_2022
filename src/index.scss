@@ -1,24 +1,15 @@
-* {box-sizing: border-box;}
-html {}
-html,
-body {
-  height: 100%;
-  font-size: 62.5%;
-}
+@import "~bootstrap/scss/bootstrap";
 
-html body {
-  font-size: 1.6rem;
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
-  margin: 0;
-  padding: 0;
-}
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+@import "./open-props";
+
+@import "./variables";
+@import "./mixins";
 
 
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 /**/
 @font-face {
   font-family: 'Gilroy';

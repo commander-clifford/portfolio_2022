@@ -7,14 +7,14 @@
 
 
 .cccover {
-  max-height: 100vh;
-	overflow-y: scroll;
+  // max-height: 100vh;
+	// overflow-y: scroll;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(300px);
-  scroll-snap-type: y mandatory;
+  // scroll-snap-type: y mandatory;
 
   section {
-    scroll-snap-align: start;
+    // scroll-snap-align: start;
     box-sizing: border-box;
     padding: 1px;
     width: 100%;
@@ -34,14 +34,17 @@
 
 
 .cover {
-  height: 100%;
+
   color: #FFFFFF;
 
   &__wrapper {
-    @include cover-gradient(var(--crn-clr-red));
+
+    @include primary-gradient(var(--red-600));
+    @include upper-clip(var(--size-10));
   }
 
   &__container {
+    min-height: #{"min(100vh, 900px)"};
     padding-block: 8vh;
     display: flex;
     flex-flow: column;

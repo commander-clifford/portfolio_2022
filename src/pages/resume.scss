@@ -1,5 +1,3 @@
-@import './../variables';
-
 .resume {
   padding-block: 6rem;
 
@@ -13,16 +11,16 @@
     &__headline-block {
       margin-bottom: 0.4em;
       padding-block: 0.4em;
-      border-bottom: 1px solid var(--crn-gray-200);
+      border-bottom: 1px solid var(--gray-200);
       .headline {
-        color: var(--crn-primary);
+        color: var(--primary);
       }
       h2, p {
         margin: 0;
       }
       p {
         font-size: 0.8em;
-        color: var(--crn-gray-400);
+        color: var(--gray-400);
       }
     }
     &__employer-block {
@@ -32,7 +30,7 @@
         font-size: 0.8em;
       }
       p {
-        color: var(--crn-gray-400);
+        color: var(--gray-400);
       }
     }
     &__badges {
@@ -53,34 +51,34 @@
 
       .badge {
         position: relative;
-        color: var(--crn-gray-800);
+        color: var(--gray-800);
         padding: 0.3em 0.7em 0.3em 1.6em;
         border-radius: 50px 16px 16px 50px;
-        background: linear-gradient(135deg, var(--crn-gray-000), var(--crn-gray-100));
+        background: linear-gradient(135deg, var(--gray-000), var(--gray-100));
         font-weight: 500;
         font-size: 1rem;
         text-transform: uppercase;
         &.primary {
-          background: linear-gradient(135deg, var(--crn-red-000), var(--crn-red-100));
-          color: var(--crn-red-800);
+          background: linear-gradient(135deg, var(--red-000), var(--red-100));
+          color: var(--red-800);
         }
         &.secodary {
-          background: linear-gradient(135deg, var(--crn-blue-000), var(--crn-blue-100));
-          color: var(--crn-blue-800);
+          background: linear-gradient(135deg, var(--blue-000), var(--blue-100));
+          color: var(--blue-800);
         }
         &.tertiary {
-          background: linear-gradient(135deg, var(--crn-orange-000), var(--crn-orange-100));
-          color: var(--crn-orange-800);
+          background: linear-gradient(135deg, var(--orange-000), var(--orange-100));
+          color: var(--orange-800);
         }
         // &.cms {
-        //   background: linear-gradient(135deg, var(--crn-orange-100), var(--crn-orange-200));
-        //   color: var(--crn-orange-800);
-        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--crn-orange-100);
+        //   background: linear-gradient(135deg, var(--orange-100), var(--orange-200));
+        //   color: var(--orange-800);
+        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--orange-100);
         // }
         // &.tech {
-        //   background: linear-gradient(135deg, var(--crn-purple-100), var(--crn-purple-200));
-        //   color: var(--crn-purple-800);
-        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--crn-purple-100);
+        //   background: linear-gradient(135deg, var(--purple-100), var(--purple-200));
+        //   color: var(--purple-800);
+        //   text-shadow: 0 0 2px rgba(255, 255, 255, 0.2), 0 0 8px var(--purple-100);
         // }
         &::before {
           content: "";

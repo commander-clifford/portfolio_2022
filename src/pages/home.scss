@@ -1,12 +1,12 @@
 article.home {
-  max-height: 100vh;
-	overflow-y: scroll;
+  // max-height: 100vh;
+	// overflow-y: scroll;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(300px);
-  scroll-snap-type: y mandatory;
+  // scroll-snap-type: y mandatory;
 
   section {
-    scroll-snap-align: start;
+    // scroll-snap-align: start;
     box-sizing: border-box;
     padding: 1px;
     width: 100%;

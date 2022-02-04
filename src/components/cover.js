@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SplitTextJS from 'split-text-js';
 import { gsap } from "gsap";
 
-import './cover-styles.scss';
+import './cover.scss';
 class Cover extends Component {
 
   // constructor(props) {
