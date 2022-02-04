@@ -1,22 +1,10 @@
 @function hexToRGB($hex) {
   @return red($hex), green($hex), blue($hex);
 }
+
 @function hsl-to-rgb($hsl-color) {
     @return mix($hsl-color,$hsl-color);
 }
-
-
-// -_-_- BG PATTERN ONE -_-_- //
-// @mixin primary-gradient($color) {
-//   $color-primary: $color;
-//   $color-primary-t10: rgba(hsl-to-rgb($color),0.1);
-//   background-attachment: fixed;
-//   background-color: $color;
-//   background-image:
-//   linear-gradient(217deg, rgba(222, 5, 153, 0.5), rgba(160, 0, 35, 0) 80%),
-//   linear-gradient(127deg, $color-primary, $color-primary-t10 80%),
-//   linear-gradient(336deg, rgba(95, 5, 200, 0.2), rgba(255, 78, 117, 0) 80%);
-// }
 
 @mixin primary-gradient($color) {
   $thisColor: $color;

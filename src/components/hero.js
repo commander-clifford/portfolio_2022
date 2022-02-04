@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { gsap } from "gsap";
 
 import './hero.scss';
 
@@ -9,9 +8,7 @@ class Hero extends Component {
   //   super(props);
   // }
 
-  componentDidMount(){
-
-  }
+  componentDidMount(){}
 
   render() {
     return (

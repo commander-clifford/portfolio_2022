@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import SplitTextJS from 'split-text-js';
 import { gsap } from "gsap";
-
 import './cover.scss';
-class Cover extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
+class Cover extends Component {
 
   componentDidMount(){
     let supLine = document.getElementById("sup");
@@ -51,8 +47,6 @@ class Cover extends Component {
       duration: 0.4,
       opacity: 1
     });
-
-
   }
 
   render() {
@@ -79,13 +73,7 @@ class Cover extends Component {
               </div>
             </div>
 
-            <div className="col-md-5 d-flex align-items-end justify-content-end">
-              <div>
-                <p>
-                  
-                </p>
-              </div>
-            </div>
+            <div className="col-md-5 d-flex align-items-end justify-content-end"></div>
 
           </div>
 
