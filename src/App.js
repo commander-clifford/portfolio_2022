@@ -8,6 +8,7 @@ import Resume from './pages/resume';
 
 import { projectData } from './data.js';
 import { resumeData } from './data';
+import { educationData } from './data';
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
                   <Route
                     exact path={['/resume']}
                     render={({ ...props }) => {
-                      return <Resume {...props} projectData={projectData} resumeData={resumeData} />
+                      return <Resume {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
                     }}
                   />
                 </Switch>

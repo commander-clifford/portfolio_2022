@@ -1,12 +1,58 @@
+export const educationData = [
+  {
+    school: "Platt College",
+    copy: {
+      description: "In 2014 I graduated from Platt College in San Diego, earning a <b>Bachelors Degree in Web Design</b>, and receiving the honor of valedictorian of my class with a <b>4.0 GPA</b>.",
+      associates: {
+        gpa: "4.0",
+        title: "Associates Degree, Graphic Design",
+        date: "2011–2012",
+      },
+      bachelors: {
+        gpa: "4.0",
+        title: "Bachelors Degree, Media Design",
+        date: "2013–2014",
+      },
+    },
+    courses: {
+      associates: [
+        "Fundamentals Illustration",
+        "History of Typography",
+        "Video editing",
+        "3D modeling / rendering",
+        "Print design",
+        "Graphic composition",
+      ],
+      bachelors: [
+        "Fundamentals of Web Design",
+        "Web Campaign Implementation",
+        "Design for Usability",
+        "Responsive Web Design",
+        "Programming for Designers",
+        "Scripting for the Web",
+        "Content Management Systems",
+      ]
+
+    }
+  }
+];
+
 export const projectData = [
   {
     title: "Doodleverse",
+    description: []
   },
   {
     title: "Uber Eats Pics",
+    description: []
   },
   {
     title: "Windshield Wipers",
+    description: []
+  },
+  {
+    title: "Lights Out",
+    description: []
   },
 ];
 

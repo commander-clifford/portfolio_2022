@@ -6,6 +6,7 @@ class Resume extends Component {
 
   componentDidMount(){
     console.log("resumeData",this.props.resumeData);
+    console.log("educationData",this.props.educationData);
   }
 
   render() {
@@ -51,7 +52,7 @@ class Resume extends Component {
           </section>
 
         </article>
-        
+
       </div>
     );
   }
