@@ -12,8 +12,6 @@ class Nav extends Component {
   componentDidMount(){
     let nav = document.querySelector("#nav");
 
-    
-
     let hamburger = document.querySelector("#hamburger");
     let hamburgerWrapper = document.querySelector("#wrapper");
     
@@ -24,15 +22,23 @@ class Nav extends Component {
     let navItemsWrapper = document.querySelector("#navItems");
     let navItemsList = document.getElementsByClassName("nav-item");
     let navItems = Array.from(navItemsList);
+    navItems.forEach(item => item.addEventListener("click", () => ( closeNav() )));
   
   let toggleNav = () => {
     if (nav.classList.contains("active")){
-      animateTheNav("close");
-      nav.classList.remove("active");
+      closeNav();
     } else {
-      animateTheNav("open");
-      nav.classList.add("active");
+      openNav();
     }
+  }
+
+  let openNav = () => {
+    animateTheNav("open");
+    nav.classList.add("active");
+  }
+  let closeNav = () => {
+    animateTheNav("close");
+    nav.classList.remove("active");
   }
 
   gsap.set(navItems,{
