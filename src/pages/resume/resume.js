@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './resume.scss';
-import Hero from '../components/hero';
+import Hero from '../../components/hero';
 
 class Resume extends Component {
 
@@ -22,7 +22,7 @@ class Resume extends Component {
           </section>
 
           {this.props.resumeData.map((item,i) =>
-            <section className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in resume-item" : "resume-item"}>
+            <section key={i} className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in resume-item" : "resume-item"}>
 
               <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
                 <h3 className="headline">{item.title}</h3>
@@ -38,8 +38,8 @@ class Resume extends Component {
 
               <div className="resume-item__badges">
                 <div className="wrapper">
-                  {item.tags ? item.tags.map((tag, i) =>
-                    <span className={tag.type ? (tag.type + " badge") : "badge"}>{tag.title}</span>
+                  {item.tags ? item.tags.map((tag, j) =>
+                    <span key={j} className={tag.type ? (tag.type + " badge") : "badge"}>{tag.title}</span>
                   ) : null}
                 </div>
               </div>
@@ -49,6 +49,7 @@ class Resume extends Component {
 
           <section>
             <h2>Education</h2>
+            <p>-Coming Soon-</p>
           </section>
 
         </article>

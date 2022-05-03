@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cover from '../components/cover';
+import Cover from '../../components/cover';
 import { gsap } from "gsap";
 import './home.scss';
 
@@ -32,6 +32,60 @@ class Home extends Component {
           <Cover></Cover>
         </section>
 
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <p>-Coming Soon-</p>
+
         <section>
           {this.props.projectData.map((data, key) => {
             return (
@@ -41,6 +95,7 @@ class Home extends Component {
             );
           })}
         </section>
+
 
         <section>
           <img src="https://drive.google.com/uc?id=1ubBHG_8dIMnaFI2hRh5cLiIg-JNBxCWV" alt="clifford avater"/>

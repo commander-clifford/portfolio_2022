@@ -281,7 +281,7 @@ export const resumeData = [
   {
     title: "Full Stack Design",
     date: "2021-PRESENT",
-    employer: "Warner Media / HBO Max",
+    employer: "Warner Brothers Discovery / HBO Max",
     employerSecondary: null,
     jobDesc: "Supporting the growth marketing department in driving the visual and technical success for the creative and visual execution of WarnerMedia’s digital and online marketing channels. Focused on coding and creating at the same time with the latest innovations in technology, HTML, CSS and beyond.",
     list: [],
