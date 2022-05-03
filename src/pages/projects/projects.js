@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { gsap } from "gsap";
 // import './projects.scss';
-import Hero from '../../components/hero';
+import Hero from '../../components/hero/hero';
 class Projects extends Component {
 
   // constructor(props) {

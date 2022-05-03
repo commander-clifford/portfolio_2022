@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './resume.scss';
-import Hero from '../../components/hero';
+import Hero from '../../components/hero/hero';
 
 class Resume extends Component {
 
