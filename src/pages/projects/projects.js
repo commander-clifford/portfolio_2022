@@ -4,20 +4,22 @@ import React, { Component } from 'react';
 import Hero from '../../components/hero/hero';
 class Projects extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  componentDidMount(){
-   
-  }
+  componentDidMount(){}
 
   render() {
     return (
-      <>
-        <Hero></Hero>
+      <article className="projects container">
         <p>-Coming Soon-</p>
-      </>
+        <section>
+          {this.props.projectData.map((data, key) => {
+            return (
+              <div key={key}>
+                {data.title}
+              </div>
+            );
+          })}
+        </section>
+      </article>
     );
   }
 }

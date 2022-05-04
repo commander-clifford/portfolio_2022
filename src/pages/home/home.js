@@ -5,10 +5,6 @@ import './home.scss';
 
 class Home extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
   componentDidMount(){
     let cover = document.getElementById("cover");
     let timeline = new gsap.timeline({
@@ -34,20 +30,9 @@ class Home extends Component {
 
         <p>-Coming Soon-</p>
 
-        <section>
-          {this.props.projectData.map((data, key) => {
-            return (
-              <div key={key}>
-                {data.title}
-              </div>
-            );
-          })}
-        </section>
-
-
-        <section>
-          <img src="https://drive.google.com/uc?id=1ubBHG_8dIMnaFI2hRh5cLiIg-JNBxCWV" alt="Clifford avatar"/>
-        </section>
+        <footer>
+          <a href="https://www.linkedin.com/in/clifford-nelson-bba47459/" target="_blank">LinkedIn</a>
+        </footer>
 
       </article>
     );

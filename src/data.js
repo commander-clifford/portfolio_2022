@@ -305,3 +305,25 @@ export const resumeData = [
   // },
 
 ];
+
+export const headerTitles = 
+  [
+    {
+      path: "/home",
+      phrase: "Hi there! I'm..."
+    },
+    {
+      path: "/about",
+      phrase: "Let's taco bout"
+    },
+    {
+      path: "/resume",
+      phrase: "Presenting"
+    },
+    {
+      path: "/projects",
+      phrase: "Made by"
+    }
+  ]
+  
+

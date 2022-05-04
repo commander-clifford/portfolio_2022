@@ -8,6 +8,7 @@ import About from './pages/about/about';
 import Resume from './pages/resume/resume';
 import Projects from './pages/projects/projects';
 import Nav from './components/nav/nav';
+import Header from './components/header/header';
 
 import { projectData } from './data.js';
 import { resumeData } from './data';
@@ -17,52 +18,61 @@ function App() {
 
   return (
     <div className="app">
-      <Nav/>
       <div className="view-wrapper" style={{position: 'relative', height: '100%'}}>
-      <main className="main">
-        <Route render={({ location }) => {
-          const { pathname, key } = location;
-          const prevPathname = null;
-          return (
-            <TransitionGroup component={null}>
-              <Transition
-                key={key}
-                appear={true}
-                onEnter={(node) => enter(node, pathname, prevPathname)}
-                onExit={(node) => exit(node, pathname, prevPathname)}
-                timeout={{enter: 1200, exit: 700 }}
-                >
-                <Switch location={location}>
-                  <Route
-                    exact path={['/', '/home']}
-                    render={({ ...props }) => {
-                      return <Home {...props} projectData={projectData} resumeData={resumeData} />
-                    }}
-                  />
-                  <Route
-                    path={['/about']}
-                    render={({ ...props }) => {
-                      return <About {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
-                    }}
-                  />
-                  <Route
-                    path={['/resume']}
-                    render={({ ...props }) => {
-                      return <Resume {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
-                    }}
-                  />
-                  <Route
-                    path={['/projects']}
-                    render={({ ...props }) => {
-                      return <Projects {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
-                    }}
-                  />
-                </Switch>
-              </Transition>
-            </TransitionGroup>
-          )
-        }}/>
-        </main>
+        
+          <Route render={({ location }) => {            
+            const { pathname, key } = location;
+            const prevPathname = null;
+            return (
+              <>
+                <Header path={location.pathname}/>
+                <main className="main">
+                  <TransitionGroup component={null}>
+                    <Transition
+                      key={key}
+                      appear={true}
+                      onEnter={(node) => enter(node, pathname, prevPathname)}
+                      onExit={(node) => exit(node, pathname, prevPathname)}
+                      timeout={{enter: 1200, exit: 700 }}
+                      >
+                      <Switch location={location}>
+                        <Route
+                          exact path={['/', '/home']}
+                          render={({ ...props }) => {
+                            return <Home {...props} projectData={projectData} resumeData={resumeData} />
+                          }}
+                        />
+                        <Route
+                          path={['/about']}
+                          render={({ ...props }) => {
+                            return <About {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                          }}
+                        />
+                        <Route
+                          path={['/resume']}
+                          render={({ ...props }) => {
+                            return <Resume {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                          }}
+                        />
+                        <Route
+                          path={['/projects']}
+                          render={({ ...props }) => {
+                            return <Projects {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                          }}
+                        />
+                      </Switch>
+                    </Transition>
+                  </TransitionGroup>
+                </main>
+                <footer className="footer">
+                  <div className="container">
+                    footer
+                  </div>
+                </footer>
+              </>
+            )
+          }}/>
+        
       </div>
     </div>
   );

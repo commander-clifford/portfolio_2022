@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 // import { gsap } from "gsap";
 // import './about.scss';
-import Hero from '../../components/hero/hero';
 class About extends Component {
-
-  // constructor(props) {
-  //   super(props);
-  // }
 
   componentDidMount(){
    
@@ -15,8 +10,12 @@ class About extends Component {
   render() {
     return (
       <>
-        <Hero></Hero>
-        <p>-Coming Soon-</p>
+        <article className="about container">
+          <p>-Coming Soon-</p>
+          <section>
+            <img src="https://drive.google.com/uc?id=1ubBHG_8dIMnaFI2hRh5cLiIg-JNBxCWV" alt="Clifford avatar"/>
+          </section>
+        </article>
       </>
     );
   }

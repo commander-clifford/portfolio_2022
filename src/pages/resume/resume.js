@@ -11,9 +11,6 @@ class Resume extends Component {
 
   render() {
     return (
-      <div>
-
-        <Hero></Hero>
 
         <article className="resume container">
 
@@ -54,7 +51,6 @@ class Resume extends Component {
 
         </article>
 
-      </div>
     );
   }
 }
