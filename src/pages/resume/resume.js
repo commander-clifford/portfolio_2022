@@ -14,12 +14,12 @@ class Resume extends Component {
 
         <article className="resume container">
 
-          <section className="art__stagger-in">
+          <section className="art__stagger-in art__stagger-out">
             <h2>Professional Experience</h2>
           </section>
 
           {this.props.resumeData.map((item,i) =>
-            <section key={i} className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in resume-item" : "resume-item"}>
+            <section key={i} className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in art__stagger-out resume-item" : "resume-item"}>
 
               <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
                 <h3 className="headline">{item.title}</h3>

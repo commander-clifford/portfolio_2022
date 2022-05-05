@@ -9,12 +9,11 @@ class Projects extends Component {
   render() {
     return (
       <article className="projects container">
-        <p>-Coming Soon-</p>
         <section>
           {this.props.projectData.map((data, key) => {
             return (
               <div key={key}>
-                {data.title}
+                <p className="art__stagger-in art__stagger-out">{data.title}</p>
               </div>
             );
           })}

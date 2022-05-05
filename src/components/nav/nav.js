@@ -90,7 +90,7 @@ class Nav extends Component {
       <nav id="nav" className="nav">
 
         <div id="navItems" className="nav-items">
-          <Link className="nav-item" to="/home">Home</Link>
+          <Link className="nav-item" to="/">Home</Link>
           <Link className="nav-item" to="/about">About</Link>
           <Link className="nav-item" to="/resume">Resume</Link>
           <Link className="nav-item" to="/projects">Projects</Link>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { gsap } from "gsap";
 import './header.scss';
 import { headerTitles } from './../../data';
+import Nav from "../nav/nav";
 
 class Header extends Component {
 
@@ -23,12 +24,6 @@ class Header extends Component {
     this.setState({ 
       thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
     });
-    // console.log("currentPath",currentPath);
-    // console.log("allPaths",allPaths);
-    // if(allPaths.indexOf(currentPath) !== -1) { console.log('match',currentPath) } else { console.log("no match") }
-    // console.log("use phrase number ",allPaths.indexOf(currentPath));
-    // console.log("phrases",phrases);
-    // console.log("use phrase",this.state.thePhrase);
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -120,36 +115,22 @@ class Header extends Component {
 
   render() {
     return (
+      <>
       <header className="header">
-        <div className="header__container container">
 
+        <div className="header__container container">
           <h1>
             <span className="small">{this.state.thePhrase}</span>
             <span className="art__stagger-in">Clifford Nelson</span>
           </h1>
-
-          <nav id="nav" className="nav">
-
-            <div id="navItems" className="nav-items">
-              <Link className="nav-item" to="/home">Home</Link>
-              <Link className="nav-item" to="/about">About</Link>
-              <Link className="nav-item" to="/resume">Resume</Link>
-              <Link className="nav-item" to="/projects">Projects</Link>
-            </div>
-
-            <div id="hamburger" className="hamburger">
-              <div id="wrapper" className="wrapper">
-                <span className="bars bar-1"></span>
-                <span className="bars bar-2a"></span>
-                <span className="bars bar-2b"></span>
-                <span className="bars bar-3"></span>
-              </div>
-            </div>
-
-          </nav>
-
         </div>
+
+        <Nav/>
+        
       </header>
+
+      
+    </>
     );
   }
 }

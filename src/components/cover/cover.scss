@@ -1,6 +1,7 @@
 @import './../../mixins';
 
 .cover {
+  margin-top: calc(var(--size-10) * -1);
   color: var(--white);
 
   & * { color: inherit; }

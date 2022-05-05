@@ -309,7 +309,7 @@ export const resumeData = [
 export const headerTitles = 
   [
     {
-      path: "/home",
+      path: "/",
       phrase: "Hi there! I'm..."
     },
     {

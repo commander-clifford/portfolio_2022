@@ -33,11 +33,11 @@ function App() {
                       appear={true}
                       onEnter={(node) => enter(node, pathname, prevPathname)}
                       onExit={(node) => exit(node, pathname, prevPathname)}
-                      timeout={{enter: 1200, exit: 700 }}
+                      timeout={{enter: 8000, exit: 8000 }}
                       >
                       <Switch location={location}>
                         <Route
-                          exact path={['/', '/home']}
+                          exact path={['/']}
                           render={({ ...props }) => {
                             return <Home {...props} projectData={projectData} resumeData={resumeData} />
                           }}
@@ -64,11 +64,11 @@ function App() {
                     </Transition>
                   </TransitionGroup>
                 </main>
-                <footer className="footer">
+                {/* <footer className="footer">
                   <div className="container">
                     footer
                   </div>
-                </footer>
+                </footer> */}
               </>
             )
           }}/>

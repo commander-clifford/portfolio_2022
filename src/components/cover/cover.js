@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SplitTextJS from 'split-text-js';
 import { gsap } from "gsap";
 import './cover.scss';
+import { NavLink, Link } from "react-router-dom";
 
 class Cover extends Component {
 
@@ -73,7 +74,9 @@ class Cover extends Component {
               </div>
             </div>
 
-            <div className="col-md-5 d-flex align-items-end justify-content-end"></div>
+            <div className="col-md-5 d-flex align-items-end justify-content-end">
+            
+            </div>
 
           </div>
 
