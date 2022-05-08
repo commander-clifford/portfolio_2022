@@ -19,10 +19,10 @@ const STAGGER = 0.08;
 const SCALETO = 0.98;
 const DRIFTIN = "60px";
 const DRIFTOUT = "-60px";
-const ROTATIONIN = 25;
-const ROTATIONOUT = -25;
+const ROTATIONIN = 0;
+const ROTATIONOUT = -0;
 const HEADERHEIGHT = 260; // TODO get actual header.outterHeight
-const EASE = Power2.easeOut;
+const EASE = Power2.easeInOut;
 
 /* ENTER ANIMATION TIMELINES */
 
