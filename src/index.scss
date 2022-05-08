@@ -1,13 +1,10 @@
-// https://getbootstrap.com/docs/5.0/getting-started/introduction/
+/* https://getbootstrap.com/docs/5.0/getting-started/introduction/ */
 @import "~bootstrap/scss/bootstrap";
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
 
-// https://open-props.style/
-@import "./open-props";
-
-// local style system
+/* local style system */
 @import "./variables";
 @import "./mixins";
 

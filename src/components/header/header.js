@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, NavLink, useHistory } from "react-router-dom";
 import { gsap } from "gsap";
+import SplitTextJS from 'split-text-js';
 import './header.scss';
 import { headerTitles } from './../../data';
 import Nav from "../nav/nav";
@@ -21,9 +21,35 @@ class Header extends Component {
 
   updateHeader = () => {
     let currentPath = this.props.path;
-    this.setState({ 
+
+    this.setState({
       thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
+    }, () => {
+      let splitSupHeadline = document.getElementById("splitSupHeadline");
+      splitSupHeadline = new SplitTextJS(splitSupHeadline);
+    
+      let timeline = gsap.timeline({
+
+      })
+      .fromTo(splitSupHeadline.chars,
+        {
+          opacity: 0,
+          y: -20,
+          scale: 1.2,
+        },
+        {
+          duration: 1,
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: "back.out(4)",
+          stagger: {
+            amount: 0.3,
+          }
+      });
+
     });
+
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -34,82 +60,28 @@ class Header extends Component {
 
   componentDidMount(){
     
-    let isOpen = false;
-    let nav = document.querySelector("#nav");
-    let hamburger = document.querySelector("#hamburger");
-    let hamburgerWrapper = document.querySelector("#wrapper");
-    let hamburgerBarsList = document.getElementsByClassName("bars");
-    let hamburgerBars = Array.from(hamburgerBarsList);
-    let navItemsList = document.getElementsByClassName("nav-item");
-    let navItems = Array.from(navItemsList);
-    
-    hamburger.addEventListener("click", () => ( toggleNav() ));
-    navItems.forEach(item => item.addEventListener("click", () => ( closeNav() )));
-  
-    let toggleNav = () => {
-      if (isOpen){
-        closeNav();
-      } else {
-        openNav();
-      }
-    }
+    let splitHeadline = document.getElementById("splitHeadline");
+    splitHeadline = new SplitTextJS(splitHeadline);
 
-    let openNav = () => {
-      animateTheNav("open");
-      nav.classList.add("active");
-      isOpen = true;
-    }
-
-    let closeNav = () => {
-      animateTheNav("close");
-      nav.classList.remove("active");
-      isOpen = false;
-    }
-
-    let animateTheNav = (direction) => {
-      if(direction === "open"){
-        animationTimeline.play();
-      } else {
-        animationTimeline.reverse();  
-      }
-    }
-
-    let animationTimeline = gsap.timeline({
-      paused: true,
-      defaults: {
-        duration: 0.3,
-        ease: "power1.inOut"
-      }
+    let timeline = gsap.timeline({
+      delay: 1
     })
-    .to(hamburgerWrapper,{
-      rotateZ: -90
-    },"<")
-    .to([hamburgerBars[0],hamburgerBars[3]],{
-      rotateZ: -90,
-      scale: 0,
-    },"<")
-    .to(hamburgerBars[0],{
-      y: '1rem',
-    },"<")
-    .to(hamburgerBars[3],{
-      y: '-1rem',
-    },"<")
-    .to(hamburgerBars[1],{
-      rotate: -45
-    },"<")
-    .to(hamburgerBars[2],{
-      rotate: -135
-    },"<")
-    .to(navItems,{
-      stagger: 0.05,
-      x: 0,
-      autoAlpha: 1
-    },"<");
-
-    gsap.set(navItems,{
-      x: "4ch",
-      autoAlpha: 0
-    });
+    .fromTo(splitHeadline.chars,
+      {
+        opacity: 0,
+        y: -20,
+        scale: 1.2,
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        ease: "back.out(4)",
+        stagger: {
+          amount: 0.3,
+        },
+      });
 
   }
 
@@ -120,8 +92,8 @@ class Header extends Component {
 
         <div className="header__container container">
           <h1>
-            <span className="small">{this.state.thePhrase}</span>
-            <span className="art__stagger-in">Clifford Nelson</span>
+            <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span>
+            <span id="splitHeadline" className="art__stagger-in">Clifford Nelson</span>
           </h1>
         </div>
 

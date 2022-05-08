@@ -12,10 +12,11 @@
   }
 
   &__container {
-    padding-block: var(--size-12);
+    padding-block: var(--size-10);
     display: flex;
     flex-flow: column;
-    min-height: #{"min(100vh, 900px)"};
+    justify-content: end;
+    min-height: #{"min(80vh, 900px)"};
   }
 
   &__headline {
@@ -42,6 +43,6 @@
   }
 
   &__content {
-    flex: 1 1;
+
   }
 }

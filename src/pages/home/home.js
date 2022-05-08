@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cover from '../../components/cover/cover';
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import './home.scss';
 
@@ -28,10 +29,30 @@ class Home extends Component {
           <Cover></Cover>
         </section>
 
-        <p>-Coming Soon-</p>
+        <section className='cards-wrapper container'>
+          <section className='card nav-card'>
+            <Link className="card__link-wrapper" to="/about">
+              About
+            </Link>
+          </section>
+          <section className='card nav-card'>
+            <Link className="card__link-wrapper" to="/resume">
+              Resume
+            </Link>
+          </section>
+          <section className='card nav-card'>
+            <Link className="card__link-wrapper" to="/projects">
+              Projects
+            </Link>
+          </section>
+        </section>
+        
+        
+        
 
         <footer>
-          <a href="https://www.linkedin.com/in/clifford-nelson-bba47459/" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/clifford-nelson-bba47459/" rel="noreferrer" target={"_blank"}>LinkedIn</a>
+          <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>
         </footer>
 
       </article>

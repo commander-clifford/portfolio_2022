@@ -4,6 +4,10 @@ article.home {
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(300px);
   // scroll-snap-type: y mandatory;
+  
+  .cover__wrapper {
+    margin-bottom: var(--size-10);
+  }
 
   section {
     // scroll-snap-align: start;
@@ -19,4 +23,26 @@ article.home {
       line-height: 1.8;
     }
 
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: var(--size-10);
+
+}
+.card {
+  // margin: 2rem;
+  flex-basis: var(--size-content-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+  background: var(--surface-3);
+  border: 1px solid var(--surface-3);
+  padding: var(--size-4);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-2);
+  flex-basis: 100%;
+  &__link-wrapper {
+    display: block;
+  }
 }

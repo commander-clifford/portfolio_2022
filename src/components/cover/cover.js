@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SplitTextJS from 'split-text-js';
 import { gsap } from "gsap";
 import './cover.scss';
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Cover extends Component {
 
@@ -55,28 +55,26 @@ class Cover extends Component {
       <div className="cover">
         <div className="cover__container container">
 
-          <div className="row">
+          {/* <div className="row">
             <div className="cover__headline">
               <p id="sup" className="sup">Hi! I'm</p>
               <h1 id="splitHeadline" className="headline">Clifford</h1>
             </div>
-          </div>
+          </div> */}
 
-          <div id="copy" className="cover__content row">
+          <div id="copy" className="cover__content">
 
-            <div className="col-md-7 d-flex align-items-end">
+            <div className="">
               <div>
                 <p>
-                  I write code, make things, and create delightful experiences.
+                  I create delightful experiences with emerging technologies. 
+                  {/* I write code, make things, and create delightful experiences. */}
                   <br/>
-                  Check out my resume, see me on Codepen.io, and scroll down for more
+                  Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>, and scroll down for more
                 </p>
               </div>
             </div>
 
-            <div className="col-md-5 d-flex align-items-end justify-content-end">
-            
-            </div>
 
           </div>
 

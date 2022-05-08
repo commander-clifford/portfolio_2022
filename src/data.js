@@ -318,7 +318,7 @@ export const headerTitles =
     },
     {
       path: "/resume",
-      phrase: "Presenting"
+      phrase: "Design Technologist"
     },
     {
       path: "/projects",
