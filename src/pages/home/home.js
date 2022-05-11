@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cover from '../../components/cover/cover';
+import Card from '../../components/card/card';
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import './home.scss';
@@ -21,6 +22,16 @@ class Home extends Component {
     });
   }
 
+  buildNavCards = () => {
+    let navCards = this.props.sitePaths.map((item, key) => 
+      <Card path={item.path}>
+        <h4 className='card__title'>{item.title}</h4>
+        <span>{item.description}</span>
+      </Card>
+    );
+    return navCards
+  }
+
   render() {
     return (
       <article className="home">
@@ -30,23 +41,7 @@ class Home extends Component {
         </section>
 
         <section className='cards-wrapper container'>
-
-          <section className='card nav-card'>
-            <Link className="card__link-wrapper" to="/about">
-              About
-            </Link>
-          </section>
-          <section className='card nav-card'>
-            <Link className="card__link-wrapper" to="/resume">
-              Resume
-            </Link>
-          </section>
-          <section className='card nav-card'>
-            <Link className="card__link-wrapper" to="/projects">
-              Projects
-            </Link>
-          </section>
-          
+          {this.buildNavCards()}
         </section>
 
       </article>

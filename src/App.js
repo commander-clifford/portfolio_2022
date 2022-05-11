@@ -41,7 +41,7 @@ function App() {
                           <Route
                             exact path={['/']}
                             render={({ ...props }) => {
-                              return <Home {...props} projectData={projectData} resumeData={resumeData} />
+                              return <Home {...props} projectData={projectData} resumeData={resumeData} sitePaths={sitePaths}/>
                             }}
                           />
                           <Route

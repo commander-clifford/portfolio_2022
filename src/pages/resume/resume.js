@@ -14,40 +14,44 @@ class Resume extends Component {
 
         <article className="resume container">
 
-          <section className="art__stagger-in art__stagger-out">
-            <h2>Professional Experience</h2>
-          </section>
+          <div className=''>
 
-          {this.props.resumeData.map((item,i) =>
-            <section key={i} className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in art__stagger-out resume-item" : "resume-item"}>
-
-              <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
-                <h3 className="headline">{item.title}</h3>
-                <p><i>{item.date}</i></p>
-              </div>
-
-              <div className="d-flex align-items-center justify-content- resume-item__employer-block">
-                <h4 className="text-uppercase">{item.employer}</h4>&nbsp;
-                {item.employerSecondary ? <p className=""><i>({item.employerSecondary})</i></p> : null}
-              </div>
-
-              <p className="resume-item__description p-indent">{item.jobDesc}</p>
-
-              <div className="resume-item__badges">
-                <div className="wrapper">
-                  {item.tags ? item.tags.map((tag, j) =>
-                    <span key={j} className={tag.type ? (tag.type + " badge") : "badge"}>{tag.title}</span>
-                  ) : null}
-                </div>
-              </div>
-
+            <section className="art__stagger-in art__stagger-out">
+              <h2>Professional Experience</h2>
             </section>
-          ).reverse()}
 
-          <section>
-            <h2>Education</h2>
-            <p>-Coming Soon-</p>
-          </section>
+            {this.props.resumeData.map((item,i) =>
+              <section key={i} className={i >= (this.props.resumeData.length - 4) ? "art__stagger-in art__stagger-out resume-item" : "resume-item"}>
+
+                <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
+                  <h3 className="headline">{item.title}</h3>
+                  <p><i>{item.date}</i></p>
+                </div>
+
+                <div className="d-flex align-items-center justify-content- resume-item__employer-block">
+                  <h4 className="text-uppercase">{item.employer}</h4>&nbsp;
+                  {item.employerSecondary ? <p className=""><i>({item.employerSecondary})</i></p> : null}
+                </div>
+
+                <p className="resume-item__description p-indent">{item.jobDesc}</p>
+
+                <div className="resume-item__badges">
+                  <div className="wrapper">
+                    {item.tags ? item.tags.map((tag, j) =>
+                      <span key={j} className={tag.type ? (tag.type + " badge") : "badge"}>{tag.title}</span>
+                    ) : null}
+                  </div>
+                </div>
+
+              </section>
+            ).reverse()}
+
+            <section>
+              <h2>Education</h2>
+              <p>-Coming Soon-</p>
+            </section>
+
+          </div>
 
         </article>
 

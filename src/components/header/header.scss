@@ -5,9 +5,12 @@
   @include upper-clip(var(--size-10));
   @include primary-gradient(var(--red-600));
   text-shadow: 3px 5px 10px var(--black-t30);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding-top: var(--size-8);
 
   &__container {
-    padding-top: 6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

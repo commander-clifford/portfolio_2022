@@ -311,22 +311,26 @@ export const sitePaths =
     {
       path: "/",
       phrase: "Hi there! I'm...",
-      title: "Home"
+      title: "Home",
+      description: "Hi, I'm Clifford, check out my design portfolio."
     },
     {
       path: "/about",
       phrase: "Let's taco bout",
-      title: "About"
+      title: "About",
+      description: "Want to learn more about Clifford, let's taco bout it."
     },
     {
       path: "/resume",
       phrase: "Design Technologist",
-      title: "Resume"
+      title: "Resume",
+      description: "A deep dive into my past experience and education."
     },
     {
       path: "/projects",
       phrase: "Made by",
-      title: "Projects"
+      title: "Projects",
+      description: "Raclette hexagon cloud bread master cleanse freegan unicorn."
     }
   ]
   

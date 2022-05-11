@@ -19,7 +19,7 @@ article.home {
     h3 { font-size: 4rem; }
     p {
       max-width: 72ch;
-      font-size: 2rem;
+      font-size: var(--size-fluid-4);
       line-height: 1.8;
     }
 
@@ -29,20 +29,4 @@ article.home {
   display: flex;
   gap: var(--size-10);
 
-}
-.card {
-  // margin: 2rem;
-  flex-basis: var(--size-content-1);
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-1);
-  background: var(--surface-3);
-  border: 1px solid var(--surface-3);
-  padding: var(--size-4);
-  border-radius: var(--radius-3);
-  box-shadow: var(--shadow-2);
-  flex-basis: 100%;
-  &__link-wrapper {
-    display: block;
-  }
 }
