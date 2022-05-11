@@ -25,3 +25,13 @@
     0% 100%
     );
 }
+
+@mixin lower-clip($down) {
+  $percentage: unquote("%");
+  clip-path: polygon(
+    0 #{$down},
+    100% 0,
+    100% 100%,
+    0% 100%
+    );
+}

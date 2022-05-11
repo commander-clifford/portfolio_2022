@@ -12,11 +12,19 @@
   }
 
   &__container {
-    padding-block: var(--size-10);
+
     display: flex;
     flex-flow: column;
-    justify-content: end;
+
     min-height: #{"min(80vh, 900px)"};
+
+    padding-block: var(--size-10);
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
   }
 
   &__headline {

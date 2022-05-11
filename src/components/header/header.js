@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { gsap } from "gsap";
 import SplitTextJS from 'split-text-js';
 import './header.scss';
-import { headerTitles } from './../../data';
+import { sitePaths } from './../../data';
 import Nav from "../nav/nav";
 
 class Header extends Component {
@@ -10,16 +10,16 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.allPaths = [];
-    headerTitles.forEach(title => this.allPaths.push(title.path));
+    sitePaths.forEach(title => this.allPaths.push(title.path));
     this.phrases = [];
-    headerTitles.forEach(title => this.phrases.push(title.phrase));
+    sitePaths.forEach(title => this.phrases.push(title.phrase));
     let currentPath = this.props.path;
     this.state = {
       thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
     };
   }
 
-  updateHeader = () => {
+  updateHeaderPhrase = () => {
     let currentPath = this.props.path;
 
     this.setState({
@@ -54,7 +54,7 @@ class Header extends Component {
 
   componentDidUpdate(previousProps, previousState) {
     if (previousProps !== this.props) {
-      this.updateHeader();
+      this.updateHeaderPhrase();
     }
   }
 

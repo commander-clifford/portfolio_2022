@@ -306,23 +306,27 @@ export const resumeData = [
 
 ];
 
-export const headerTitles = 
+export const sitePaths = 
   [
     {
       path: "/",
-      phrase: "Hi there! I'm..."
+      phrase: "Hi there! I'm...",
+      title: "Home"
     },
     {
       path: "/about",
-      phrase: "Let's taco bout"
+      phrase: "Let's taco bout",
+      title: "About"
     },
     {
       path: "/resume",
-      phrase: "Design Technologist"
+      phrase: "Design Technologist",
+      title: "Resume"
     },
     {
       path: "/projects",
-      phrase: "Made by"
+      phrase: "Made by",
+      title: "Projects"
     }
   ]
   

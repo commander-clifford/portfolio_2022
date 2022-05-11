@@ -55,26 +55,16 @@ class Cover extends Component {
       <div className="cover">
         <div className="cover__container container">
 
-          {/* <div className="row">
-            <div className="cover__headline">
-              <p id="sup" className="sup">Hi! I'm</p>
-              <h1 id="splitHeadline" className="headline">Clifford</h1>
-            </div>
-          </div> */}
-
           <div id="copy" className="cover__content">
 
             <div className="">
-              <div>
-                <p>
-                  I create delightful experiences with emerging technologies. 
-                  {/* I write code, make things, and create delightful experiences. */}
-                  <br/>
-                  Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>, and scroll down for more
-                </p>
-              </div>
+              <p>
+                I create delightful experiences with emerging technologies. 
+                {/* I write code, make things, and create delightful experiences. */}
+                <br/>
+                Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>, and scroll down for more
+              </p>
             </div>
-
 
           </div>
 

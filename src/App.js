@@ -8,10 +8,12 @@ import About from './pages/about/about';
 import Resume from './pages/resume/resume';
 import Projects from './pages/projects/projects';
 import Header from './components/header/header';
+import Footer from './components/footer/footer';
 import ScrollToTop from "./ScrollToTop";
 import { projectData } from './data.js';
 import { resumeData } from './data';
 import { educationData } from './data';
+import { sitePaths } from './data';
 
 function App() {
 
@@ -65,11 +67,7 @@ function App() {
                     </Transition>
                   </TransitionGroup>
                 </main>
-                {/* <footer className="footer">
-                  <div className="container">
-                    footer
-                  </div>
-                </footer> */}
+                <Footer path={location.pathname} sitePaths={sitePaths} />
               </>
             )
           }}/>

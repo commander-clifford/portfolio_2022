@@ -46,14 +46,6 @@ class Home extends Component {
             </Link>
           </section>
         </section>
-        
-        
-        
-
-        <footer>
-          <a href="https://www.linkedin.com/in/clifford-nelson-bba47459/" rel="noreferrer" target={"_blank"}>LinkedIn</a>
-          <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>
-        </footer>
 
       </article>
     );
