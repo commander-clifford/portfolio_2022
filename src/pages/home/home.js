@@ -30,6 +30,7 @@ class Home extends Component {
         </section>
 
         <section className='cards-wrapper container'>
+
           <section className='card nav-card'>
             <Link className="card__link-wrapper" to="/about">
               About
@@ -45,6 +46,7 @@ class Home extends Component {
               Projects
             </Link>
           </section>
+          
         </section>
 
       </article>

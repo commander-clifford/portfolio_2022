@@ -3,18 +3,9 @@ import './footer.scss';
 import Nav from "../nav/nav";
 import { Link } from "react-router-dom";
 
-
-
 class Footer extends Component {
 
-
-
-  
-
-  componentDidMount(){
-    
-
-  }
+  componentDidMount(){}
 
   buildNavItems = () => {
     let navItems = this.props.sitePaths.map((item, key) => 
