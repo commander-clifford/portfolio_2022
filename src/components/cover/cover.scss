@@ -2,30 +2,41 @@
 
 .cover {
   margin-top: calc(var(--size-10) * -1);
-  color: var(--white);
+  color: var(--p-foreground);
 
-  & * { color: inherit; }
+  a { color: inherit; }
 
   &__wrapper {
-    @include primary-gradient(var(--red-600));
-    @include upper-clip(var(--size-10)); // parent element
+    @include upper-clip(var(--size-10));
+    @include primary-gradient();
   }
 
   &__container {
-
     display: flex;
-    flex-flow: column;
-
-    min-height: #{"min(80vh, 900px)"};
-
-    padding-block: var(--size-10);
-    display: flex;
-
-    justify-content: center;
-
     align-items: center;
+    flex-flow: column;
+    min-height: #{"min(80vh, 900px)"};
+    padding-block: var(--size-10);
+    justify-content: center;
     text-align: center;
   }
+
+  &__copy p:first-of-type {
+    font-size: clamp(3rem, 4vw, 7rem);
+      text-shadow:
+        -1px 1px 0 var(--gray-400),
+        -2px 2px 0 var(--gray-500),
+        -3px 3px 0 var(--gray-600),
+        // -4px 4px 0 var(--gray-400),
+        // -5px 5px 0 var(--gray-500),
+        -6px 6px 1px var(--black-t10),
+        -1px 1px 3px var(--black-t30),
+        -3px 3px 5px var(--black-t20),
+        -5px 5px 10px var(--black-t30),
+        -10px 10px 10px var(--black-t20),
+        -20px 20px 20px var(--black-t10);
+    }
+  
 
   &__headline {
 

@@ -1,29 +1,26 @@
 @import './../../mixins';
 
 .header {
-  min-height: clamp(120px, 30vh, 260px);
-  @include upper-clip(var(--size-10));
-  @include primary-gradient(var(--red-600));
-  text-shadow: 3px 5px 10px var(--black-t30);
   display: flex;
+  min-height: clamp(120px, 30vh, 260px);
+  color: var(--p-foreground);
+  text-shadow: 3px 5px 10px var(--black-t30);
   align-items: start;
   justify-content: center;
   padding-top: var(--size-8);
+  @include upper-clip(var(--size-10));
+  @include primary-gradient();
 
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    // TODO use theme dynamic colors
-    color: var(--white);
 
     h1 {
-      font-size: 2.2em;
       display: flex;
+      font-size: 2.2em;
       flex-direction: column;
       color: inherit;
-      // font-size: inherit;
 
       .small {
         font-size: 0.3em;
@@ -32,3 +29,4 @@
     }
   }
 }
+

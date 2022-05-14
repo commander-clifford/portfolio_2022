@@ -57,7 +57,7 @@ class Cover extends Component {
 
           <div id="copy" className="cover__content">
 
-            <div className="">
+            <div className="cover__copy">
               <p>
                 I create delightful experiences<br/> 
                 with emerging technologies. 

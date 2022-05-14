@@ -6,6 +6,7 @@ import './App.css';
 import Home from './pages/home/home';
 import About from './pages/about/about';
 import Resume from './pages/resume/resume';
+import DesignSystem from './pages/design-system/design-system';
 import Projects from './pages/projects/projects';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -34,7 +35,7 @@ function App() {
                       appear={true}
                       onEnter={(node) => enter(node, pathname, prevPathname)}
                       onExit={(node) => exit(node, pathname, prevPathname)}
-                      timeout={{enter: 4000, exit: 4000 }}
+                      timeout={{enter: 3000, exit: 3000 }}
                       >
                       <ScrollToTop>
                         <Switch location={location}>
@@ -60,6 +61,12 @@ function App() {
                             path={['/projects']}
                             render={({ ...props }) => {
                               return <Projects {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                            }}
+                          />
+                          <Route
+                            path={['/design-system']}
+                            render={({ ...props }) => {
+                              return <DesignSystem {...props} />
                             }}
                           />
                         </Switch>

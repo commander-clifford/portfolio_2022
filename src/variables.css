@@ -9,10 +9,6 @@
   /**
     * COLORS
     */
-  --primary-color: var(--red-900);
-  --primary-headline-color: var(--red-900);
-  --primary-headline-2-color: var(--red-800);
-  --primary-background-color: var(--white);
 
   --red: var(--red-500);
   --red-000: hsl(357, 100%, 96%);
@@ -123,4 +119,19 @@
   --black-t80: rgba(0,0,0,0.8);
   --black-t90: rgba(0,0,0,0.9);
   --black: rgb(0,0,0);
+
+  /**
+    * GRADIENTS
+    */
+  --primary-gradient-light: 
+    linear-gradient(217deg, hsl(20, 100%, 40%), transparent 80%),
+    linear-gradient(127deg, var(--red-600), transparent 80%), 
+    linear-gradient(336deg, hsl(340, 100%, 40%), transparent 80%);
+
+    --primary-gradient-dark: 
+    linear-gradient(217deg, var(--red-700), transparent 80%),
+    linear-gradient(127deg, var(--red-900), transparent 80%), 
+    linear-gradient(336deg, var(--red-800), transparent 80%);
+
+
 }
