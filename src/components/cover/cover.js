@@ -63,9 +63,7 @@ class Cover extends Component {
                 with emerging technologies. 
               </p>
               <p>
-                Check out my <Link to="/resume">resume</Link>,<br/>
-                see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a><br/>
-                and scroll down for more
+                Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a> and scroll down for more
               </p>
             </div>
 
