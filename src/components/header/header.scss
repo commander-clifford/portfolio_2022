@@ -2,7 +2,8 @@
 
 .header {
   display: flex;
-  min-height: clamp(120px, 30vh, 260px);
+  // min-height: clamp(120px, 30vh, 260px);
+  min-height: 260px;
   color: var(--p-foreground);
   text-shadow: 3px 5px 10px var(--black-t30);
   align-items: start;
@@ -18,7 +19,7 @@
 
     h1 {
       display: flex;
-      font-size: 2.2em;
+      font-size: var(--font-size-8);
       flex-direction: column;
       color: inherit;
 

@@ -22,13 +22,13 @@ class Footer extends Component {
           <div className='footer__nav-items'>
             <a className='footer__nav-item' href="https://www.linkedin.com/in/clifford-nelson-bba47459/" rel="noreferrer" target={"_blank"}>LinkedIn</a>
             <a className='footer__nav-item' href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a>
-            <a className='footer__nav-item' href="https://www.instagram.com/highestcliff/" rel="noreferrer" target={"_blank"}>Personal Instagram</a>
-            <a className='footer__nav-item' href="https://www.instagram.com/jeep.io/" rel="noreferrer" target={"_blank"}>Project Instagram</a>
+            <a className='footer__nav-item' href="https://www.instagram.com/highestcliff/" rel="noreferrer" target={"_blank"}>My Instagram</a>
+            <a className='footer__nav-item' href="https://www.instagram.com/jeep.io/" rel="noreferrer" target={"_blank"}>Jeep.io Instagram</a>
           </div>
 
-          <div className="footer__nav-items">
+          {/* <div className="footer__nav-items">
             {this.buildNavItems()}
-          </div>
+          </div> */}
 
         </div>
       </footer>

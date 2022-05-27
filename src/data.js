@@ -32,7 +32,6 @@ export const educationData = [
         "Scripting for the Web",
         "Content Management Systems",
       ]
-
     }
   }
 ];
@@ -40,19 +39,33 @@ export const educationData = [
 export const projectData = [
   {
     title: "Doodleverse",
-    description: []
+    description: [],
+    type: "web"
   },
   {
     title: "Uber Eats Pics",
-    description: []
+    description: [],
+    type: "web"
   },
   {
     title: "Windshield Wipers",
-    description: []
+    description: [],
+    type: "web"
   },
   {
     title: "Lights Out",
-    description: []
+    description: [],
+    type: "web"
+  },
+  {
+    title: "2x6 Macro Pad",
+    description: [],
+    type: "hid"
+  },
+  {
+    title: "10 HID",
+    description: [],
+    type: "hid"
   },
 ];
 
@@ -73,7 +86,7 @@ export const resumeData = [
       "Take detailed attendance reports",
       "Tutor students after class hours",
     ],
-    tags: [{title:"4.0 GPA",type:"education"}],
+    tags: [{title: "4.0 GPA",type: "education"}],
   },
   {
     title: "Interaction Designer",
@@ -90,7 +103,7 @@ export const resumeData = [
       "Updating existing websites and web forms by adding responsive web design techniques",
       "Manage Source Control",
     ],
-    tags: [{title:"Prototyping"}, {title:"WordPress",type:"cms"}]
+    tags: [{title: "Prototyping"}, {title: "WordPress",type: "cms"}]
   },
   {
     title: "Front-End Web Developer",
@@ -107,7 +120,7 @@ export const resumeData = [
       "Design and implement new features and tools",
       "Optimize web applications to maximize speed and scale for clients",
     ],
-    tags: [{title:"Grunt"}, {title:"LESS"}, {title:"WordPress",type:"cms"}],
+    tags: [{title: "Grunt"}, {title: "LESS"}, {title: "WordPress",type: "cms"}],
   },
   {
     title: "Interaction Designer",
@@ -122,13 +135,13 @@ export const resumeData = [
       "Integration with established LDAP",
       "Wire-framing and interaction design",
     ],
-    tags: [{title:"WordPress",type:"cms"}, {title:"HTML"}, {title:"PHP"}],
+    tags: [{title: "WordPress",type: "cms"}, {title: "HTML"}, {title: "PHP"}],
   },
   {
     title: "UI/UX Design Engineer",
     date: "2014-2015",
     employer: "IBM",
-    employerSecondary: "Experis IT]",
+    employerSecondary: "Experis IT",
     jobDesc: "Responsible for designing and implementing user interactions and the interface for the Military logistics platforms: Army BCS3 & Navy One-touch. Partner with client stakeholders to define and deliver critical features for equipment procurement and tracking. I was brought into this role to help with usability and design of already established solutions. Manipulated Java to define style classes of web elements and created those classes in a LESS pre processor.",
     list: [
       "Environment: HTML/LESS/JavaScript/Java",
@@ -137,7 +150,7 @@ export const resumeData = [
       "Provide feedback about the technical feasibility and usability",
       "Collaborate with other team members and stakeholders",
     ],
-    tags: [{title:"UX/UI"}, {title:"SCSS"}, {title:"JAVA"}],
+    tags: [{title: "UX/UI"}, {title: "SCSS"}, {title: "JAVA"}],
   },
   {
     title: "Front-End Software Engineer",
@@ -153,14 +166,14 @@ export const resumeData = [
       "Resolve defects/bugs during QA testing, pre-production, production, and post-release patches",
       "Agile Development, SCRUM, and Extreme Programming methodologies like MOB Programming",
     ],
-    tags: [{title:"Handlebars"}, {title:"SCSS"}],
+    tags: [{title: "Handlebars"}, {title: "SCSS"}],
   },
   {
     title: "Experience Design Prototyper",
     date: "2016–2017",
     employer: "Intuit Turbotax",
     employerSecondary: "Integrated Associates",
-    jobDesc: "Experience Design (XD) Prototyping is the synthesis of design and development. In this role I’d partner with researchers, product managers and other designers to define and deliver new features, test new concepts and assist with final implementation. Details are critical as we’d iterate on complex interactions, animations and pixel-perfect visual designs.",
+    jobDesc: "Experience Design (XD) Prototyping is the synthesis of design and development. In this role I'd partner with researchers, product managers and other designers to define and deliver new features, test new concepts and assist with final implementation. Details are critical as we'd iterate on complex interactions, animations and pixel-perfect visual designs.",
     list: [
       "Environment: HTML/LESS/JavaScript/PHP/AngularJS",
       "Explore new product concepts through delivery prototypes using the latest in front-end technologies including AngularJS, Google Material, and GSAP",
@@ -170,13 +183,13 @@ export const resumeData = [
       "Work with front-end engineers to ensure delivery of intended design",
     ],
     tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"Angular",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
+      {title: "GSAP",type: "primary"},
+      {title: "Angular",type: "primary"},
+      {title: "UX/UI", type: "primary"},
+      {title: "prototyping",type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "JS", type: "secodary"},
     ],
   },
   {
@@ -191,10 +204,10 @@ export const resumeData = [
       "Contribute to internal development tools",
     ],
     tags: [
-      {title:"Pixel Perfect", type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"YAML", type:"secodary"},
+      {title: "Pixel Perfect", type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "YAML", type: "secodary"},
     ],
   },
   {
@@ -209,13 +222,13 @@ export const resumeData = [
       "Integrate with Contentful CMS",
     ],
     tags: [
-      {title:"Design Systems",type:"primary"},
-      {title:"React",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"Tooling",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
+      {title: "Design Systems",type: "primary"},
+      {title: "React",type: "primary"},
+      {title: "UX/UI", type: "primary"},
+      {title: "Tooling",type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "JS", type: "secodary"},
     ],
   },
   {
@@ -223,21 +236,16 @@ export const resumeData = [
     date: "2018-2019",
     employer: "Google",
     employerSecondary: "Synergis Creative",
-    jobDesc: "Contribute to the 10 year vision of Google’s personality and brand. Generate prototypes to rapidly iterate through ideas in low to high-fidelity. Game design prototyping. Homepage prototyping for Doodles.",
-    list: [
-      "Contribute to Doodle team when available",
-      "Create prototypes to quickly exploring Doodle and game concepts",
-      "Motion Design, Game Design, UX Design",
-      "Environments are ad-hoc, typically newest Angular + Material",
-    ],
+    jobDesc: "While working with the Google Doodle team I contributed to the 10 year vision of Google’s personality and brand. In this role I designed prototypes that were inspired by input from our team as well as collaborating teams. The goal: keep the Google brand across the Homepage and Search Results pages while a Doodle is present, and also, make it delightful! \nDuring this time I also prototyped a wind-shiled wiper themed game and a few other micro games.",
+    list: [],
     tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"Angular",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
+      {title: "GSAP",type: "primary"},
+      {title: "Angular",type: "primary"},
+      {title: "UX/UI", type: "primary"},
+      {title: "prototyping",type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "JS", type: "secodary"},
     ],
   },
   {
@@ -245,7 +253,7 @@ export const resumeData = [
     date: "2019-2020",
     employer: "Netflix",
     employerSecondary: "First Professional Services",
-    jobDesc: "Using web technologies to create hi-fidelity prototypes to simulate multiple environments for user testing, research and design feasibility. Contributing to core design systems and audience growth. Platform include but not limited to TV, web and mobile.",
+    jobDesc: "To support the growth marketing team at Netflix I was asked to help build prototypes of sign-up experiences both in-app and via 3rd party flows. Utilizing web technologies like React and GSAP we created web-apps meant for a TV - often referred to as a “10 foot device” because the user is typically about 10 feet away. This method allows us to create hi-fidelity prototypes to simulate these environments for user testing, research and design feasibility. \n I also worked briefly with the Core Design team to help with the internal Design System, and also worked briefly with the Studio Design team on 2 internal apps.",
     list: [
       "React, Redux, GSAP, PIXI",
       "Create prototypes to quickly exploring design concepts",
@@ -253,15 +261,15 @@ export const resumeData = [
       "Environments are ad-hoc, typically create-react-app plus internal design systems",
     ],
     tags: [
-      {title:"React",type:"primary"},
-      {title:"GSAP",type:"primary"},
-      {title:"PIXI",type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"UX/UI", type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-      {title:"Motion/Interaction Design", type:"tertiary"},
+      {title: "React",type: "primary"},
+      {title: "GSAP",type: "primary"},
+      {title: "PIXI",type: "primary"},
+      {title: "prototyping",type: "primary"},
+      {title: "UX/UI", type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "JS", type: "secodary"},
+      {title: "Motion/Interaction Design", type: "tertiary"},
     ]
 
   },
@@ -270,12 +278,13 @@ export const resumeData = [
     date: "2020-2021",
     employer: "Intuit Turbotax",
     employerSecondary: "PRO Unlimited",
-    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    jobDesc: "While working with Intuit, again, I worked with some familiar faces while helping to improve and build new, reusable web components. Closely collaborating with many stakeholders: including Design, SEO, Marketing, and others, to design and build delightful and engaging experiences for production and A/B testing. Utilizing relatively modern technologies such as Handlebars for templating and Scalable CSS for styling to deliver to typical dotCom and AMP pages.",
     list: [],
     tags: [
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"Wordpress",type:"tertiary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "Wordpress",type: "tertiary"},
+      {title: "AMP",type: "tertiary"},
     ],
   },
   {
@@ -283,15 +292,15 @@ export const resumeData = [
     date: "2021-PRESENT",
     employer: "Warner Brothers Discovery / HBO Max",
     employerSecondary: null,
-    jobDesc: "Supporting the growth marketing department in driving the visual and technical success for the creative and visual execution of WarnerMedia’s digital and online marketing channels. Focused on coding and creating at the same time with the latest innovations in technology, HTML, CSS and beyond.",
+    jobDesc: "Supporting the growth marketing department in driving the visual and technical success for the creative and visual execution of WarnerMedia's digital and online marketing channels. Focused on coding and creating at the same time with the latest innovations in technology, HTML, CSS and beyond.",
     list: [],
     tags: [
-      {title:"GSAP",type:"primary"},
-      {title:"prototyping",type:"primary"},
-      {title:"html", type:"secodary"},
-      {title:"css", type:"secodary"},
-      {title:"JS", type:"secodary"},
-      {title:"Drupal",type:"tertiary"},
+      {title: "GSAP",type: "primary"},
+      {title: "prototyping",type: "primary"},
+      {title: "html", type: "secodary"},
+      {title: "css", type: "secodary"},
+      {title: "JS", type: "secodary"},
+      {title: "Drupal",type: "tertiary"},
     ],
   },
 
@@ -316,21 +325,21 @@ export const sitePaths =
     },
     {
       path: "/about",
-      phrase: "Let's taco bout",
+      phrase: "Let's talk about",
       title: "About",
-      description: "Want to learn more about Clifford, let's taco bout it."
+      description: "Want to learn more about Clifford? Right this way."
     },
     {
       path: "/resume",
       phrase: "Design Technologist",
       title: "Resume",
-      description: "A deep dive into my past experience and education."
+      description: "An over view of my experience and education."
     },
     {
       path: "/projects",
       phrase: "Made by",
       title: "Projects",
-      description: "Raclette hexagon cloud bread master cleanse freegan unicorn."
+      description: "Check out some of the things I've made"
     }
   ]
   

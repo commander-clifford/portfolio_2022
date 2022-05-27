@@ -1,7 +1,7 @@
 @import './../../mixins';
 
 .cover {
-  margin-top: calc(var(--size-10) * -1);
+  margin-top: calc(var(--size-12) * -1);
   color: var(--p-foreground);
 
   a { color: inherit; }
@@ -21,8 +21,12 @@
     text-align: center;
   }
 
-  &__copy p:first-of-type {
-    font-size: clamp(3rem, 4vw, 7rem);
+  &__copy {
+    p {
+      max-inline-size: none;
+    }
+    p:first-of-type {
+      font-size: clamp(3rem, 4vw, 7rem);
       text-shadow:
         -1px 1px 0 var(--gray-400),
         -2px 2px 0 var(--gray-500),
@@ -36,6 +40,11 @@
         -10px 10px 10px var(--black-t20),
         -20px 20px 20px var(--black-t10);
     }
+    p:last-of-type {
+      margin-top: 4em;
+      max-inline-size: none;
+    }
+  }
   
 
   &__headline {

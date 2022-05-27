@@ -16,30 +16,30 @@ class Cover extends Component {
       delay: 1
     });
 
-    timeline.fromTo(supLine,
-    {
-      opacity: 0
-    },
-    {
-      duration: 0.4,
-      opacity: 1
-    });
-    timeline.fromTo(splitHeadline.chars,
-    {
-      opacity: 0,
-      y: -20,
-      scale: 1.2,
-    },
-    {
-      duration: 1,
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      ease: "back.out(4)",
-      stagger: {
-        amount: 0.3,
-      },
-    });
+    // timeline.fromTo(supLine,
+    // {
+    //   opacity: 0
+    // },
+    // {
+    //   duration: 0.4,
+    //   opacity: 1
+    // });
+    // timeline.fromTo(splitHeadline.chars,
+    // {
+    //   opacity: 0,
+    //   y: -20,
+    //   scale: 1.2,
+    // },
+    // {
+    //   duration: 1,
+    //   opacity: 1,
+    //   y: 0,
+    //   scale: 1,
+    //   ease: "back.out(4)",
+    //   stagger: {
+    //     amount: 0.3,
+    //   },
+    // });
     timeline.fromTo(copyLine,
     {
       opacity: 0
@@ -63,7 +63,7 @@ class Cover extends Component {
                 with emerging technologies. 
               </p>
               <p>
-                Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> or <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a> and scroll down for more
+                Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> and <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a> then scroll down for more
               </p>
             </div>
 

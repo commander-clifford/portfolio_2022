@@ -23,22 +23,33 @@
   background-image: var(--primary-gradient);
 }
 
-@mixin upper-clip($up) {
-  $percentage: unquote("%");
-  clip-path: polygon(
-    0 0,
-    100% 0%,
-    100% calc(100% - #{$up}),
-    0% 100%
-    );
+:root {
+  --clip-size: var(--size-10);
 }
 
+@mixin upper-clip($up) {
+  $percentage: unquote("%");
+  clip-path: polygon( 0 0, 100% 0%, 100% calc(100% - #{$up}), 0% 100% );
+  // clip-path: polygon(100% 0%, 100% calc(100% - var(--clip-size)), 50% 100%, 0 calc(100% - var(--clip-size)), 0% 50%, 0 0);
+  clip-path: polygon(0 0, 0% var(--clip-size), 0 100%, calc(100% - var(--clip-size)) 100%, 100% calc(100% - var(--clip-size)), 100% 0);
+  clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, calc(100% - var(--clip-size)) 100%, 100% calc(100% - var(--clip-size)), 100% 0);
+  padding: var(--clip-size);
+  box-shadow: var(--shadow-4);
+}
 @mixin lower-clip($down) {
   $percentage: unquote("%");
-  clip-path: polygon(
-    0 #{$down},
-    100% 0,
-    100% 100%,
-    0% 100%
-    );
+  // clip-path: polygon( 0 #{$down}, 100% 0, 100% 100%, 0% 100% );
+  // clip-path: polygon(50% var(--clip-size), 100% 0, 100% 100%, 0 100%, 0 0);
+  clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, 100% 100%, 100% 100%, 100% 0);
+  clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, calc(100% - var(--clip-size)) 100%, 100% calc(100% - var(--clip-size)), 100% 0);
+  padding: var(--clip-size);
+  box-shadow: var(--shadow-4);
+}
+@mixin dual-clip($amount) {
+  $percentage: unquote("%");
+  // clip-path: polygon( 0 #{$amount}, 100% 0, 100% calc(100% - #{$amount}), 0% 100% );
+  // clip-path: polygon(50% var(--clip-size), 100% 0, 100% 100%, 0 100%, 0 0);
+  padding: var(--clip-size);
+  box-shadow: var(--shadow-4);
+  clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, calc(100% - var(--clip-size)) 100%, 100% calc(100% - var(--clip-size)), 100% 0);
 }

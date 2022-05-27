@@ -7,7 +7,13 @@ import './home.scss';
 
 class Home extends Component {
 
+
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount(){
+
     let cover = document.getElementById("cover");
     let timeline = new gsap.timeline({
       delay: 2,
@@ -23,13 +29,17 @@ class Home extends Component {
   }
 
   buildNavCards = () => {
-    let navCards = this.props.sitePaths.map((item, key) => 
-      <Card path={item.path}>
-        <h4 className='card__title'>{item.title}</h4>
-        <span>{item.description}</span>
-      </Card>
+    
+    let navCards = this.props.sitePaths.slice(1).map((item, key) => 
+      
+        <Card path={item.path} key={key}>
+          <h4 className='card__title'>{item.title}</h4>
+          <span>{item.description}</span>
+        </Card>
+      
     );
     return navCards
+
   }
 
   render() {
@@ -38,6 +48,12 @@ class Home extends Component {
 
         <section id="cover__wrapper" className="cover__wrapper full">
           <Cover></Cover>
+        </section>
+
+        <section className='section'>
+          <blockquote>
+            Part developer, part designer, all of the above. From content production and development to designing with code, I can do it all.
+          </blockquote>
         </section>
 
         <section className='cards-wrapper container'>

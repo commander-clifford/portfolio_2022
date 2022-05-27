@@ -1,0 +1,18 @@
+@import './../../mixins';
+
+section {
+  .blockquote {
+    border: none;
+    display: block;
+    font-family: 'Special Elite', cursive;
+    max-inline-size: 720px;
+    background-color: var(--background-secondary);
+    margin-block: var(--size-10);
+    @include dual-clip(var(--size-10));
+    div {
+      font-size: var(--font-size-fluid-3);
+      text-align: center;
+      
+    }
+  }
+}
