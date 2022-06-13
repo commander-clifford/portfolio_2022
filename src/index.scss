@@ -137,3 +137,22 @@
   font-style: italic;
   font-weight: 900;
 }
+
+.mobile-nav {
+  @include dog-ear-clip(var(--primary-gap));
+  @include primary-gradient();
+  min-height: 100px;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  a {
+    text-decoration: none;
+    padding-inline: 1em;
+  }
+
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}

@@ -50,12 +50,6 @@ class Home extends Component {
           <Cover></Cover>
         </section>
 
-        <section className='section'>
-          <blockquote>
-            Part developer, part designer, all of the above. From content production and development to designing with code, I can do it all.
-          </blockquote>
-        </section>
-
         <section className='cards-wrapper container'>
           {this.buildNavCards()}
         </section>

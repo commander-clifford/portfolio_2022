@@ -4,6 +4,8 @@ import SplitTextJS from 'split-text-js';
 import './header.scss';
 import { sitePaths } from './../../data';
 import Nav from "../nav/nav";
+import { Link } from "react-router-dom";
+
 
 class Header extends Component {
 
@@ -99,11 +101,20 @@ class Header extends Component {
             </h1>
           </div>
 
-          <Nav/>
+          <div className="header-nav">
+            <Nav/>
+          </div>
 
         </div>
         
       </header>
+
+      <div className="mobile-nav">
+        <Link className="" to="/">Home</Link>
+        <Link className="" to="/about">About</Link>
+        <Link className="" to="/resume">Resume</Link>
+        <Link className="" to="/projects">Projects</Link>
+      </div>
 
       
     </>

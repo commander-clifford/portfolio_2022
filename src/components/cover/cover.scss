@@ -1,22 +1,23 @@
 @import './../../mixins';
 
 .cover {
-  margin-top: calc(var(--size-12) * -1);
+  // margin-top: calc(var(--size-12) * -1);
   color: var(--p-foreground);
 
   a { color: inherit; }
 
   &__wrapper {
-    @include upper-clip(var(--size-10));
+    @include dog-ear-clip(var(--primary-gap));
     @include primary-gradient();
+    margin-top: calc(var(--primary-gap)*-1);
   }
 
   &__container {
     display: flex;
     align-items: center;
     flex-flow: column;
-    min-height: #{"min(80vh, 900px)"};
-    padding-block: var(--size-10);
+    min-height: #{"min(56.25vw, 600px)"};
+    padding-block: var(--primary-gap);
     justify-content: center;
     text-align: center;
   }

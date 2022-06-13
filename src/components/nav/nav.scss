@@ -2,6 +2,13 @@
 
 .nav {
 
+  
+  position: absolute;
+
+  @media only screen and (min-width: 768px) {
+    position: relative;
+  }
+
   --nav-height: 16rem;
   // eslint-disable-next-line
   display: flex;
@@ -24,7 +31,6 @@
   }
   
   .hamburger {
-    padding: 2rem;
     margin-right: 3rem;
     border-radius: 2rem;
     &:hover {

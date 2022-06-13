@@ -2,26 +2,30 @@
 
 .header {
   display: flex;
-  // min-height: clamp(120px, 30vh, 260px);
-  min-height: 260px;
-  color: var(--p-foreground);
-  text-shadow: 3px 5px 10px var(--black-t30);
-  align-items: start;
+  align-items: center;
   justify-content: center;
-  padding-top: var(--size-8);
-  @include upper-clip(var(--size-10));
-  @include primary-gradient();
+  padding: var(--primary-gap) 0 calc(var(--primary-gap)*2);
+  text-shadow: 3px 5px 10px var(--black-t30);
+  color: var(--p-foreground);
+
+  &-nav {
+    display: none;
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+  }
 
   &__container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 
     h1 {
       display: flex;
       font-size: var(--font-size-8);
-      flex-direction: column;
       color: inherit;
+      flex-direction: column;
 
       .small {
         font-size: 0.3em;
@@ -29,5 +33,13 @@
       }
     }
   }
+  @include upper-clip(var(--primary-gap));
+  @include primary-gradient();
+
+  @media only screen and (max-width: 768px) {
+
+  }
+
+
 }
 

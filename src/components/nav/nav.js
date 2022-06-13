@@ -12,6 +12,7 @@ class Nav extends Component {
     let hamburgerWrapper = document.querySelector("#wrapper");
     let hamburgerBarsList = document.getElementsByClassName("bars");
     let hamburgerBars = Array.from(hamburgerBarsList);
+    let navItemsWrapper = document.querySelector("#navItems");
     let navItemsList = document.getElementsByClassName("nav-item");
     let navItems = Array.from(navItemsList);
     
