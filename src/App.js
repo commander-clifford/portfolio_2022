@@ -40,7 +40,7 @@ function App() {
                       appear={true}
                       onEnter={(node) => enter(node, pathname, prevPathname)}
                       onExit={(node) => exit(node, pathname, prevPathname)}
-                      timeout={{enter: 3000, exit: 3000 }}
+                      timeout={{enter: 2000, exit: 2000 }}
                       >
                       <ScrollToTop>
                         <Switch location={location}>

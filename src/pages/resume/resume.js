@@ -16,13 +16,15 @@ class Resume extends Component {
     return (
       <>
 
-        <section className="art__stagger-in art__stagger-out download-link d-flex align-items-center justify-content-center">
-          <a href={ResumePDF} target="_blank">
-            Download the PDF  
-          </a>
-        </section>
+
 
         <article className="resume container container-sm">
+
+          <section className="art__stagger-in art__stagger-out download-link d-flex align-items-center justify-content-center">
+            <a href={ResumePDF} target="_blank">
+              Download the PDF  
+            </a>
+          </section>
 
           <div className=''>
 

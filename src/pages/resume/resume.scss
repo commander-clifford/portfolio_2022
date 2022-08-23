@@ -1,27 +1,25 @@
 @import './../../mixins';
-.download-link {
-  @include dog-ear-clip(var(--primary-gap));
-  @include primary-gradient();
-  // padding: 2em;
-  border-radius: 0em;
-  margin-block: 0em 4em;
-  color: var(--gray-100);
-  a {
-    color: inherit;
-    font-weight: bolder;
-    text-decoration: none;
-  }
-}
+
 .resume {
-
-
 
   max-width: 720px !important;
 
-  @media print {
+  @media print {}
 
+  .download-link {
+    @include dog-ear-clip(var(--primary-gap));
+    @include primary-gradient();
+    // padding: 2em;
+    border-radius: 0em;
+    margin-block: 2em 4em;
+    color: var(--gray-100);
+    a {
+      color: inherit;
+      font-weight: bolder;
+      text-decoration: none;
+    }
   }
-  
+
   &-item {
     margin-block: 4rem 6rem;
 
