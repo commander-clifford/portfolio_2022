@@ -1,61 +1,63 @@
 export const educationData = [
   {
+    level: "Associates",
+    date: "2011–2012",
+    school: "Platt College",      
+    gpa: "4.0",
+    title: "Associates Degree, Graphic Design",
+    desc: "In 2012 I earned an Associates Degree in Graphic Design from Platt College in San Diego.",
+    courses: [
+      "Fundamentals Illustration",
+      "History of Typography",
+      "Video editing",
+      "3D modeling / rendering",
+      "Print design",
+      "Graphic composition",
+    ]
+  },
+  {
+    level: "Bachelors",
+    date: "2013–2014",
     school: "Platt College",
-    copy: {
-      description: "In 2014 I graduated from Platt College in San Diego, earning a <b>Bachelors Degree in Web Design</b>, and receiving the honor of valedictorian of my class with a <b>4.0 GPA</b>.",
-      associates: {
-        gpa: "4.0",
-        title: "Associates Degree, Graphic Design",
-        date: "2011–2012",
-      },
-      bachelors: {
-        gpa: "4.0",
-        title: "Bachelors Degree, Media Design",
-        date: "2013–2014",
-      },
-    },
-    courses: {
-      associates: [
-        "Fundamentals Illustration",
-        "History of Typography",
-        "Video editing",
-        "3D modeling / rendering",
-        "Print design",
-        "Graphic composition",
-      ],
-      bachelors: [
-        "Fundamentals of Web Design",
-        "Web Campaign Implementation",
-        "Design for Usability",
-        "Responsive Web Design",
-        "Programming for Designers",
-        "Scripting for the Web",
-        "Content Management Systems",
-      ]
-    }
-  }
+    gpa: "4.0",
+    title: "Bachelors Degree, Web Design",
+    desc: "In 2014 I graduated from Platt College with a Bachelors Degree in Web Design, while receiving the honor of valedictorian of my class with a 4.0 GPA.\nDuring my time at Platt College I was a regular member of the Dean's List and continue to be a poster student in with my representation on the Website and the Admission office walls",
+    courses: [
+      "Fundamentals of Web Design",
+      "Web Campaign Implementation",
+      "Design for Usability",
+      "Responsive Web Design",
+      "Programming for Designers",
+      "Scripting for the Web",
+      "Content Management Systems",
+    ]
+  } 
 ];
 
 export const projectData = [
   {
     title: "Doodleverse",
     description: [],
-    type: "web"
+    type: "web",
+    url: null
   },
   {
     title: "Uber Eats Pics",
     description: [],
-    type: "web"
+    type: "web",
+    url: null
   },
   {
     title: "Windshield Wipers",
     description: [],
-    type: "web"
+    type: "web",
+    url: null
   },
   {
     title: "Lights Out",
     description: [],
-    type: "web"
+    type: "web",
+    url: "http://lightsout.clifford.codes/"
   },
   {
     title: "2x6 Macro Pad",
@@ -288,11 +290,11 @@ export const resumeData = [
     ],
   },
   {
-    title: "Full Stack Design",
+    title: "Full Stack 'Design'",
     date: "2021-PRESENT",
     employer: "Warner Brothers Discovery / HBO Max",
     employerSecondary: null,
-    jobDesc: "Supporting the growth marketing department in driving the visual and technical success for the creative and visual execution of WarnerMedia's digital and online marketing channels. Focused on coding and creating at the same time with the latest innovations in technology, HTML, CSS and beyond.",
+    jobDesc: "Supporting growth marketing in driving the visual and technical success for the creative and visual execution of WarnerMedia's digital branding. Focused on designing and executing delieghtful visual experiences while balancing stakeholder reqirements. Creating and Coding at the same time with the latest innovations in technology, HTML, CSS and beyond.",
     list: [],
     tags: [
       {title: "GSAP",type: "primary"},

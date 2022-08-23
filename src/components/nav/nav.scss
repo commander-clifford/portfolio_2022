@@ -15,7 +15,7 @@
   align-items: center;
   height: var(--nav-height);
   // eslint-disable-next-line
-  justify-content: end;
+  justify-content: flex-end;
   color: var(--p-foregroun);
   .nav-items {
     display: flex;

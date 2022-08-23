@@ -95,10 +95,12 @@ class Header extends Component {
         <div className='header__container container'>
 
           <div className="">
-            <h1>
-              <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span>
-              <span id="splitHeadline" className="art__stagger-in">Clifford Nelson</span>
-            </h1>
+            <Link className="" to="/">
+              <h1>
+                <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span>
+                <span id="splitHeadline" className="art__stagger-in">Clifford Nelson</span>
+              </h1>
+            </Link>
           </div>
 
           <div className="header-nav">

@@ -8,13 +8,12 @@
 @import "./variables";
 @import "./mixins";
 
-// @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Tiro+Kannada:ital@0;1&display=swap');
-
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 
 /* GILROY FONT */
 @font-face {
@@ -136,23 +135,4 @@
   font-family: 'Gilroy';
   font-style: italic;
   font-weight: 900;
-}
-
-.mobile-nav {
-  @include dog-ear-clip(var(--primary-gap));
-  @include primary-gradient();
-  min-height: 100px;
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-
-  a {
-    text-decoration: none;
-    padding-inline: 1em;
-  }
-
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
 }

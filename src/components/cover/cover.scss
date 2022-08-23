@@ -7,19 +7,23 @@
   a { color: inherit; }
 
   &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: #{"min( calc(100vh - 185px), 780px)"};
+    margin-top: calc(var(--primary-gap)*-1);
     @include dog-ear-clip(var(--primary-gap));
     @include primary-gradient();
-    margin-top: calc(var(--primary-gap)*-1);
   }
 
   &__container {
     display: flex;
     align-items: center;
-    flex-flow: column;
+    justify-content: center;
     min-height: #{"min(56.25vw, 600px)"};
     padding-block: var(--primary-gap);
-    justify-content: center;
     text-align: center;
+    flex-flow: column;
   }
 
   &__copy {

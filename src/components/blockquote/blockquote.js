@@ -10,7 +10,7 @@ class Blockquote extends Component {
   render() {
     return (
       <blockquote className="blockquote">
-        <div>
+        <div className="blockquote__container">
           {this.props.children}
         </div>
       </blockquote>

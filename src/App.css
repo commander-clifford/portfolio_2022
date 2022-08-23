@@ -3,6 +3,15 @@
 @import "open-props/normalize";
 
 :root {
+
+  /* Constants */
+  --body-font: 'Hind Siliguri', sans-serif;;
+  --headline-font: 'Oswald', sans-serif;
+  --quote-font: 'Caveat', cursive;
+  --constant-white: hsl(210, 17%, 95%);
+
+
+
   /* these have  light/dark mode built in */
   --foreground: var(--text-1);
   --p-foreground: var(--gray-1);
@@ -10,6 +19,7 @@
   /* these have  light/dark mode built in */
 
   /* default/light color scheme */
+
   --background: var(--gray-1);
   --background-secondary: var(--gray-2);
   --headline-color: var(--red-800);
@@ -23,10 +33,11 @@
 /* Dark color scheme - enhanced by users system settings */
 @media (prefers-color-scheme: dark) {
   :root {
+
     --background: var(--gray-8);
     --background-secondary: var(--gray-7);
-    --headline-color: var(--red-400);
-    --accent-rev: var(--red-600);
+    --headline-color: var(--red-600);
+    --accent-rev: var(--red-500);
     --accent: var(--red-800);
     --primary-gradient: var(--primary-gradient-dark);
   } 
@@ -38,7 +49,8 @@ html { font-size: 62.5%; }
 
 body {
   margin: 0;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: var(--body-font);
+  font-weight: 300;
   font-size: 1.6rem;
   background-color: var(--background);
   color: var(--foreground);
@@ -50,7 +62,8 @@ article.container-sm {
   max-width: 720px;
 }
 h1 {
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--headline-font);
+  font-weight: 500;
   font-size: var(--font-size-fluid-3);
   color: var(--headline-color);
 }
@@ -62,28 +75,35 @@ h1.w-border {
 }
 h2 {
   margin-top: var(--font-size-8);
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--headline-font);
+  font-weight: 500;
   font-size: var(--font-size-fluid-2);
+  color: var(--headline-color);
 }
 h3 {
   margin-top: var(--font-size-5);
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--headline-font);
+  font-weight: 500;
   font-size: var(--font-size-5);
+  color: var(--headline-color);
 }
 h4 {
   margin-top: var(--font-size-4);
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--headline-font);
+  font-weight: 500;
   font-size: var(--font-size-4);
+  color: var(--headline-color);
 }
 h5,h6  {
   margin-top: var(--font-size-3);
-  font-family: Gilroy, Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--headline-font);
+  font-weight: 500;
   font-size: var(--font-size-3);
+  color: var(--headline-color);
 }
 p {
   /* max-inline-size: none; */
   font-size: var(--font-size-5);
-  
 }
 a {
   color: var(--foreground);
@@ -98,8 +118,6 @@ code {
   background-color: var(--accent-rev);
   color: var(--background);
 }
-
-
 .container-sm {
   max-width: 720px;
 }

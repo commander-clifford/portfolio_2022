@@ -17,7 +17,7 @@ class Projects extends Component {
 
           <section className="art__stagger-in art__stagger-out">
             <Blockquote>
-              I'm still working on this section, <a href="mailto:clifford.codes@gmail.com?subject=I saw your webpage!"> send me a message</a> in the mean time.
+              I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> in the mean time.
             </Blockquote>
           </section>
 
@@ -29,7 +29,11 @@ class Projects extends Component {
           {this.webProjects.map((data, key) => {
             return (
               <div key={key}>
-                <p className="art__stagger-in art__stagger-out">{data.title}</p>
+                <p className="art__stagger-in art__stagger-out">
+                  <a href={data.url}>
+                    {data.title}
+                  </a>
+                </p>
               </div>
             );
           })}
@@ -49,10 +53,10 @@ class Projects extends Component {
           })}
         </section>
 
-        <section className="art__stagger-in art__stagger-out">
+        {/* <section className="art__stagger-in art__stagger-out">
           <p className="">-This image is hosted with Google Drive-</p>
           <img src="https://drive.google.com/uc?id=1ubBHG_8dIMnaFI2hRh5cLiIg-JNBxCWV" alt="Clifford avatar"/>
-        </section>
+        </section> */}
 
       </article>
     );
