@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Hero from '../../components/hero/hero';
 import Blockquote from '../../components/blockquote/blockquote';
+import '../resume/resume.scss';
 class Projects extends Component {
   
   constructor(props) {
@@ -13,11 +14,11 @@ class Projects extends Component {
 
   render() {
     return (
-      <article className="projects container container-sm">
+      <article className="resume projects container container-sm">
 
           <section className="art__stagger-in art__stagger-out">
             <Blockquote>
-              I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> in the mean time.
+              I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> and follow these links in the mean time.
             </Blockquote>
           </section>
 
@@ -25,16 +26,19 @@ class Projects extends Component {
           <h1 className="w-border ">Web Projects</h1>
         </section>
 
-        <section className="art__stagger-in art__stagger-out">
+        <section className="resume-item art__stagger-in art__stagger-out">
           {this.webProjects.map((data, key) => {
             return (
-              <div key={key}>
-                <p className="art__stagger-in art__stagger-out">
-                  <a href={data.url}>
-                    {data.title}
-                  </a>
-                </p>
-              </div>
+              <>
+                <div className="resume-item__headline-block art__stagger-in art__stagger-out" key={key}>
+                    <h2 className="headline">{data.title}</h2>
+                </div>
+                <div className="d-flex align-items-center justify-content- resume-item__employer-block">
+                  <a href={data.url} target="_blank">{data.url}</a>
+                </div>
+                <p className="resume-item__description p-indent">{data.description}</p>
+              </>
+              
             );
           })}
         </section>

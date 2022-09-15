@@ -36,29 +36,53 @@ export const educationData = [
 
 export const projectData = [
   {
-    title: "Doodleverse",
-    description: [],
+    title: "Google DoodleX",
+    description: "While working with the Google Doodle team I helped explore new ways to present the Doodle on new and more visible canvases",
     type: "web",
-    url: null
+    url: "http://doodlex.clifford.codes/"
+  },
+
+  {
+    title: "Key Art Hub Component",
+    description: "Yet another exploration with GreenSock Animation Platform. This component loads a series of card animations - built by a JSON object.",
+    type: "web",
+    url: "https://hubble.clifford.codes/"
+  },
+
+
+  {
+    title: "Animations Demo",
+    description: "A simple, but fun, demonstration of Web Animation types. I presented this live, and virtual, in front of my designer piers in a creative share.",
+    type: "web",
+    url: "http://animations.clifford.codes/"
+  },
+  {
+    title: "Front of House",
+    description: "A sign-up-flow wire-frame for HBO Max, including 'bookending' each step of the process. IN PROGRESS",
+    type: "web",
+    url: "http://front-of-house	.clifford.codes/"
   },
   {
     title: "Uber Eats Pics",
-    description: [],
+    description: "Automatic Branding of food pics for marketing your restaurant with Uber Eats branding.",
     type: "web",
     url: null
   },
-  {
-    title: "Windshield Wipers",
-    description: [],
-    type: "web",
-    url: null
-  },
+
   {
     title: "Lights Out",
-    description: [],
-    type: "web",
+    description: "My very first Javascript project and a cool study in background-shadows and other css graphics.",
+    type: "game",
     url: "http://lightsout.clifford.codes/"
   },
+
+  {
+    title: "Windshield Wipers",
+    description: "A Windshield Wipers game concept, built with the Doodle team, using GreenSock Animations Platform",
+    type: "game",
+    url: null
+  },
+
   {
     title: "2x6 Macro Pad",
     description: [],
