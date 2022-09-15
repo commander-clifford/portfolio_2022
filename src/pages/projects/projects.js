@@ -30,8 +30,8 @@ class Projects extends Component {
           {this.webProjects.map((data, key) => {
             return (
               <>
-                <div className="resume-item__headline-block art__stagger-in art__stagger-out" key={key}>
-                    <h2 className="headline">{data.title}</h2>
+                <div className="resume-item__headline-block" key={key}>
+                  <h2 className="headline">{data.title}</h2>
                 </div>
                 <div className="d-flex align-items-center justify-content- resume-item__employer-block">
                   <a href={data.url} target="_blank">{data.url}</a>
