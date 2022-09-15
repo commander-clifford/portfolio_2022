@@ -75,7 +75,7 @@ function App() {
                             }}
                           />
                           <Route
-                            exact path={['*']}
+                            path={'*'}
                             render={({ ...props }) => {
                               return <Home {...props} projectData={projectData} resumeData={resumeData} sitePaths={sitePaths}/>
                             }}
