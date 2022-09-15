@@ -16,20 +16,14 @@ class Projects extends Component {
     return (
       <article className="resume projects container container-sm">
 
-          <section className="art__stagger-in art__stagger-out">
-            <Blockquote>
-              I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> and follow these links in the mean time.
-            </Blockquote>
-          </section>
-
         <section className="art__stagger-in art__stagger-out">
           <h1 className="w-border ">Web Projects</h1>
         </section>
 
-        <section className="resume-item art__stagger-in art__stagger-out">
+        <section>
           {this.webProjects.map((data, i) => {
             return (
-              <div key={i}>
+              <div className="resume-item art__stagger-in art__stagger-out" key={i}>
                 <div className="resume-item__headline-block">
                   <h2 className="headline">{data.title}</h2>
                 </div>
@@ -44,6 +38,12 @@ class Projects extends Component {
 
         <section className="art__stagger-in art__stagger-out">
           <h1 className="w-border ">Other Projects</h1>
+        </section>
+
+        <section className="">
+          <Blockquote>
+            I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> in the mean time.
+          </Blockquote>
         </section>
 
         <section className="art__stagger-in art__stagger-out">

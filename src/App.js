@@ -74,6 +74,12 @@ function App() {
                               return <DesignSystem {...props} />
                             }}
                           />
+                          <Route
+                            exact path={['*']}
+                            render={({ ...props }) => {
+                              return <Home {...props} projectData={projectData} resumeData={resumeData} sitePaths={sitePaths}/>
+                            }}
+                          />
                         </Switch>
                       </ScrollToTop>
                     </Transition>
