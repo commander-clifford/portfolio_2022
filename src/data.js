@@ -37,7 +37,7 @@ export const educationData = [
 export const projectData = [
   {
     title: "Google DoodleX",
-    description: "While working with the Google Doodle team I helped explore new ways to present the Doodle on new and more visible canvases",
+    description: "While working with the Google Doodle team I helped explore new ways to present the Doodle on new and more visible canvases. When visiting be sure to check your gmail, then go back and search for 'Easter', 'Santa', and 'Mistletoe'",
     type: "web",
     url: "http://doodlex.clifford.codes/"
   },
