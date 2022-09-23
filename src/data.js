@@ -51,6 +51,12 @@ export const projectData = [
 
 
   {
+    title: "DC Universe - Scrolling Slot Machine",
+    description: "A custom web component for a DC Universe campaign.",
+    type: "web",
+    url: "http://dc-slot-machine.clifford.codes/"
+  },
+  {
     title: "Animations Demo",
     description: "A simple, but fun, demonstration of Web Animation types. I presented this live, and virtual, in front of my designer piers in a creative share.",
     type: "web",
