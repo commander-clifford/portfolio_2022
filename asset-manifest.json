@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.3aefe56f.css",
-    "main.js": "/static/js/main.02affd0b.js",
+    "main.css": "/static/css/main.58b7a3bd.css",
+    "main.js": "/static/js/main.1e7bc4dc.js",
     "static/js/787.031703b3.chunk.js": "/static/js/787.031703b3.chunk.js",
     "static/media/design-technologist-at-work-midjourney.jpg": "/static/media/design-technologist-at-work-midjourney.6ca8997476406e78f169.jpg",
-    "static/media/clifford-nelson-resume.pdf": "/static/media/clifford-nelson-resume.7b00776c0681a8c09a76.pdf",
     "static/media/Gilroy-BlackItalic.otf": "/static/media/Gilroy-BlackItalic.ddf8c97c53c545e6d8ed.otf",
     "static/media/Gilroy-BoldItalic.otf": "/static/media/Gilroy-BoldItalic.b6696a237226ecea9dbf.otf",
     "static/media/Gilroy-HeavyItalic.otf": "/static/media/Gilroy-HeavyItalic.4b257d2050d32f1a54a8.otf",
@@ -26,12 +25,12 @@
     "static/media/Gilroy-Thin.otf": "/static/media/Gilroy-Thin.b418ea10c8c6e41f21b9.otf",
     "static/media/Gilroy-Regular.otf": "/static/media/Gilroy-Regular.86bc2a5a8350170447c9.otf",
     "index.html": "/index.html",
-    "main.3aefe56f.css.map": "/static/css/main.3aefe56f.css.map",
-    "main.02affd0b.js.map": "/static/js/main.02affd0b.js.map",
+    "main.58b7a3bd.css.map": "/static/css/main.58b7a3bd.css.map",
+    "main.1e7bc4dc.js.map": "/static/js/main.1e7bc4dc.js.map",
     "787.031703b3.chunk.js.map": "/static/js/787.031703b3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aefe56f.css",
-    "static/js/main.02affd0b.js"
+    "static/css/main.58b7a3bd.css",
+    "static/js/main.1e7bc4dc.js"
   ]
 }
