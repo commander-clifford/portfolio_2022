@@ -22,35 +22,35 @@ class Header extends Component {
   }
 
   updateHeaderPhrase = () => {
-    let currentPath = this.props.path;
+    // let currentPath = this.props.path;
 
-    this.setState({
-      thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
-    }, () => {
-      let splitSupHeadline = document.getElementById("splitSupHeadline");
-      splitSupHeadline = new SplitTextJS(splitSupHeadline);
+    // this.setState({
+    //   thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
+    // }, () => {
+    //   let splitSupHeadline = document.getElementById("splitSupHeadline");
+    //   splitSupHeadline = new SplitTextJS(splitSupHeadline);
     
-      let timeline = gsap.timeline({
+    //   let timeline = gsap.timeline({
 
-      })
-      .fromTo(splitSupHeadline.chars,
-        {
-          opacity: 0,
-          y: -20,
-          scale: 1.2,
-        },
-        {
-          duration: 1,
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          ease: "back.out(4)",
-          stagger: {
-            amount: 0.3,
-          }
-      });
+    //   })
+    //   .fromTo(splitSupHeadline.chars,
+    //     {
+    //       opacity: 0,
+    //       y: -20,
+    //       scale: 1.2,
+    //     },
+    //     {
+    //       duration: 1,
+    //       opacity: 1,
+    //       y: 0,
+    //       scale: 1,
+    //       ease: "back.out(4)",
+    //       stagger: {
+    //         amount: 0.3,
+    //       }
+    //   });
 
-    });
+    // });
 
   }
 
@@ -67,8 +67,8 @@ class Header extends Component {
 
     let timeline = gsap.timeline({
       delay: 1
-    })
-    .fromTo(splitHeadline.chars,
+    });
+    timeline.fromTo(splitHeadline.chars,
       {
         opacity: 0,
         y: -20,
@@ -96,9 +96,9 @@ class Header extends Component {
 
           <div className="">
             <Link className="" to="/">
-              <h1>
-                <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span>
-                <span id="splitHeadline" className="art__stagger-in">Clifford Nelson</span>
+              <h1 className='aniwrapper'>
+                {/* <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span> */}
+                <span id="splitHeadline" className="art__stagger-in">Clifford</span>
               </h1>
             </Link>
           </div>
@@ -111,14 +111,6 @@ class Header extends Component {
         
       </header>
 
-      <div className="mobile-nav">
-        <Link className="" to="/">Home</Link>
-        <Link className="" to="/about">About</Link>
-        <Link className="" to="/resume">Resume</Link>
-        <Link className="" to="/projects">Projects</Link>
-      </div>
-
-      
     </>
     );
   }

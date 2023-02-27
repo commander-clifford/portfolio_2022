@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { gsap } from "gsap";
 import './card.scss';
 
 class Card extends Component {

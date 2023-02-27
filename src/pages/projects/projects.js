@@ -1,69 +1,67 @@
-import React, { Component } from 'react';
-import Hero from '../../components/hero/hero';
-import Blockquote from '../../components/blockquote/blockquote';
-import '../resume/resume.scss';
-class Projects extends Component {
+import React, { useState, useEffect } from 'react';
+import { fetchContentfulEntries } from '../../contentfulAPI';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import FormatDate from '../../components/date';
+const Projects = () => {
+
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+
+        const positionsResponse = await fetchContentfulEntries('project', 'fields.originalCreationDate');
+        setProjectsData(positionsResponse.items);
+
+      } catch (error) {
+        console.error(error);
+      } finally {
+
+      }
+    };
   
-  constructor(props) {
-    super(props);
-    this.webProjects = this.props.projectData.filter(project => project.type === "web");
-    this.otherProjects = this.props.projectData.filter(project => project.type !== "web");
-  }
+    fetchData();
+  }, []);
 
-  componentDidMount(){}
+  return (
+    <article className="resume projects container container-sm">
 
-  render() {
-    return (
-      <article className="resume projects container container-sm">
+      <section className="art__stagger-in art__stagger-out">
+        <h1 className="w-border ">Projects</h1>
+      </section>
 
-        <section className="art__stagger-in art__stagger-out">
-          <h1 className="w-border ">Web Projects</h1>
-        </section>
-
-        <section>
-          {this.webProjects.map((data, i) => {
-            return (
-              <div className="resume-item art__stagger-in art__stagger-out" key={i}>
-                <div className="resume-item__headline-block">
-                  <h2 className="headline">{data.title}</h2>
-                </div>
-                <div className="d-flex align-items-center justify-content- resume-item__employer-block">
-                  <a href={data.url} target="_blank">{data.url}</a>
-                </div>
-                <p className="resume-item__description p-indent">{data.description}</p>
+      <section>
+        {projectsData.map((data, i) => {
+          return (
+            <div key={i} className="resume-item art__stagger-in art__stagger-out">
+              
+              <div className="resume-item__headline-block">
+                <h2 className="headline">{data?.fields?.title}</h2>
+                <FormatDate date={data?.fields?.originalCreationDate}/>
               </div>
-            );
-          })}
-        </section>
-
-        <section className="art__stagger-in art__stagger-out">
-          <h1 className="w-border ">Other Projects</h1>
-        </section>
-
-        <section className="">
-          <Blockquote>
-            I'm still working on this section, <a href="mailto:cliffordRyanNelson@gmail.com?subject=I saw your webpage!"> send me a message</a> in the mean time.
-          </Blockquote>
-        </section>
-
-        <section className="art__stagger-in art__stagger-out">
-          {this.otherProjects.map((data, key) => {
-            return (
-              <div key={key}>
-                <p className="art__stagger-in art__stagger-out">{data.title}</p>
+              
+              <div className="d-flex align-items-center">
+                <h5 className="headline">{data?.fields?.subtitle}</h5>
               </div>
-            );
-          })}
-        </section>
+              
+              <div className="resume-item__description p-indent">
+                {documentToReactComponents(data?.fields?.briefDescription)}
+                {(data?.fields?.projectTags)}
+              </div>
 
-        {/* <section className="art__stagger-in art__stagger-out">
-          <p className="">-This image is hosted with Google Drive-</p>
-          <img src="https://drive.google.com/uc?id=1ubBHG_8dIMnaFI2hRh5cLiIg-JNBxCWV" alt="Clifford avatar"/>
-        </section> */}
+              {data?.fields?.liveUrl ?
+                <a href={data.fields.liveUrl} target="_blank">Visit Demo</a> :
+                null
+              }
+            
+            </div>
+          );
+        }).reverse()}
+      </section>
 
-      </article>
-    );
-  }
+    </article>
+  );
+
 }
 
 export default Projects;

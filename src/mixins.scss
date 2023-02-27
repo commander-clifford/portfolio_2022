@@ -17,7 +17,6 @@
 // }
 
 @mixin primary-gradient(){
-  color: var(--gray-0);
   background-attachment: fixed;
   background-color: var(--red-600);
   background-image: var(--primary-gradient);

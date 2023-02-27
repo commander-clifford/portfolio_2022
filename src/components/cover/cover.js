@@ -1,78 +1,99 @@
-import React, { Component } from 'react';
-import SplitTextJS from 'split-text-js';
+import React, { useState, useEffect } from 'react';
 import { gsap } from "gsap";
 import './cover.scss';
-import { Link } from "react-router-dom";
+import { fetchContentfulEntries, fetchContentfulAsset } from '../../contentfulAPI';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-class Cover extends Component {
+import COVER_IMAGE from '../../assets/images/design-technologist-at-work-midjourney.jpg';
 
-  componentDidMount(){
-    let supLine = document.getElementById("sup");
-    let copyLine = document.getElementById("copy");
-    let splitHeadline = document.getElementById("splitHeadline");
-    splitHeadline = new SplitTextJS(splitHeadline);
+const Cover = (props) => {
 
-    let timeline = new gsap.timeline({
-      delay: 1
-    });
+  const [data, setData] = useState([]);
+  const [coverData, setCoverData] = useState([]);
+  const [heroImageData, setHeroImageData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // timeline.fromTo(supLine,
-    // {
-    //   opacity: 0
-    // },
-    // {
-    //   duration: 0.4,
-    //   opacity: 1
-    // });
-    // timeline.fromTo(splitHeadline.chars,
-    // {
-    //   opacity: 0,
-    //   y: -20,
-    //   scale: 1.2,
-    // },
-    // {
-    //   duration: 1,
-    //   opacity: 1,
-    //   y: 0,
-    //   scale: 1,
-    //   ease: "back.out(4)",
-    //   stagger: {
-    //     amount: 0.3,
-    //   },
-    // });
-    timeline.fromTo(copyLine,
-    {
-      opacity: 0
-    },
-    {
-      duration: 0.4,
-      opacity: 1
-    });
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+
+        const coverResponse = await fetchContentfulEntries('cover');
+        const activeCoverData = coverResponse.items.find(obj => obj.fields.active);
+        setCoverData(activeCoverData);
+
+        const assetResponse = await fetchContentfulAsset('3KBuOsPb1kmB11a7mZcdDP');
+        setHeroImageData(assetResponse);
+
+        setIsLoaded(true);
+      
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+
+    
+      fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      let timeline = new gsap.timeline({
+        delay: 1
+      });
+      timeline.fromTo(
+        document.getElementById("copy"),
+        {
+          opacity: 0
+        },
+        {
+          duration: 0.4,
+          opacity: 1
+        }
+      );
+    }
+  }, [isLoaded]);
+
+  if (isLoading) {
+    return <div>Loading...</div>
   }
 
-  render() {
-    return (
-      <div className="cover">
-        <div className="cover__container container">
 
-          <div id="copy" className="cover__content">
+  // const buildSocialLinks = () => {
+  //   let navItems = props.socialLinks.map((item, key) => 
+  //     <a key={key} className="footer__nav-item" href={item.link} target="_blank">
+  //       <span class="material-symbols-outlined">{item.iconType}</span>
+  //     </a>
+  //   );
+  //   return navItems
+  // }
 
-            <div className="cover__copy">
-              <p>
-                I create delightful experiences<br/> 
-                with emerging technologies. 
-              </p>
-              <p>
-                Check out my <Link to="/resume">resume</Link>, see me on <a href="https://codepen.io/commander-clifford" rel="noreferrer" target={"_blank"}>Codepen.io</a> and <a href="https://github.com/commander-clifford/" rel="noreferrer" target={"_blank"}>GitHub</a> then scroll down for more
-              </p>
+  return (
+    <div className="cover">
+      <div className="cover__container container">
+
+        <div id="copy" className="cover__content">
+          <div className="cover__copy">
+            {/* <p className='small'>{buildSocialLinks()}</p> */}
+            <div className=''>
+              <h4>{coverData?.fields?.title}</h4>
+              <h1>{coverData?.fields?.name}</h1>
+              {documentToReactComponents(coverData?.fields?.brief)}
             </div>
-
           </div>
-
         </div>
+
+        <div className="cover__image">
+          <img src={heroImageData?.fields?.file?.url} alt=""/>
+        </div>
+
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Cover;

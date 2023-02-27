@@ -66,7 +66,7 @@ export const projectData = [
     title: "Front of House",
     description: "A sign-up-flow wire-frame for HBO Max, including 'bookending' each step of the process. IN PROGRESS",
     type: "web",
-    url: "http://front-of-house	.clifford.codes/"
+    url: "http://front-of-house.clifford.codes/"
   },
   {
     title: "Uber Eats Pics",
@@ -247,7 +247,7 @@ export const resumeData = [
     date: "2017-2018",
     employer: "Uber",
     employerSecondary: "TEK Systems",
-    jobDesc: "  Collaborate closely with Design team to deliver engaging experiences using the latest in front-end technologies like React. Responsible for customer facing efforts such as the blog, about and FAQ pages. Design and build internal tools to make tedious and/or difficult tasks easy and efficient for non-technical content providers.",
+    jobDesc: "Collaborate closely with Design team to deliver engaging experiences using the latest in front-end technologies like React. Responsible for customer facing efforts such as the blog, about and FAQ pages. Design and build internal tools to make tedious and/or difficult tasks easy and efficient for non-technical content providers.",
     list: [
       "Environment: HTML/SCSS/JS/React",
       "Build internal tools to aid marketing efforts",
@@ -375,4 +375,27 @@ export const sitePaths =
     }
   ]
   
+  export const socialLinks = 
+  [
+    {
+    title: "LinkedIn",
+    link : "https://www.linkedin.com/in/clifford-nelson-bba47459/",
+    iconType: "search"
+    },
+    {
+    title: "GitHub",
+    link : "https://github.com/commander-clifford/",
+    iconType: "home"
+    },
+    {
+    title: "My Instagram",
+    link : "https://www.instagram.com/highestcliff/",
+    iconType: "settings"
+    },
+    {
+    title: "Jeep.io Instagram",
+    link : "https://www.instagram.com/jeep.io/",
+    iconType: "favorite"
+    }
+  ]
 

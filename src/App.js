@@ -1,7 +1,9 @@
-import React from 'react';
-import {Route, Switch} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+// import { createClient } from 'contentful';
+import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
+import { fetchContentfulEntries, fetchContentfulAsset } from './contentfulAPI';
 
 import './App.css';
 
@@ -11,6 +13,7 @@ import Resume from './pages/resume/resume';
 import DesignSystem from './pages/design-system/design-system';
 import Projects from './pages/projects/projects';
 import Header from './components/header/header';
+import ProjectDetails from './components/project-details';
 
 import Footer from './components/footer/footer';
 
@@ -20,8 +23,40 @@ import { projectData } from './data.js';
 import { resumeData } from './data';
 import { educationData } from './data';
 import { sitePaths } from './data';
+import { socialLinks } from './data';
 
-function App() {
+// import useCoverData from './contentfulAPI';
+
+const App = () => {
+
+  const [projectsData, setProjectsData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+
+        const projectsResponse = await fetchContentfulEntries('project');
+        setProjectsData(projectsResponse.items);
+
+        setIsLoaded(true);
+
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      // console.log("projectsData ", projectsData)
+    }
+  }, [isLoaded]);
 
   return (
     <div className="app">
@@ -47,7 +82,7 @@ function App() {
                           <Route
                             exact path={['/']}
                             render={({ ...props }) => {
-                              return <Home {...props} projectData={projectData} resumeData={resumeData} sitePaths={sitePaths}/>
+                              return <Home {...props} sitePaths={sitePaths} socialLinks={socialLinks} />
                             }}
                           />
                           <Route
@@ -59,15 +94,33 @@ function App() {
                           <Route
                             path={['/resume']}
                             render={({ ...props }) => {
-                              return <Resume {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                              return <Resume {...props} />
                             }}
                           />
                           <Route
                             path={['/projects']}
                             render={({ ...props }) => {
-                              return <Projects {...props} projectData={projectData} educationData={educationData} resumeData={resumeData} />
+                              return (
+                                <>
+                                  
+                                  {/* <Route
+                                    path={['/projects/:projectId']}
+                                    render={({ match }) => {
+                                      const { projectId } = match.params;
+                                      console.log("route projectId", projectId);
+                                      console.log("route projectsData", projectsData);
+                                      const project = projectsData.find(project => project.fields?.slug === projectId);
+                                      return <ProjectDetails project={projectsData.find(project => project.fields?.slug === projectId)} />;
+                                    }}
+                                  /> */}
+                                  
+                                  <Projects {...props} projectData={projectData} projectsData={projectsData} />
+                                
+                                </>
+                              );
                             }}
                           />
+
                           <Route
                             path={['/design-system']}
                             render={({ ...props }) => {
@@ -77,7 +130,7 @@ function App() {
                           <Route
                             path={'*'}
                             render={({ ...props }) => {
-                              return <Home {...props} projectData={projectData} resumeData={resumeData} sitePaths={sitePaths}/>
+                              return <Home {...props} sitePaths={sitePaths} socialLinks={socialLinks}/>
                             }}
                           />
                         </Switch>
@@ -85,7 +138,7 @@ function App() {
                     </Transition>
                   </TransitionGroup>
                 </main>
-                <Footer path={location.pathname} sitePaths={sitePaths} />
+                <Footer path={location.pathname} sitePaths={sitePaths} socialLinks={socialLinks} />
               </>
             )
           }}/>

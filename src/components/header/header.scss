@@ -1,36 +1,37 @@
 @import './../../mixins';
 
 .header {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--primary-gap) 0 calc(var(--primary-gap)*2);
+  padding-block: 2rem;
   text-shadow: 3px 5px 10px var(--black-t30);
-  color: var(--constant-white);
-
-  &-nav {
-    display: none;
-    @media only screen and (min-width: 768px) {
-      display: block;
-    }
-  }
+  color: var(--gray-700);
+  backdrop-filter: blur(4px) brightness(1);
+  box-shadow: 0 0px 6px 0px rgba(0, 0, 0, 0.2);
 
   &__container {
-    color: inherit;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
+    color: inherit;
 
     a {
       color: inherit;
     }
 
-    h1 {
-      display: flex;
-      font-size: var(--font-size-8);
-      color: inherit;
+    .aniwrapper {
       flex-direction: column;
+      margin: 0;
+      font-size: var(--font-size-8);
+      line-height: 0;
+      color: var(--headline-color);
 
       .small {
         font-size: 0.3em;
@@ -38,34 +39,4 @@
       }
     }
   }
-  @include upper-clip(var(--primary-gap));
-  @include primary-gradient();
-
-  @media only screen and (max-width: 768px) {
-
-  }
-
-
 }
-
-.mobile-nav {
-  @include dog-ear-clip(var(--primary-gap));
-  @include primary-gradient();
-  min-height: 100px;
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: var(--constant-white);
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    padding-inline: 1em;
-  }
-
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-}
-

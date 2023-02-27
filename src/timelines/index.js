@@ -14,14 +14,14 @@ https://reactcommunity.org/react-transition-group/with-react-router/
 
 */
 
-const DURATION = 0.4;
+const DURATION = 1;
 const STAGGER = 0.08;
 const SCALETO = 0.98;
-const DRIFTIN = "60px";
-const DRIFTOUT = "-60px";
+const DRIFTIN = "80px";
+const DRIFTOUT = "-80px";
 const ROTATIONIN = 0;
 const ROTATIONOUT = -0;
-const HEADERHEIGHT = 198; // TODO get actual header.outterHeight
+const HEADERHEIGHT = 0; // TODO get actual header.outterHeight
 const EASE = Power2.easeInOut;
 
 /* ENTER ANIMATION TIMELINES */

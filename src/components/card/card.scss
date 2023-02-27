@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: var(--size-10);
-  margin-top: var(--size-10);
+  margin-block: var(--size-10);
 
   @media screen and (min-width: 576px){} /* SM */
   @media screen and (min-width: 768px){
@@ -21,9 +21,9 @@
   display: flex;
   gap: var(--size-1);
   align-items: center;
-  border: 1px solid var(--surface-2);
+  border: 1px solid var(--background);
   border-radius: var(--radius-3);
-  background: var(--surface-2);
+  background: var(--background);
   flex-basis: var(--size-content-1);
   flex-direction: column;
   box-shadow: var(--shadow-3);
@@ -41,7 +41,7 @@
   &__title {
     margin-bottom: var(--size-4);
     padding-bottom: var(--size-4);
-    border-bottom: 1px solid var(--surface-4);
+    border-bottom: 1px solid var(--background-300);
   }
 
   &__top {
@@ -55,7 +55,7 @@
     width: var(--size-12);
     height: var(--size-12);
     border-radius: 50%;
-    background-color: var(--surface-3);
+    background-color: var(--background-300);
   }
 }
 
