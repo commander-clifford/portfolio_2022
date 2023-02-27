@@ -43,10 +43,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-000: var(--background);
-    --background: hsl(0, 3%, 20%);
-    --background-100: hsl(0, 3%, 25%);
-    --background-200: hsl(0, 3%, 30%);
-    --background-300: hsl(0, 3%, 35%);
+    --background: hsl(0, 8%, 15%);
+    --background-100: hsl(0, 8%, 20%);
+    --background-200: hsl(0, 8%, 25%);
+    --background-300: hsl(0, 8%, 30%);
 
     --background-secondary: var(--background-secondary-000);
     --background-secondary-000: var(--gray-3);
@@ -82,9 +82,8 @@ body {
 main {
   /* padding-top: 2rem; */
   position: relative;
-  min-height: min(100vh, 900px);
-  margin-top: calc(91px + 2rem);
-  /* header height */
+  min-height: 100vh;
+  margin-top: calc(91px + 2rem); /* header height */
 }
 
 main>article>section:first-child>*:first-child {

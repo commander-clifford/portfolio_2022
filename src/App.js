@@ -25,8 +25,6 @@ import { educationData } from './data';
 import { sitePaths } from './data';
 import { socialLinks } from './data';
 
-// import useCoverData from './contentfulAPI';
-
 const App = () => {
 
   const [projectsData, setProjectsData] = useState([]);

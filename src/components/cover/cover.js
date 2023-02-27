@@ -4,11 +4,8 @@ import './cover.scss';
 import { fetchContentfulEntries, fetchContentfulAsset } from '../../contentfulAPI';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import COVER_IMAGE from '../../assets/images/design-technologist-at-work-midjourney.jpg';
-
 const Cover = (props) => {
 
-  const [data, setData] = useState([]);
   const [coverData, setCoverData] = useState([]);
   const [heroImageData, setHeroImageData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -35,9 +32,8 @@ const Cover = (props) => {
       }
     };
 
-
+    fetchData();
     
-      fetchData();
   }, []);
 
   useEffect(() => {
