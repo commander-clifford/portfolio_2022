@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { gsap } from "gsap";
 import SplitTextJS from 'split-text-js';
 import './header.scss';
@@ -6,62 +6,21 @@ import { sitePaths } from './../../data';
 import Nav from "../nav/nav";
 import { Link } from "react-router-dom";
 
+function Header(props) {
+  const allPaths = sitePaths.map(title => title.path);
+  const phrases = sitePaths.map(title => title.phrase);
+  const currentPath = props.path;
+  const [thePhrase, setThePhrase] = useState(phrases[allPaths.indexOf(currentPath)]);
 
-class Header extends Component {
+  useEffect(() => {
+    updateHeaderPhrase();
+  }, [props]);
 
-  constructor(props) {
-    super(props);
-    this.allPaths = [];
-    sitePaths.forEach(title => this.allPaths.push(title.path));
-    this.phrases = [];
-    sitePaths.forEach(title => this.phrases.push(title.phrase));
-    let currentPath = this.props.path;
-    this.state = {
-      thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
-    };
+  const updateHeaderPhrase = () => {
+    setThePhrase(phrases[allPaths.indexOf(props.path)]);
   }
 
-  updateHeaderPhrase = () => {
-    // let currentPath = this.props.path;
-
-    // this.setState({
-    //   thePhrase: this.phrases[this.allPaths.indexOf(currentPath)]
-    // }, () => {
-    //   let splitSupHeadline = document.getElementById("splitSupHeadline");
-    //   splitSupHeadline = new SplitTextJS(splitSupHeadline);
-    
-    //   let timeline = gsap.timeline({
-
-    //   })
-    //   .fromTo(splitSupHeadline.chars,
-    //     {
-    //       opacity: 0,
-    //       y: -20,
-    //       scale: 1.2,
-    //     },
-    //     {
-    //       duration: 1,
-    //       opacity: 1,
-    //       y: 0,
-    //       scale: 1,
-    //       ease: "back.out(4)",
-    //       stagger: {
-    //         amount: 0.3,
-    //       }
-    //   });
-
-    // });
-
-  }
-
-  componentDidUpdate(previousProps, previousState) {
-    if (previousProps !== this.props) {
-      this.updateHeaderPhrase();
-    }
-  }
-
-  componentDidMount(){
-    
+  useEffect(() => {
     let splitHeadline = document.getElementById("splitHeadline");
     splitHeadline = new SplitTextJS(splitHeadline);
 
@@ -84,36 +43,32 @@ class Header extends Component {
           amount: 0.3,
         },
       });
+  }, []);
 
-  }
+  return (
+    <>
+    <header className="header">
 
-  render() {
-    return (
-      <>
-      <header className="header">
+      <div className='header__container container'>
 
-        <div className='header__container container'>
-
-          <div className="">
-            <Link className="" to="/">
-              <h1 className='aniwrapper'>
-                {/* <span id="splitSupHeadline" className="small">{this.state.thePhrase}</span> */}
-                <span id="splitHeadline" className="art__stagger-in">Clifford</span>
-              </h1>
-            </Link>
-          </div>
-
-          <div className="header-nav">
-            <Nav/>
-          </div>
-
+        <div className="">
+          <Link className="" to="/">
+            <h1 className='aniwrapper'>
+              <span id="splitHeadline" className="art__stagger-in">Clifford</span>
+            </h1>
+          </Link>
         </div>
-        
-      </header>
 
-    </>
-    );
-  }
+        <div className="header-nav">
+          <Nav currentPath={currentPath}/>
+        </div>
+
+      </div>
+
+    </header>
+
+  </>
+  );
 }
 
 export default Header;

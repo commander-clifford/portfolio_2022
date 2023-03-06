@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Cover from '../../components/cover/cover';
-// import Blockquote from '../../components/blockquote/blockquote';
-// import { Link } from "react-router-dom";
 import Card from '../../components/card/card';
 import { gsap } from "gsap";
 import './home.scss';

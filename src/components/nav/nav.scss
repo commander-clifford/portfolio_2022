@@ -91,6 +91,8 @@
     &--active {
       text-decoration: underline;
       line-height: 1.2;
+      pointer-events: none;
+      cursor: not-allowed;
     }
   }
 
