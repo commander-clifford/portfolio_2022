@@ -3,7 +3,7 @@ html.projects {
   scroll-snap-type: y mandatory;
 }
 
-.projects {
+article.projects {
   position: relative;
 }
 
@@ -12,28 +12,64 @@ html.projects {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  
-  .project-dot {
-    width: var(--dot-size);
-    display: block;
-    margin: var(--dot-size);
-    border: 4px solid var(--headline-color);
-    border-radius: var(--dot-size);
-    aspect-ratio: 1/1;
-    transition: all 200ms ease-in-out;
+  color: var(--foreground);
+
+  &__inner {
+    // color: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: var(--headline-font);
+    color: inherit;
+
     &:hover {
-      
-      transform: scale(1.5);
-      background-color: var(--headline-color);
+      .project-dot-detail {
+        opacity: 1;
+        color: var(--foreground);
+      }
     }
+
+    .project-dot {
+      width: var(--dot-size);
+      display: block;
+      margin-block: calc(var(--dot-size)/4);
+      margin-inline: calc(var(--dot-size)/2);
+      border: 4px solid var(--headline-color);
+      border-radius: var(--dot-size);
+      aspect-ratio: 1/1;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.5);
+        // background-color: var(--headline-color);
+      }
+
+      &-detail {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: max-content;
+        margin: 0;
+        padding: 0;
+        font-size: 0.6em;
+        color: var(--body-copy-color);
+        opacity: 0;
+      }
+
+    }
+
   }
+
 }
 
 .project-item {
 
   --bg-color-1: hsla(0, 20%, 65%, 0.1);
   --bg-color-2: hsla(0, 20%, 60%, 0.2);
-  
+
   min-height: 100vh;
 
   display: flex;
@@ -43,18 +79,23 @@ html.projects {
 
   padding: calc(91px + 2em) 2em 2em 4em;
   background-attachment: fixed;
-  
+
   background-position: center;
   background-size: cover;
   scroll-snap-align: start;
 
-  > div {
+  &__display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  >div {
     width: 100%;
   }
 
-  &:nth-child(1){
+  &:nth-child(1) {
     margin-top: calc((91px + 2rem)*-1);
   }
 
 }
-

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { createClient } from 'contentful';
 import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
@@ -7,21 +6,18 @@ import { fetchContentfulEntries, fetchContentfulAsset } from './contentfulAPI';
 
 import './App.css';
 
+import ScrollToTop from "./scrollToTop";
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+
 import Home from './pages/home/home';
 import About from './pages/about/about';
 import Resume from './pages/resume/resume';
-import DesignSystem from './pages/design-system/design-system';
 import Projects from './pages/projects/projects';
-import Header from './components/header/header';
+import ProjectsData from './pages/projects/projects-data';
 import Project from './pages/projects/project';
+import DesignSystem from './pages/design-system/design-system';
 
-import Footer from './components/footer/footer';
-
-import ScrollToTop from "./ScrollToTop";
-
-import { projectData } from './data.js';
-import { resumeData } from './data';
-import { educationData } from './data';
 import { sitePaths } from './data';
 import { socialLinks } from './data';
 
@@ -53,7 +49,7 @@ const App = () => {
 
   useEffect(() => {
     if (isLoaded) {
-      // console.log("projectsData ", projectsData)
+      console.log("App -> projectsData ", projectsData)
     }
   }, [isLoaded]);
 
@@ -102,13 +98,10 @@ const App = () => {
                               path='/projects/:projectId'
                               render={({ match }) => {
                                 const { projectId } = match.params; 
-                                console.log("route projectId", projectId);
                                 const project = projectsData.find(project => project.fields?.slug === projectId);
                                 const currentIndex = projectsData.findIndex(project => project.fields?.slug === projectId);
-
                                 const previousProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
                                 const nextProject = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
-                                
                                 return <Project project={project} previousProject={previousProject} nextProject={nextProject} />;
                               }}
                             />
@@ -117,6 +110,14 @@ const App = () => {
                               render={({ ...props }) => {
                                 return (                                  
                                   <Projects {...props} projectsData={projectsData} />
+                                );
+                              }}
+                            />
+                            <Route
+                              path={['/projects-data']}
+                              render={({ ...props }) => {
+                                return (                                  
+                                  <ProjectsData {...props} projectsData={projectsData} />
                                 );
                               }}
                             />

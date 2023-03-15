@@ -59,8 +59,8 @@ const Resume = (props) => {
   return (
     <article className="resume container container-sm">
 
-      <section className="container art__stagger-in art__stagger-out download-link d-flex align-items-center justify-content-center">
-        <a href={resumePdfData?.fields?.file?.url} target="_blank">
+      <section className="art__stagger-in art__stagger-out d-flex align-items-center justify-content-center">
+        <a className='btn' href={resumePdfData?.fields?.file?.url} target="_blank">
           Download the PDF  
         </a>
       </section>
