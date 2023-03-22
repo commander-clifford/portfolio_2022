@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from "gsap";
 import './cover.scss';
-import { fetchContentfulEntries, fetchContentfulAsset } from '../../contentfulAPI';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const Cover = (props) => {
 
-  const [coverData, setCoverData] = useState([]);
-  const [heroImageData, setHeroImageData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
 
-    const fetchData = async () => {
-      try {
+      // get all p elements in the DOM
+      const paragraphs = document.getElementsByTagName('p');
 
-        const coverResponse = await fetchContentfulEntries('cover');
-        const activeCoverData = coverResponse.items.find(obj => obj.fields.active);
-        setCoverData(activeCoverData);
+      // iterate over each p element
+      for (let i = 0; i < paragraphs.length; i++) {
+        // get the text content of the paragraph
+        const text = paragraphs[i].textContent.trim();
 
-        const assetResponse = await fetchContentfulAsset('3KBuOsPb1kmB11a7mZcdDP');
-        setHeroImageData(assetResponse);
+        // split the text into an array of words
+        const words = text.split(' ');
 
-        setIsLoaded(true);
-      
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
+        // check that the paragraph has at least two words
+        if (words.length > 1) {
+          // remove the last word from the array
+          const lastWord = words.pop();
+
+          // join the remaining words back together into a string
+          const remainingText = words.join(' ');
+
+          // add the non-breaking space and the last word back into the string
+          const newText = `${remainingText}&nbsp;${lastWord}`;
+
+          // set the new text content of the paragraph
+          paragraphs[i].innerHTML = newText;
+        }
       }
-    };
 
-    fetchData();
-    
-  }, []);
 
-  useEffect(() => {
-    if (isLoaded) {
       let timeline = new gsap.timeline({
         delay: 1
       });
@@ -51,44 +48,29 @@ const Cover = (props) => {
           opacity: 1
         }
       );
-    }
-  }, [isLoaded]);
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
-
-  // const buildSocialLinks = () => {
-  //   let navItems = props.socialLinks.map((item, key) => 
-  //     <a key={key} className="footer__nav-item" href={item.link} target="_blank">
-  //       <span class="material-symbols-outlined">{item.iconType}</span>
-  //     </a>
-  //   );
-  //   return navItems
-  // }
+    
+  }, []);
 
   return (
-    <div className="cover">
-      <div className="cover__container container">
+    <section className="cover">
+      <div className="cover__container ">
 
         <div id="copy" className="cover__content">
           <div className="cover__copy">
-            {/* <p className='small'>{buildSocialLinks()}</p> */}
             <div className=''>
-              <h4>{coverData?.fields?.title}</h4>
-              <h1>{coverData?.fields?.name}</h1>
-              {documentToReactComponents(coverData?.fields?.brief)}
+              <h4>{props.data?.fields?.title}</h4>
+              <h1>{props.data?.fields?.name}</h1>
+              {documentToReactComponents(props.data?.fields?.description)}
             </div>
           </div>
         </div>
 
         <div className="cover__image">
-          <img src={heroImageData?.fields?.file?.url} alt=""/>
+          <img src={props.data?.fields?.heroImage?.fields?.file?.url} alt=""/>
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };
 

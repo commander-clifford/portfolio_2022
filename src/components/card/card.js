@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './card.scss';
 
-class Card extends Component {
-  
-  componentDidMount(){
+const Card = ({ className = '', data = {} }) => {
+  const { subHeadline = '', headline = '', description = {} } = data;
 
-  }
-
-  render() {
-    return (
-
-      <section className='card nav-card'>
-        <Link className="card__link-wrapper" to={this.props.path}>
-          <div className='card__top'>
-            <i className='circle'></i>
-          </div>
-          <div>
-            {this.props.children}
-          </div>
-        </Link>
-      </section>
-
-    );
-  }
+  return (
+    <div className={`card ${className}`}>
+      {subHeadline && <h5>{subHeadline}</h5>}
+      {headline && <h2>{headline}</h2>}
+      {documentToReactComponents(description)}
+    </div>
+  );
 }
+
+Card.propTypes = {
+  className: PropTypes.string,
+  data: PropTypes.shape({
+    subHeadline: PropTypes.string,
+    headline: PropTypes.string,
+    description: PropTypes.object,
+  }),
+};
 
 export default Card;
