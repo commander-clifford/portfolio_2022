@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
-import { fetchContentfulEntries, fetchContentfulAsset } from './contentfulAPI';
+import { fetchContentfulEntries, fetchContentfulAsset } from './services/contentfulAPI';
 
 import './App.css';
 
@@ -109,7 +109,7 @@ const App = () => {
                               path={['/projects']}
                               render={({ ...props }) => {
                                 return (                                  
-                                  <Projects {...props} projectsData={projectsData} />
+                                  <ProjectsData {...props} projectsData={projectsData} />
                                 );
                               }}
                             />
