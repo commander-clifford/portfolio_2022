@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatDate from './date';
+import FormatDate from '../../components/date';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const ResumeItem = (props) => {
   
