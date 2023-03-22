@@ -1,9 +1,9 @@
 import { createClient } from 'contentful';
 
 const CONFIG = {
-  space: '7ajvyg0idzck',
-  accessToken: 'MVz7rhZtdN20AXA0K4WGHdKV2H3imbv9B8PtmjBdF8I',
-  accessPreviewToken: 'LoVFKsPlKMSbwOKCLp015dfSWIuJ6YhxHJECAERJF-Y',
+  space: 'xxx',
+  accessToken: 'xxx',
+  accessPreviewToken: 'xxx',
 }
 
 const client = createClient({
@@ -15,8 +15,7 @@ export function fetchContentfulEntries(content_type, order_by, limit) {
   const entries = client.getEntries({
     content_type: content_type,
     order: order_by,
-    limit: limit ? limit : 9,
-    include: 2
+    limit: limit,
   });
   return entries;
 }

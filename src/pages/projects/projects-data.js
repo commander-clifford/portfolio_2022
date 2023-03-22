@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries } from '../../contentfulAPI';
+import { fetchContentfulEntries } from '../../services/contentfulAPI';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import FormatDate from '../../components/date';
 import { Link, useHistory } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries, fetchContentfulAsset } from '../../contentfulAPI';
+import { fetchContentfulEntries, fetchContentfulAsset } from '../../services/contentfulAPI';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const About = (props) => {

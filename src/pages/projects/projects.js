@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries } from '../../contentfulAPI';
+import { fetchContentfulEntries } from '../../services/contentfulAPI';
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';

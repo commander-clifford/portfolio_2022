@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './resume.scss';
-import { fetchContentfulEntries, fetchContentfulAsset } from '../../contentfulAPI';
+import { fetchContentfulEntries, fetchContentfulAsset } from '../../services/contentfulAPI';
 import ResumeItem from '../../components/resume-item';
 
 const Resume = (props) => {
