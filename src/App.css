@@ -5,6 +5,7 @@
 :root {
 
   /* Constants */
+  --bs-gutter-x: 2rem;
   
   /* fonts */
   --body-font: 'Noto Serif JP', serif;

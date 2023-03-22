@@ -3,28 +3,30 @@
 .cover {
   --cover-copy-color: var(--gray-1);
   --cover-bg-color: var(--gray-0);
+  
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-3);
-  background-color: var(--cover-bg-color);
+  // background-color: var(--cover-bg-color);
   color: var(--cover-copy-color);
   box-shadow: var(--shadow-3);
 
   a { color: inherit; }
 
   &__container {
-    min-height: #{"min(56.25vw, 600px)"};
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    // min-height: #{"min(56.25vw, 600px)"};
+    // 
+    // grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
     text-align: center;
     > * {
-      height: 100%;
+      // height: 100%;
     }
     @media screen and (min-width: 576px){ /* SM */ 
+      display: grid;
       grid-template-columns: 1fr 1.61fr;
       grid-template-rows: none;
     }
@@ -41,26 +43,28 @@
     justify-content: center;
   }
   &__image {
-    box-shadow: -0.5rem 0 1.5rem rgba(37, 38, 39, 0.2);
     display: flex;
     justify-content: center;
+    background-color: var(--cover-bg-color);
+    box-shadow: -0.5rem 0 1.5rem rgba(37, 38, 39, 0.2);
     img {
       max-width: 100%;
+      max-width: #{"min(100%, 680px)"};
       height: auto;
-      max-width: 680px;
     }
   }
   &__copy {
-    height: 100%;
+    // height: 100%;
     display: flex;
     justify-content: center;
     // justify-content: space-between;
-    padding: 3rem;
+    padding: 6rem 1rem 4rem;
+    
     flex-flow: column;
 
     h1 {
       margin-block: 0.5rem 3rem;
-      font-size: clamp(3rem, 4vw, 7rem);
+      font-size: clamp(5rem, 4vw, 8rem);
       text-shadow:
         -1px 1px 0 var(--gray-400),
         -2px 2px 0 var(--gray-500),
@@ -81,21 +85,21 @@
     h4 {
       --accent-width: 4em;
       --accent-gap: 1em;
-
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: inherit;
-      font-weight: 100;
-      font-size: 1em;
       position: relative;
       display: inline;
+      font-size: 1em;
+      font-weight: 100;
+
+      text-transform: uppercase;
+      color: inherit;
+      letter-spacing: 0.1em;
       &::before, &::after {
-        content: "";
         position: absolute;
         top: 50%;
-        height: 1px;
         width: var(--accent-width);
+        height: 1px;
         background-color: var(--cover-copy-color);
+        content: "";
       }
       &::before {
         left: calc( (var(--accent-width) + var(--accent-gap)) * -1);
@@ -107,9 +111,19 @@
 
     p {
       font-size: 1.15em;
-      padding-inline: 4em
+      // padding-inline: 4em;
     }
-    @include primary-gradient();
+
+    @media screen and (min-width: 576px){
+      padding: 3rem;/* SM */
+    }
+    @media screen and (min-width: 768px){/* MD */}
+    @media screen and (min-width: 992px){/* LG */}
+    @media screen and (min-width: 1024px){/* ~LG */}
+    @media screen and (min-width: 1025px){/* CMS-LG */}
+    @media screen and (min-width: 1200px){/* XL */}
+    @media screen and (min-width: 1400px){/* XXL */}
+    
   }
   
 
@@ -135,6 +149,8 @@
         -20px 20px 20px var(--black-t10);
     }
   }
+
+  @include primary-gradient();
 
 
   
