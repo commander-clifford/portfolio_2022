@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Wrapper from '../../components/wrapper';
-import Cover from '../../components/cover/cover';
-import Card from '../../components/card/card';
-import { fetchContentfulEntries } from '../../services/contentfulAPI';
+import { fetchContentfulEntries, getContentfulComponents } from '../../services/contentfulAPI';
 import './home.scss';
 
 const Home = (props) => {
@@ -29,7 +26,7 @@ const Home = (props) => {
     
   }, []);
 
-  const components = getComponents(pageData);
+  const components = getContentfulComponents(pageData);
 
   return (
     <article className='home'>
@@ -39,24 +36,3 @@ const Home = (props) => {
 }
 
 export default Home;
-
-export const getComponents = (pageData) => {
-  return pageData.fields?.sections.map((section, i) => {
-
-    const componentType = section?.sys?.contentType?.sys?.id;
-
-    if (componentType === "cover") {
-      return <Cover key={i} data={section} />;
-    } else if (componentType === "wrapper") {
-      return (
-        <Wrapper key={i}>
-          {section?.fields?.sections.map((subSection, j) => (
-            <Card key={j} data={subSection.fields} />
-          ))}
-        </Wrapper>
-      );
-    } else {
-      return null;
-    }
-  });
-};

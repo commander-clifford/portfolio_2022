@@ -1,9 +1,9 @@
 import React from 'react';
 const Wrapper = ({children}) => {
   return (
-    <section className="wrapper">
+    <div className="wrapper">
       {children}
-    </section>
+    </div>
   );
 };
 export default Wrapper;
