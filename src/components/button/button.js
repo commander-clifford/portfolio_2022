@@ -2,22 +2,18 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './button.scss';
 
-const Button = ({ children, to, target, className }) => {
-
+const Button = ({ data = {} }) => {
+  
+  const { classNames, link, copy } = data;
   const history = useHistory();
-
-  const handleButtonClick = (event, path) => {
+  const handleButtonClick = (event) => {
     event.preventDefault();
-    if(target === "_blank" || target === "blank"){
-      window.open(path, '_blank');
-    } else {
-      history.push(path);
-    }
+    history.push(link);
   };
 
   return (
-    <button className={'btn ' + className} onClick={(event) => handleButtonClick(event, to)}>
-      {children}
+    <button className={'btn ' + classNames} onClick={handleButtonClick}>
+      {copy}
     </button>
   );
 };

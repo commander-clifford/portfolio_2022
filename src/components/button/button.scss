@@ -1,0 +1,41 @@
+body main .btn {
+  transform: translateY(0);
+  transition: 200ms all ease-in-out;
+  box-shadow: none;
+  color: white !important;
+
+  // Button Sizes
+  &-lg {
+    padding: 0.5em 1em;
+    font-size: 2rem;
+    border-radius: 0.3em;
+  }
+
+  // Button Hierarchy (Colors)
+  &-primary {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    &:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0px 6px 0px 0px var(--headline-color);
+    }
+    &:focus {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      outline: 2px solid var(--accent) !important;
+    }
+  }
+
+  // A11y States
+  &:hover {
+    transform: translateY(-6px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  &:focus {
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+}

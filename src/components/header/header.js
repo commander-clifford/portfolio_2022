@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from "gsap";
 import SplitTextJS from 'split-text-js';
 import './header.scss';
-import { sitePaths } from './../../data';
 import Nav from "../nav/nav";
 import { Link } from "react-router-dom";
 
 function Header(props) {
-  const allPaths = sitePaths.map(title => title.path);
-  const phrases = sitePaths.map(title => title.phrase);
+
   const currentPath = props.path;
-  const [thePhrase, setThePhrase] = useState(phrases[allPaths.indexOf(currentPath)]);
-
-  useEffect(() => {
-    updateHeaderPhrase();
-  }, [props]);
-
-  const updateHeaderPhrase = () => {
-    setThePhrase(phrases[allPaths.indexOf(props.path)]);
-  }
 
   useEffect(() => {
     let splitHeadline = document.getElementById("splitHeadline");

@@ -55,7 +55,7 @@
       @media screen and (min-width: 576px){ /* SM */
         display: flex;
         justify-content: space-between;
-        align-items: end;
+        align-items: flex-end;
       }
     }
     &__badges {

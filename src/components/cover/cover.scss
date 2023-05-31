@@ -10,6 +10,7 @@
   // background-color: var(--cover-bg-color);
   color: var(--cover-copy-color);
   box-shadow: var(--shadow-3);
+  margin-block: var(--component-gap);
 
   a { color: inherit; }
 
@@ -26,12 +27,12 @@
       // height: 100%;
     }
     @media screen and (min-width: 576px){ /* SM */ 
+      
+    }
+    @media screen and (min-width: 768px){ /* MD */ 
       display: grid;
       grid-template-columns: 1fr 1.61fr;
       grid-template-rows: none;
-    }
-    @media screen and (min-width: 768px){ /* MD */ 
-      
     }
     @media screen and (min-width: 992px){ /* LG */ }
     @media screen and (min-width: 1024px){ /* ~LG */ }
@@ -64,7 +65,7 @@
 
     h1 {
       margin-block: 0.5rem 3rem;
-      font-size: clamp(5rem, 4vw, 8rem);
+      font-size: clamp(4rem, 4vw, 7rem);
       text-shadow:
         -1px 1px 0 var(--gray-400),
         -2px 2px 0 var(--gray-500),
@@ -83,11 +84,11 @@
       max-inline-size: none;
     }
     h4 {
-      --accent-width: 4em;
-      --accent-gap: 1em;
+      --accent-width: 1em;
+      --accent-gap: 0.5em;
       position: relative;
       display: inline;
-      font-size: 1em;
+      font-size: clamp(1em, 1vw, 1.2em);
       font-weight: 100;
 
       text-transform: uppercase;

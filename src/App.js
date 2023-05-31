@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
-import { fetchContentfulEntries, fetchContentfulAsset } from './services/contentfulAPI';
+import { fetchContentfulEntries } from './services/contentfulAPI';
 
 import './App.css';
 
@@ -16,6 +16,7 @@ import Resume from './pages/resume/resume';
 import Projects from './pages/projects/projects';
 import ProjectsData from './pages/projects/projects-data';
 import Project from './pages/projects/project';
+import Page from './pages/page';
 import DesignSystem from './pages/design-system/design-system';
 
 import { sitePaths } from './data';
@@ -25,12 +26,14 @@ const App = () => {
 
   const [projectsData, setProjectsData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [currentPath, setCurrentPath] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+
+        const pageResponse = await fetchContentfulEntries('page');
+        console.log("pageResponse",pageResponse);
 
         const projectsResponse = await fetchContentfulEntries('project');
         setProjectsData(projectsResponse.items);
@@ -40,7 +43,7 @@ const App = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+
       }
     };
   
@@ -51,7 +54,7 @@ const App = () => {
     if (isLoaded) {
       console.log("App -> projectsData ", projectsData)
     }
-  }, [isLoaded]);
+  }, [isLoaded, projectsData]);
 
   return (
     <div className="app">
@@ -79,7 +82,7 @@ const App = () => {
                             <Route
                               exact path={['/']}
                               render={({ ...props }) => {
-                                return <Home {...props} sitePaths={sitePaths} socialLinks={socialLinks} />
+                                return <Home {...props} />
                               }}
                             />
                             <Route
@@ -109,7 +112,7 @@ const App = () => {
                               path={['/projects']}
                               render={({ ...props }) => {
                                 return (                                  
-                                  <ProjectsData {...props} projectsData={projectsData} />
+                                  <Projects {...props} projectsData={projectsData} />
                                 );
                               }}
                             />
@@ -130,7 +133,7 @@ const App = () => {
                             <Route
                               path={'*'}
                               render={({ ...props }) => {
-                                return <Home {...props} sitePaths={sitePaths} socialLinks={socialLinks}/>
+                                return <Page {...props} slug="404"/>
                               }}
                             />
                         </Switch>

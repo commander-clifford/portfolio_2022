@@ -5,21 +5,26 @@
   padding: var(--size-9);
   text-decoration: none;
   color: var(--p-foreground);
+  font-family: var(--headline-font);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
   &__container {
-    display: flex;
-    gap: var(--size-12);
-    justify-content: flex-end;
+    // display: flex;
+    // gap: var(--size-12);
+    // justify-content: center;
   }
 
-  &__nav-items {
+  &__items {
+    margin-block: var(--size-8);
     display: flex;
-    flex-direction: column;
-    gap: var(--size-4);
+    flex-direction: row;
+    gap: var(--size-8);
     justify-content: center;
   }
 
-  a {
+  a,
+  a:visited {
     text-decoration: inherit;
     color: inherit;
   }

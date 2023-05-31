@@ -16,6 +16,10 @@
 //     linear-gradient(336deg, hsl(340°, 100%, 40%), transparent 80%);
 // }
 
+@mixin rounded(){
+  border-radius: var(--radius-3);
+  padding: var(--radius-4);
+}
 @mixin primary-gradient(){
   background-attachment: fixed;
   background-color: var(--red-600);

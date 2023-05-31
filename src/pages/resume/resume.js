@@ -9,7 +9,7 @@ const Resume = (props) => {
   const [educationData, setEducationData] = useState([]);
   const [resumePdfData, setResumePdfData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +29,7 @@ const Resume = (props) => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
   
@@ -43,24 +43,24 @@ const Resume = (props) => {
     }
   }, [isLoaded]);
 
-  const formatDate = (dateString) => {
-    if(!dateString){ return 'PRESENT' }
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const monthIndex = date.getMonth();
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June", 
-      "July", "August", "September", "October", "November", "December"
-    ];
-    const monthName = monthNames[monthIndex];
-    return `${monthName} ${year}`;
-  };
+  // const formatDate = (dateString) => {
+  //   if(!dateString){ return 'PRESENT' }
+  //   const date = new Date(dateString);
+  //   const year = date.getFullYear();
+  //   const monthIndex = date.getMonth();
+  //   const monthNames = [
+  //     "January", "February", "March", "April", "May", "June", 
+  //     "July", "August", "September", "October", "November", "December"
+  //   ];
+  //   const monthName = monthNames[monthIndex];
+  //   return `${monthName} ${year}`;
+  // };
   
   return (
     <article className="resume container container-sm">
 
-      <section className="art__stagger-in art__stagger-out d-flex align-items-center justify-content-center">
-        <a className='btn' href={resumePdfData?.fields?.file?.url} target="_blank">
+      <section className="container art__stagger-in art__stagger-out d-flex align-items-center justify-content-center">
+        <a className='btn btn-primary btn-lg' href={resumePdfData?.fields?.file?.url} target="_blank" rel="noreferrer" role="button">
           Download the PDF  
         </a>
       </section>

@@ -8,15 +8,17 @@
   --bs-gutter-x: 2rem;
   
   /* fonts */
-  --body-font: 'Noto Serif JP', serif;
+  /* --body-font: 'Noto Serif JP', serif; */
+  --body-font: 'Open Sans', sans-serif;
   --headline-font: 'Oswald', sans-serif;
   --quote-font: 'Amaranth', sans-serif;
 
   --primary-gap: var(--size-4);
+  --component-gap: var(--size-10);
 
   --constant-white: hsl(210, 17%, 95%);
 
-  --foreground: var(--text-1);
+  --foreground: #333333;
   --p-foreground: var(--gray-1);
   --link-visited: var(--foreground);
 
@@ -33,7 +35,7 @@
   --background-secondary-200: var(--gray-7);
   --background-secondary-300: var(--gray-7);
 
-  --headline-color: var(--red-700);
+  --headline-color: var(--red-800);
   --accent-rev: var(--red-500);
   --accent: var(--red-600);
   --primary-gradient: var(--primary-gradient-light);
@@ -75,24 +77,22 @@ body {
   margin: 0;
   font-family: var(--body-font);
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 400;
   background-color: var(--background);
   color: var(--foreground);
 }
 
 main {
-  /* padding-top: 2rem; */
   position: relative;
-  min-height: 100vh;
-  margin-top: calc(91px + 2rem); /* header height */
+  /* 91px is a magic number == header height */
+  margin-top: calc(91px + var(--component-gap)); 
 }
 
-main>article>section:first-child>*:first-child {
+main > article > section:first-child > *:first-child {
   margin-top: 0;
 }
 
-/* Hack to keep Cover on top on home page during router animation */
-article > section:first-of-type {
+article > section {
   position: relative;
   z-index: 1;
 }
@@ -101,12 +101,8 @@ article.container-sm {
   max-width: 720px;
 }
 
-article>section.container {
-  margin-top: 3rem;
-}
-
-article>section.container:first-of-type {
-  margin-top: 0;
+article > section.container {
+  margin-block: var(--component-gap);
 }
 
 .container-sm {
@@ -190,7 +186,7 @@ code {
 
 blockquote {
   display: block;
-  margin-block: var(--size-10);
+  margin-block: var(--component-gap);
   border: none;
   border-radius: 2rem;
   font-family: var(--quote-font);
@@ -199,6 +195,10 @@ blockquote {
   text-align: center;
   background-color: var(--background-100);
   max-inline-size: 720px;
+}
+
+.rounded {
+  border-radius: var(--radius-3) !important;
 }
 
 ::selection {

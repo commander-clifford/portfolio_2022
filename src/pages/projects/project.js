@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Link } from 'react-router-dom';
 import './project.scss';
@@ -19,20 +19,41 @@ const ProjectDetails = (props) => {
           <h1>{props.project?.fields?.title}</h1>
           <p>{props.project?.fields?.subtitle}&nbsp;<i>{props.project?.fields?.originalCreationDate}</i></p>
         </div>
+
+
+
+{/* TODO: this is it's own component */}
         <nav className='project-nav'>
-          {props.previousProject?.fields?.slug ? 
-            <Link to={'/projects/' + props.previousProject?.fields?.slug}>Previous: {props.previousProject?.fields?.title}</Link>
-          : <span>Previous</span> }
+
           <Link to="/projects">All Projects</Link>
+
+          &nbsp;
+          &nbsp;
+          &nbsp;
+
+          {props.previousProject?.fields?.slug ? 
+            <Link className={'back'} to={'/projects/' + props.previousProject?.fields?.slug}>PREV {props.previousProject?.fields?.title}</Link>
+          : null }
+
+          &nbsp;
+          &nbsp;
+          &nbsp;
+
           {props.nextProject?.fields?.slug ? 
-            <Link to={'/projects/' + props.nextProject?.fields?.slug}>Next: {props.nextProject?.fields?.title}</Link> 
-          : <span>Next</span> }
+            <Link to={'/projects/' + props.nextProject?.fields?.slug} className={'next'}>{props.nextProject?.fields?.title} NEXT</Link> 
+          : null }
+
+
         </nav>
+
+
+
+
       </header>
 
       <div>
-        <img src={props.project?.fields?.heroImage?.fields?.file?.url} />
-        <img src={props.project?.fields?.hero?.fields?.file?.url} />
+        <img alt="placeholder" src={props.project?.fields?.heroImage?.fields?.file?.url} />
+        <img alt="placeholder" src={props.project?.fields?.hero?.fields?.file?.url} />
       </div>
       
       <div>{documentToReactComponents(props.project?.fields?.briefDescription)}</div>
@@ -62,9 +83,35 @@ const ProjectDetails = (props) => {
         <div key={i}>
           <h2>{section?.fields?.title}</h2>
           {documentToReactComponents(section?.fields?.content)}
-          <img src={section?.fields?.img?.fields?.file?.url} />
+          <img alt="placeholder" src={section?.fields?.img?.fields?.file?.url} />
         </div>
       ))}
+
+      <footer>
+        {/* TODO: this is it's own component */}
+        <nav className='project-nav'>
+
+          <Link to="/projects">All Projects</Link>
+
+          &nbsp;
+          &nbsp;
+          &nbsp;
+
+          {props.previousProject?.fields?.slug ? 
+            <Link className={'back'} to={'/projects/' + props.previousProject?.fields?.slug}>PREV {props.previousProject?.fields?.title}</Link>
+          : null }
+
+          &nbsp;
+          &nbsp;
+          &nbsp;
+
+          {props.nextProject?.fields?.slug ? 
+            <Link to={'/projects/' + props.nextProject?.fields?.slug} className={'next'}>{props.nextProject?.fields?.title} NEXT</Link> 
+          : null }
+
+
+        </nav>
+      </footer>
       
     </section>
 

@@ -388,7 +388,7 @@ export const sitePaths =
     iconType: "home"
     },
     {
-    title: "My Instagram",
+    title: "Instagram",
     link : "https://www.instagram.com/highestcliff/",
     iconType: "settings"
     },

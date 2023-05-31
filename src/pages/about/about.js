@@ -1,48 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries, fetchContentfulAsset } from '../../services/contentfulAPI';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { fetchContentfulEntries, getContentfulComponents } from '../../services/contentfulAPI';
+
 
 const About = (props) => {
 
-  const [aboutData, setAboutData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [pageData, setPageData] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
+
     const fetchData = async () => {
       try {
 
-        const aboutDataResponse = await fetchContentfulEntries('aboutPage');
-        setAboutData(aboutDataResponse.items);
-
-        setIsLoaded(true);
+        const contentfulPageEntries = await fetchContentfulEntries('page');
+        const pageDataResponse = contentfulPageEntries.items.find(obj => obj.fields.slug === 'about');
+        setPageData(pageDataResponse);
 
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+
       }
     };
   
     fetchData();
+
   }, []);
 
-    useEffect(() => {
-    if (isLoaded) {
-      console.log("AboutPage", aboutData);
-    }
-  }, [isLoaded]);
+  const components = getContentfulComponents(pageData);
 
   return (
     <article className="about container container-sm">
 
-      <section className="art__stagger-in art__stagger-out">
-        <h1 className="w-border ">About Me</h1>
-      </section>
-
-      {aboutData.map((item, i) => 
-        <section className="art__stagger-in art__stagger-out" key={i}>{documentToReactComponents(item?.fields?.description)}</section>
-      )}
+      {components}
 
     </article>
   );

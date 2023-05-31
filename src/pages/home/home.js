@@ -11,9 +11,9 @@ const Home = (props) => {
     const fetchData = async () => {
       try {
 
-        const pageDataResponse = await fetchContentfulEntries('page');
-        const homePageDataResponse = pageDataResponse.items.find(obj => obj.fields.slug === 'home');
-        setPageData(homePageDataResponse);
+        const contentfulPageEntries = await fetchContentfulEntries('page');
+        const pageDataResponse = contentfulPageEntries.items.find(obj => obj.fields.slug === 'home');
+        setPageData(pageDataResponse);
       
       } catch (error) {
         console.error(error);
@@ -29,8 +29,10 @@ const Home = (props) => {
   const components = getContentfulComponents(pageData);
 
   return (
-    <article className='home'>
+    <article className='home container'>
+
       {components}
+      
     </article>
   );
 }

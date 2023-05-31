@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { fetchContentfulEntries } from '../../services/contentfulAPI';
-import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import FormatDate from '../../components/date';
 import Button from '../../components/button/button';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './projects.scss';
 
 const Projects = () => {
 
   const [projectsData, setProjectsData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  let navDots = [];
-  let oldSlide = 0;
-  let activeSlide = 0;
-  let dur = 0.6;
+  // let navDots = [];
+  // let oldSlide = 0;
+  // let activeSlide = 0;
+  // let dur = 0.6;
 
   useEffect(() => {
 
@@ -32,7 +32,7 @@ const Projects = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
     
@@ -51,9 +51,9 @@ const Projects = () => {
 
       // console.log("projectsData", projectsData);
 
-      const projectsContainer = document.getElementById("projects-container");
-      const projectItems = document.querySelectorAll("section.project-item");
-      let dots = document.querySelector(".project-dots");
+      // const projectsContainer = document.getElementById("projects-container");
+      // const projectItems = document.querySelectorAll("section.project-item");
+      // let dots = document.querySelector(".project-dots");
 
       // gsap.registerPlugin(ScrollTrigger);
 
@@ -119,24 +119,25 @@ const Projects = () => {
   };
 
   
-  const history = useHistory();
-  const HandleLinkClick = (event, path, target) => {
-    event.preventDefault();
-    if(target === "_blank" || target === "blank"){
-      window.open(path, '_blank');
-    } else {
-      history.push(path);
-    }
-  };
+  // const history = useHistory();
+
+  // const HandleLinkClick = (event, path, target) => {
+  //   event.preventDefault();
+  //   if(target === "_blank" || target === "blank"){
+  //     window.open(path, '_blank');
+  //   } else {
+  //     history.push(path);
+  //   }
+  // };
 
   
 
   return (
     <article className="projects">
 
-      <div className="project-dots">
+      {/* <aside className="project-dots">
         {renderDots()}
-      </div>
+      </aside> */}
 
       <div id='projects-container' className='projects-container container'>
 
@@ -144,16 +145,27 @@ const Projects = () => {
           return (
             <section key={i} id={data?.fields?.slug} className="project-item panel art__stagger-in art__stagger-out">
 
+              <div className="project-item__display">
+                <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
+                {/* {data?.fields?.liveUrl ? 
+                  <Button className="primary" to={data.fields.liveUrl} target="_blank" >
+                    Visit Demo
+                  </Button>
+                : null } */}
+              </div>
+
               <div className='project-item__details'>
 
                 <div className="project-item__headline-block">
-                  <h2 className="headline">{data?.fields?.title}</h2>
-                  <div className='d-flex flex-row'><p>#{i+1}</p><FormatDate date={data?.fields?.originalCreationDate}/></div>
+                  <div>
+                    <h2 className="headline">{data?.fields?.title}</h2>
+                    <div className='d-flex flex-row'><FormatDate date={data?.fields?.originalCreationDate}/></div>
+                  </div>
                 </div>
                 
                 <div className="d-flex align-items-center">
                   <h5 className="headline">{data?.fields?.subtitle}</h5>
-                  <Link to={"/projects/" + data?.fields?.slug}>See More</Link>
+                  {/* <Link to={"/projects/" + data?.fields?.slug}>See More</Link> */}
                 </div>
                 
                 <div className="project-item__description p-indent">
@@ -162,20 +174,12 @@ const Projects = () => {
                   {data?.fields?.projectTags}
                 </div>
                 
-                <Button className="primary" to={"/projects/" + data?.fields?.slug} >
-                  See More
-                </Button>
+                {/* <Button copy={"See More"} className="primary" to={"/projects/" + data?.fields?.slug} /> */}
+                <Link to={"/projects/" + data?.fields?.slug}>See More</Link>
 
               </div>
               
-              <div className="project-item__display">
-                <img src={data?.fields?.heroImage?.fields?.file?.url} />
-                {/* {data?.fields?.liveUrl ? 
-                  <Button className="primary" to={data.fields.liveUrl} target="_blank" >
-                    Visit Demo
-                  </Button>
-                : null } */}
-              </div>
+
 
             </section>
           );

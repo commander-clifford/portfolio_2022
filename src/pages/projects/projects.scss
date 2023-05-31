@@ -3,74 +3,49 @@ html.projects {
   scroll-snap-type: y mandatory;
 }
 
-article.projects {
+.projects {  
   position: relative;
 }
 
-.project-dots {
-  --dot-size: 0.8em;
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--foreground);
+// .project-dots {
+//   --dot-size: 4px;
+//   position: sticky;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   color: var(--foreground);
 
-  &__inner {
-    // color: inherit;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    font-family: var(--headline-font);
-    color: inherit;
+//   ul {
+//     padding-left: 0;
+//     li {
+//       padding-left: 0;
+//       list-style-type: none;
+//     }
+//   }
 
-    &:hover {
-      .project-dot-detail {
-        opacity: 1;
-        color: var(--foreground);
-      }
-    }
+//   .dot-link {
+//     text-decoration: none;
+//   }
 
-    .project-dot {
-      width: var(--dot-size);
-      display: block;
-      margin-block: calc(var(--dot-size)/4);
-      margin-inline: calc(var(--dot-size)/2);
-      border: 4px solid var(--headline-color);
-      border-radius: var(--dot-size);
-      aspect-ratio: 1/1;
-      transition: all 200ms ease-in-out;
+//   &__inner {
+//     // color: inherit;
+//     position: relative;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     margin: 0;
+//     padding: 0;
+//     color: inherit;
 
-      &:hover {
-        transform: scale(1.5);
-        // background-color: var(--headline-color);
-      }
+//   }
 
-      &-detail {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: max-content;
-        margin: 0;
-        padding: 0;
-        font-size: 0.6em;
-        color: var(--body-copy-color);
-        opacity: 0;
-      }
-
-    }
-
-  }
-
-}
+// }
 
 .project-item {
 
   --bg-color-1: hsla(0, 20%, 65%, 0.1);
   --bg-color-2: hsla(0, 20%, 60%, 0.2);
 
-  min-height: 100vh;
+  // min-height: 100vh;
 
   display: flex;
   flex-direction: row;
@@ -82,7 +57,7 @@ article.projects {
 
   background-position: center;
   background-size: cover;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
 
   &__display {
     display: flex;
@@ -90,8 +65,12 @@ article.projects {
     align-items: center;
   }
 
-  >div {
+  > div {
     width: 100%;
+  }
+
+  &__details {
+    margin-left: var(--size-10);
   }
 
   &:nth-child(1) {
