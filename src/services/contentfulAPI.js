@@ -2,6 +2,7 @@ import { createClient } from 'contentful';
 import Band from '../components/band/band';
 import Cover from '../components/cover/cover';
 import Button from '../components/button/button';
+import Spotlight from '../components/spotlight/spotlight';
 import Card from '../components/card/card';
 import Text from '../components/text/text';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -77,7 +78,13 @@ export const getContentfulComponents = (pageData) => {
                 return (
                   <Button key={j} data={item?.fields} />
                 );
-              } else 
+              } else
+              
+              if (componentType === "spotlight") {
+                return (
+                  <Spotlight key={j} data={item?.fields} />
+                );
+              } else
               
               {
                 return null; // or render some other component for unknown component types

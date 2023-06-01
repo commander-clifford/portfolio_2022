@@ -1,0 +1,22 @@
+.spotlight {
+
+  @media screen and (min-width: 576px){/* SM */}
+  @media screen and (min-width: 768px){/* MD */}
+  @media screen and (min-width: 992px){ /* LG */
+    &__container {
+      display: flex;
+      gap: var(--size-10);
+    }
+    &__image {
+  
+    }
+    &__content {
+  
+    }
+  }
+  @media screen and (min-width: 1024px){/* ~LG */}
+  @media screen and (min-width: 1025px){/* CMS-LG */}
+  @media screen and (min-width: 1200px){/* XL */}
+  @media screen and (min-width: 1400px){/* XXL */}
+
+}
