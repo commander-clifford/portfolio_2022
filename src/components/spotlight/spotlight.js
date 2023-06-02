@@ -7,7 +7,18 @@ const Spotlight = ({ data = {} }) => {
 
   console.log("Spotlight", data);
 
-  const { content = '', image = '' } = data;
+  const { content = '', height = '', image = '' } = data;
+
+  const heightMapping = {
+    'Level 0': 'shadow-none',
+    'Level 1': 'shadow-sm',
+    'Level 2': 'shadow',
+    'Level 3': 'shadow-lg'
+  };
+
+  const formattedHeight = heightMapping[height] || '';
+
+  const classes = ['spotlight card', formattedHeight].filter(Boolean).join(' ');
 
   useEffect(() => {
 
@@ -16,7 +27,7 @@ const Spotlight = ({ data = {} }) => {
   }, []);
 
   return (
-    <section className="spotlight">
+    <section className={classes}>
       <div className="spotlight__container">
 
         <div className="spotlight__image">
