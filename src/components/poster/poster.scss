@@ -1,0 +1,80 @@
+@import './../../mixins';
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  
+  border: 1px solid var(--background);
+  @include rounded;
+  background: var(--background);
+  flex-basis: var(--size-content-1);
+  box-shadow: var(--shadow-3);
+  flex-basis: 100%;
+  overflow-inline: hidden;
+
+  // centered by default
+  text-align: center;
+  align-items: center;
+
+  &.flat {
+    box-shadow: none;
+  }
+
+  h2 {
+    margin-block: 0.25em 0.75em;
+  }
+  h5 {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 100;
+    // &::before, &::after {
+    //   position: absolute;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   width: 100%;
+    //   height: 0.15em;
+    //   background-color: currentColor;
+    //   content: "";
+    // }
+    // &::before {
+    //   right: calc(100% + 1em);
+    // }
+    // &::after {
+    //   left: calc(100% + 1em);
+    // }
+  }
+
+  a { text-decoration: none; }
+
+  &__link-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: var(--size-10) var(--size-8);
+  }
+
+  &__title {
+    margin-bottom: var(--size-4);
+    padding-bottom: var(--size-4);
+    border-bottom: 1px solid var(--background-300);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--size-8);
+  }
+
+  .circle {
+    width: var(--size-12);
+    height: var(--size-12);
+    display: block;
+    border-radius: 50%;
+    background-color: var(--background-300);
+  }
+}
+
+
+
+
+
