@@ -1,5 +1,6 @@
 import React from 'react';
 import FormatDate from '../../components/date';
+import Tag from '../../components/tag/tag';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const ResumeItem = (props) => {
   
@@ -27,7 +28,7 @@ const ResumeItem = (props) => {
           <div className="resume-item__badges">
             <div className="wrapper">
               {props.item.tags.map((tag, j) =>
-                <span key={j} className={tag.type ? (tag.type + " badge") : "badge"}>{tag.title}</span>
+                <Tag key={j} classy={tag.type ? tag.type : "ERROR"}>{tag.title}</Tag>
               )}
             </div>
           </div>
