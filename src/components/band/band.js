@@ -8,7 +8,13 @@ const Band = ({ children, data= {} }) => {
 
   const { classNames, title } = data;
 
-  const formattedTitle = title.toLowerCase().replace(/\s+/g, '-');
+  const formattedTitle = title ? (
+    title
+      .toLowerCase()
+      .replace(/\W+/g, ' ') // replace non-alphanumeric chars with space
+      .trim() // remove trailing spaces
+      .replace(/\s+/g, '-')) // replace spaces with hyphen
+    : '';
 
   const classes = ['band'];
   if (classNames) classes.push(classNames);
@@ -30,4 +36,3 @@ Band.propTypes = {
 };
 
 export default Band;
- 
