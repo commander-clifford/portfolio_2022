@@ -4,6 +4,7 @@ import Cover from '../components/cover/cover';
 import Button from '../components/button/button';
 import Spotlight from '../components/spotlight/spotlight';
 import Card from '../components/card/card';
+import Poster from '../components/poster/poster';
 import Text from '../components/text/text';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { CONFIG } from './config.js';
@@ -72,7 +73,13 @@ export const getContentfulComponents = (pageData) => {
                 return (
                   <Card key={j} data={item?.fields} />
                 );
-              } else 
+              } else
+              
+              if (componentType === "poster") {
+                return (
+                  <Poster key={j} data={item?.fields} />
+                );
+              } else
               
               if (componentType === "button") {
                 return (
