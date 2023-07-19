@@ -9,7 +9,13 @@ const Resume = (props) => {
   const [educationData, setEducationData] = useState([]);
   const [resumePdfData, setResumePdfData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const buttonData = {
+    classNames: 'btn btn-lg',  // replace with your custom class name
+    link: resumePdfData?.fields?.file?.url,  // replace with your custom link
+    copy: 'Download',  // replace with your button text
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +35,7 @@ const Resume = (props) => {
       } catch (error) {
         console.error(error);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
   
@@ -42,30 +48,17 @@ const Resume = (props) => {
 
     }
   }, [isLoaded]);
-
-  // const formatDate = (dateString) => {
-  //   if(!dateString){ return 'PRESENT' }
-  //   const date = new Date(dateString);
-  //   const year = date.getFullYear();
-  //   const monthIndex = date.getMonth();
-  //   const monthNames = [
-  //     "January", "February", "March", "April", "May", "June", 
-  //     "July", "August", "September", "October", "November", "December"
-  //   ];
-  //   const monthName = monthNames[monthIndex];
-  //   return `${monthName} ${year}`;
-  // };
   
   return (
-    <article className="resume container container-sm">
+    <article className="resume container">
 
-      <section className="container art__stagger-in art__stagger-out d-flex align-items-center justify-content-center">
-        <a className='btn btn-primary btn-lg' href={resumePdfData?.fields?.file?.url} target="_blank" rel="noreferrer" role="button">
-          Download the PDF  
+      <section className="container d-flex align-items-end justify-content-end">
+        <a className='btn btn-secondary btn-md' href={resumePdfData?.fields?.file?.url} target="_blank" rel="noreferrer" role="button">
+          Download resume&nbsp;<span className="material-symbols-outlined">download</span>
         </a>
       </section>
 
-      <section className="art__stagger-in art__stagger-out">
+      <section className="">
         <h1 className='w-border'>Professional Experience</h1>
       </section>
 

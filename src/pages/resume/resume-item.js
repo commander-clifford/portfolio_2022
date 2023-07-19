@@ -5,7 +5,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 const ResumeItem = (props) => {
   
     return (
-      <section className="resume-item art__stagger-in art__stagger-out">
+      <section className="resume-item">
               
         <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
           <h2 className="headline">{props.item.title}{props.item.educationLevel}</h2>

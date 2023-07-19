@@ -29,10 +29,8 @@ const About = (props) => {
   const components = getContentfulComponents(pageData);
 
   return (
-    <article className="about container container-sm">
-
+    <article className="about container">
       {components}
-
     </article>
   );
 }

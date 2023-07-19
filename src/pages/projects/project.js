@@ -5,7 +5,6 @@ import './project.scss';
 
 const ProjectDetails = (props) => {
 
-
   useEffect(() => {
     console.log("ProjectDetails", props.project?.fields)
   }, [props.project?.fields]);
@@ -20,12 +19,9 @@ const ProjectDetails = (props) => {
           <p>{props.project?.fields?.subtitle}&nbsp;<i>{props.project?.fields?.originalCreationDate}</i></p>
         </div>
 
-
-
-{/* TODO: this is it's own component */}
         <nav className='project-nav'>
 
-          <Link to="/projects">All Projects</Link>
+          <Link to="/projects">All Projects!</Link>
 
           &nbsp;
           &nbsp;

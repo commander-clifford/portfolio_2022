@@ -16,8 +16,16 @@ const Band = ({ children, data= {} }) => {
       .replace(/\s+/g, '-')) // replace spaces with hyphen
     : '';
 
+  // const formattedTitle = title ? (
+  //   title
+  //     .toLowerCase()
+  //     .replace(/\W+/g, ' ') // replace non-alphanumeric chars with space
+  //     .trim() // remove trailing spaces
+  //     .replace(/\s+/g, '-')) // replace spaces with hyphen
+  //   : '';
+
   const classes = ['band'];
-  if (classNames) classes.push(classNames);
+  if (classNames) classes.push(classNames.toLowerCase());
   if (formattedTitle) classes.push(formattedTitle);
 
   return (

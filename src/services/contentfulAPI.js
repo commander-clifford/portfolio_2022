@@ -63,7 +63,7 @@ export const getContentfulComponents = (pageData) => {
 
               if (componentType === "text") {
                 return (
-                  <Text key={j}>
+                  <Text key={j} data={item?.fields}>
                     {documentToReactComponents(item?.fields?.copy)}
                   </Text>
                 );
