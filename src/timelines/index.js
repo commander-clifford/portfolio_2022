@@ -17,8 +17,8 @@ https://reactcommunity.org/react-transition-group/with-react-router/
 const DURATION = 1;
 const STAGGER = 0.08;
 const SCALETO = 0.98;
-const DRIFTIN = "80px";
-const DRIFTOUT = "-80px";
+const DRIFTIN = "-80px";
+const DRIFTOUT = "80px";
 const ROTATIONIN = 0;
 const ROTATIONOUT = -0;
 const HEADERHEIGHT = 0; // TODO get actual header.outterHeight
@@ -46,7 +46,7 @@ const enterSlideInFromLeftTimeline = (node) => {
     stagger: STAGGER,
     autoAlpha: 0,
     scale: SCALETO,
-    x: DRIFTIN,
+    y: DRIFTIN,
     rotationY: ROTATIONIN,
     clearProps: "opacity",
   }, "<")
@@ -74,7 +74,7 @@ const enterSlideInFromRightTimeline = (node) => {
     duration: DURATION,
     autoAlpha: 0,
     scale: SCALETO,
-    x: DRIFTOUT,
+    y: DRIFTOUT,
     rotationY: ROTATIONOUT,
   }, "<")
   return timeline;
@@ -107,14 +107,14 @@ const exitSlideOutToLeftTimeline = (node) => {
     stagger: STAGGER,
     autoAlpha: 0,
     scale: SCALETO,
-    x: DRIFTOUT,
+    y: DRIFTOUT,
     rotationY: ROTATIONOUT,
   }, )
   .to(staggerOutColumnElements, {
     stagger: STAGGER,
     autoAlpha: 0,
     scale: SCALETO,
-    x: DRIFTOUT,
+    y: DRIFTOUT,
     rotationY: ROTATIONOUT,
   },'<')
   .to( node, {
@@ -149,7 +149,7 @@ const exitSlideOutToRightTimeline = (node) => {
     stagger: STAGGER,
     autoAlpha: 0,
     scale: SCALETO,
-    x: DRIFTIN,
+    y: DRIFTIN,
     rotationY: ROTATIONIN,
   },"<")
   .to( node, {
