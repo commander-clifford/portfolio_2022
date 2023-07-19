@@ -1,45 +1,58 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './footer.scss';
 import { Link } from "react-router-dom";
 
-class Footer extends Component {
+const Footer = ({ socialLinks, sitePaths }) => {
 
-  componentDidMount(){}
-
-  buildSocialLinks = () => {
-    let navItems = this.props.socialLinks.map((item, key) => 
-      <a key={key} className="footer__nav-item" href={item.link} target="_blank" rel="noreferrer">{item.title}</a>
+  const buildSocialLinks = () => {
+    return socialLinks.map((item, key) => 
+      <a key={item.id || key} className="footer__nav-item" href={item.link} target="_blank" rel="noreferrer">{item.title}</a>
     );
-    return navItems
   }
 
-  render() {
-    return (
-      <footer className="footer">
-        <div className="footer__container container">
+  const buildSitePaths = () => {
+    return sitePaths.map((item, key) =>
+      <Link key={item.id || key} className="footer__nav-item" to={item.path}>{item.title}</Link>
+    );
+  }
 
-          <div className="footer__items">
-            {this.buildSocialLinks()}
-          </div>
+  return (
+    <footer className="footer">
+      <div className="footer__container container">
 
-          <div className="footer__items">
-            <Link className="footer__nav-item" to="/">Home</Link>
-            <Link className="footer__nav-item" to="/about">About</Link>
-            <Link className="footer__nav-item" to="/resume">Resume</Link>
-            <Link className="footer__nav-item" to="/projects">Projects</Link>
-          </div>
+        <nav className="footer__items">
+          {buildSocialLinks()}
+        </nav>
 
-          <div className="footer__items">
-            <p>© Clifford Nelson 2023</p>
-          </div>
-          <div className="footer__items">
-            <p>!! Please, Check back often as I'm making updates regularly !!</p>
-          </div>
+        <nav className="footer__items">
+          {buildSitePaths()}
+        </nav>
 
+        <div className="footer__items">
+          <p>© {new Date().getFullYear()} Clifford Nelson</p>
         </div>
-      </footer>
-    );
-  }
+
+        <div className="footer__items">
+          <p>!! Please, Check back often as I'm making updates regularly !!</p>
+        </div>
+
+      </div>
+    </footer>
+  );
 }
+
+Footer.propTypes = {
+  socialLinks: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+  })).isRequired,
+  sitePaths: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+  })).isRequired
+};
 
 export default Footer;
