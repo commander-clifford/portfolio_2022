@@ -1,0 +1,118 @@
+html {
+  font-size: 62.5%;
+  background-color: var(--background);
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+main {
+  position: relative;
+  margin-top: calc(91px + var(--component-gap)); /* 91px is a magic number == header height */
+}
+
+main > article > section:first-child > *:first-child {
+  margin-top: 0;
+}
+
+article > section {
+  position: relative;
+  z-index: 1;
+}
+article > section.container {
+  margin-block: var(--component-gap);
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,li,blockquote {
+  max-inline-size: none;
+}
+
+h1 {
+  font-family: var(--headline-font);
+  font-size: var(--font-size-fluid-3);
+  font-weight: 500;
+  color: var(--headline-color);
+  max-inline-size: none;
+}
+// article h1 {
+//   margin-top: var(--primary-gap);
+//   margin-bottom: var(--size-6);
+//   border-bottom: 2px solid currentColor;
+// }
+
+h2 {
+  width: 100%;
+  margin-top: var(--font-size-8);
+  font-family: var(--headline-font);
+  font-size: var(--font-size-fluid-2);
+  font-weight: 500;
+  color: var(--headline-color);
+}
+
+h3 {
+  margin-top: var(--font-size-5);
+  font-family: var(--headline-font);
+  font-size: var(--font-size-5);
+  font-weight: 500;
+  color: var(--headline-color);
+}
+
+h4 {
+  margin-top: var(--font-size-4);
+  font-family: var(--headline-font);
+  font-size: var(--font-size-5);
+  font-weight: 500;
+  color: var(--headline-color);
+}
+
+h5,
+h6 {
+  margin-top: var(--font-size-3);
+  font-family: var(--headline-font);
+  font-size: var(--font-size-4);
+  font-weight: 500;
+  color: var(--headline-color);
+}
+
+p {
+  font-size: var(--font-size-4);
+  line-height: 1.6;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+blockquote {
+  display: block;
+  margin-block: var(--component-gap);
+  border: none;
+  border-radius: 2rem;
+  font-family: var(--quote-font);
+  font-size: 1.5em;
+  font-weight: 200;
+  text-align: center;
+  background-color: var(--background-100);
+  p {
+    font-size: 1em;
+  }
+}
+
+::selection {
+  background-color: var(--accent-rev);
+  color: var(--background);
+}
+
+:where(a[href]):visited {
+  color: currentColor;
+}
+
+.rounded {
+  border-radius: var(--radius-3) !important;
+}

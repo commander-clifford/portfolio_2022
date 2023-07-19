@@ -4,6 +4,64 @@
 
 :root {
 
+  --size-000: -.5rem;
+  --size-00: -.25rem;
+  --size-1: .25rem;
+  --size-2: .5rem;
+  --size-3: 1rem;
+  --size-4: 1.25rem;
+  --size-5: 1.5rem;
+  --size-6: 1.75rem;
+  --size-7: 2rem;
+  --size-8: 3rem;
+  --size-9: 4rem;
+  --size-10: 5rem;
+  --size-11: 7.5rem;
+  --size-12: 10rem;
+  --size-13: 15rem;
+  --size-14: 20rem;
+  --size-15: 30rem;
+  --size-fluid-1: clamp(.5rem, 1vw, 1rem);
+  --size-fluid-2: clamp(1rem, 2vw, 1.5rem);
+  --size-fluid-3: clamp(1.5rem, 3vw, 2rem);
+  --size-fluid-4: clamp(2rem, 4vw, 3rem);
+  --size-fluid-5: clamp(4rem, 5vw, 5rem);
+  --size-fluid-6: clamp(5rem, 7vw, 7.5rem);
+  --size-fluid-7: clamp(7.5rem, 10vw, 10rem);
+  --size-fluid-8: clamp(10rem, 20vw, 15rem);
+  --size-fluid-9: clamp(15rem, 30vw, 20rem);
+  --size-fluid-10: clamp(20rem, 40vw, 30rem);
+  --size-content-1: 20ch;
+  --size-content-2: 45ch;
+  --size-content-3: 60ch;
+  --size-header-1: 20ch;
+  --size-header-2: 25ch;
+  --size-header-3: 35ch;
+  --size-xxs: 240px;
+  --size-xs: 360px;
+  --size-sm: 480px;
+  --size-md: 768px;
+  --size-lg: 1024px;
+  --size-xl: 1440px;
+  --size-xxl: 1920px;
+  --size-relative-000: -.5ch;
+  --size-relative-00: -.25ch;
+  --size-relative-1: .25ch;
+  --size-relative-2: .5ch;
+  --size-relative-3: 1ch;
+  --size-relative-4: 1.25ch;
+  --size-relative-5: 1.5ch;
+  --size-relative-6: 1.75ch;
+  --size-relative-7: 2ch;
+  --size-relative-8: 3ch;
+  --size-relative-9: 4ch;
+  --size-relative-10: 5ch;
+  --size-relative-11: 7.5ch;
+  --size-relative-12: 10ch;
+  --size-relative-13: 15ch;
+  --size-relative-14: 20ch;
+  --size-relative-15: 30ch;
+
   /* Constants */
   --bs-gutter-x: 2rem;
   
@@ -66,142 +124,4 @@
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-  background-color: var(--background);
-}
-
-body {
-  margin: 0;
-  font-family: var(--body-font);
-  font-size: 1.6rem;
-  font-weight: 400;
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-main {
-  position: relative;
-  /* 91px is a magic number == header height */
-  margin-top: calc(91px + var(--component-gap)); 
-}
-
-main > article > section:first-child > *:first-child {
-  margin-top: 0;
-}
-
-article > section {
-  position: relative;
-  z-index: 1;
-}
-
-article.container-sm {
-  max-width: 720px;
-}
-
-article > section.container {
-  margin-block: var(--component-gap);
-}
-
-.container-sm {
-  max-width: 720px;
-}
-
-.container.full-width {
-  max-width: none !important;
-}
-
-
-
-h1 {
-  font-family: var(--headline-font);
-  font-size: var(--font-size-fluid-3);
-  font-weight: 500;
-  color: var(--headline-color);
-}
-
-h1.w-border {
-  margin-top: var(--primary-gap);
-  margin-bottom: var(--size-6);
-  border-bottom: 2px solid currentColor;
-  max-inline-size: none;
-}
-
-h2 {
-  width: 100%;
-  margin-top: var(--font-size-8);
-  font-family: var(--headline-font);
-  font-size: var(--font-size-fluid-2);
-  font-weight: 500;
-  color: var(--headline-color);
-}
-
-h3 {
-  margin-top: var(--font-size-5);
-  font-family: var(--headline-font);
-  font-size: var(--font-size-5);
-  font-weight: 500;
-  color: var(--headline-color);
-}
-
-h4 {
-  margin-top: var(--font-size-4);
-  font-family: var(--headline-font);
-  font-size: var(--font-size-5);
-  font-weight: 500;
-  color: var(--headline-color);
-}
-
-h5,
-h6 {
-  margin-top: var(--font-size-3);
-  font-family: var(--headline-font);
-  font-size: var(--font-size-4);
-  font-weight: 500;
-  color: var(--headline-color);
-}
-
-p {
-  font-size: var(--font-size-4);
-  line-height: 1.6;
-  max-inline-size: none;
-}
-
-a:not(.dot-link) {
-  color: var(--foreground);
-}
-a:not(.dot-link):hover {
-  color: var(--headline-color);
-}
-a:not(.dot-link):visited {
-  /* color: var(--link-visited); */
-  color: var(--headline-color);
-}
-
-code {
-  font-family: var(--font-mono);
-}
-
-blockquote {
-  display: block;
-  margin-block: var(--component-gap);
-  border: none;
-  border-radius: 2rem;
-  font-family: var(--quote-font);
-  font-size: var(--font-size-fluid-3);
-  font-weight: 200;
-  text-align: center;
-  background-color: var(--background-100);
-  max-inline-size: 720px;
-}
-
-.rounded {
-  border-radius: var(--radius-3) !important;
-}
-
-::selection {
-  background-color: var(--accent-rev);
-  color: var(--background);
 }

@@ -2,10 +2,16 @@
 
 .band {
   display: flex;
+  // flex-wrap: wrap;
+  // max-width: 100%; /* Ensures the container doesn't overflow its parent */
   flex-direction: column;
   gap: var(--size-10);
 
-
+  &.grid-3 > * {
+    flex: 1 0 33.33%; /* Each item occupies 33.33% of the container's width */
+    max-width: 33.33%; /* Limits the width of each item to 33.33% */
+  }
+  
   @media screen and (min-width: 576px){ /* SM */ }
   @media screen and (min-width: 768px){ /* MD */ }
   @media screen and (min-width: 992px){ /* LG */ 
