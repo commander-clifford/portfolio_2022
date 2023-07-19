@@ -2,27 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './band.scss';
 
-const Band = ({ children, data= {} }) => {
+const makeClassy = title => (
+  title
+    .toLowerCase()
+    .replace(/\W+/g, ' ')
+    .trim()
+    .replace(/\s+/g, '-')
+);
 
-  console.log("Band Data: ",data);
-
+const Band = ({ children, data }) => {
   const { classNames, title } = data;
 
-  const formattedTitle = title ? (
-    title
-      .toLowerCase()
-      .replace(/\W+/g, ' ') // replace non-alphanumeric chars with space
-      .trim() // remove trailing spaces
-      .replace(/\s+/g, '-')) // replace spaces with hyphen
-    : '';
-
-  // const formattedTitle = title ? (
-  //   title
-  //     .toLowerCase()
-  //     .replace(/\W+/g, ' ') // replace non-alphanumeric chars with space
-  //     .trim() // remove trailing spaces
-  //     .replace(/\s+/g, '-')) // replace spaces with hyphen
-  //   : '';
+  const formattedTitle = title ? makeClassy(title) : '';
 
   const classes = ['band'];
   if (classNames) classes.push(classNames.toLowerCase());
@@ -36,7 +27,7 @@ const Band = ({ children, data= {} }) => {
 };
 
 Band.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   data: PropTypes.shape({
     classNames: PropTypes.string,
     title: PropTypes.string,
