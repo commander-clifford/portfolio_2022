@@ -1,16 +1,18 @@
 .tag {
   position: relative;
-  border-radius: 50px 16px 16px 50px;
-  border: 2px solid var(--gray-600);
-  background: transparent;
   padding: 0.3em 0.7em 0.3em 1.6em;
-  color: var(--gray-600);
+  border: 2px solid var(--gray-600);
+  border-radius: 50px 16px 16px 50px;
   font-family: var(--headline-font);
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
+  background: transparent;
+  color: var(--gray-600);
   letter-spacing: 0.05em;
   pointer-events: none;
+  white-space: nowrap;
+
   &.primary {
     border-color: var(--red-600);
     color: var(--red-800);
@@ -18,6 +20,7 @@
       border-color: var(--red-600);
     }
   }
+
   &.secondary {
     border-color: var(--orange-600);
     color: var(--orange-800);
@@ -25,6 +28,7 @@
       border-color: var(--orange-600);
     }
   }
+
   &.tertiary {
     border-color: var(--yellow-600);
     color: var(--yellow-800);
@@ -32,17 +36,19 @@
       border-color: var(--yellow-600);
     }
   }
+
   &::before {
     position: absolute;
+    z-index: 1;
     top: 50%;
     left: 6px;
-    z-index: 1;
-    border-radius: 64px;
-    border: 2px solid currentColor;
-    background: transparent;
-    width: 0.75em;
-    aspect-ratio: 1;
-    content: "";
     transform: translateY(-50%);
+    width: 0.75em;
+    border: 2px solid currentColor;
+    border-radius: 64px;
+    background: transparent;
+    content: "";
+    aspect-ratio: 1;
   }
+  
 }
