@@ -1,3 +1,5 @@
+* { box-sizing: border-box }
+
 html {
   font-size: 62.5%;
   background-color: var(--background);
@@ -24,6 +26,7 @@ main > article > section:first-child > *:first-child {
 article > section {
   position: relative;
   z-index: 1;
+  padding-inline: 0 !important;
 }
 article > section.container {
   margin-block: var(--component-gap);
@@ -116,3 +119,5 @@ blockquote {
 .rounded {
   border-radius: var(--radius-3) !important;
 }
+
+

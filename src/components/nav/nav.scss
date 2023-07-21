@@ -1,92 +1,88 @@
 @import './../../mixins';
+.hamburger {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: none;
 
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    width: 4rem;
+    height: 4rem;
+    display: block;
+  }
+
+  .bars {
+    --bar-height: 0.4rem;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: var(--bar-height);
+    border-radius: .2rem;
+    background-color: var(--headline-color);
+
+    &:nth-child(1) { top: 0; }
+    &:nth-child(2), &:nth-child(3) { top: calc(var(--bar-height) * 4); }
+    &:nth-child(4) { top: calc(var(--bar-height) * 8); }
+  }
+}
 .nav {
   position: absolute;
   top: 2rem;
   right: 2rem;
   height: var(--nav-height);
-  // eslint-disable-next-line
   display: flex;
+  flex-flow: column-reverse;
   align-items: flex-end;
-  // eslint-disable-next-line
   justify-content: flex-end;
-  // overflow: hidden;
   border-radius: var(--radius-3);
   font-family: var(--headline-font);
   text-transform: uppercase;
   color: var(--headline-color);
-  flex-flow: column-reverse;
-
-  .hamburger {
-    margin: 0;
-    padding: 0.5rem 1rem;
-    background: none;
-
-    .wrapper {
-      position: relative;
-      z-index: 2;
-      width: 4rem;
-      height: 4rem;
-      display: block;
-    }
-
-    .bars {
-      --bar-height: 0.4rem;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: var(--bar-height);
-      border-radius: .2rem;
-      background-color: var(--headline-color);
-
-      &:nth-child(1) {
-        top: 0;
-      }
-
-      &:nth-child(2),
-      &:nth-child(3) {
-        top: calc(var(--bar-height) * 4);
-      }
-
-      &:nth-child(4) {
-        top: calc(var(--bar-height) * 8);
-      }
-    }
-  }
 
   &-items {
+    position: fixed;
+    top: 88px;
+    right: 0;
+    width: 100%;
     display: flex;
     flex-flow: column;
-    @media screen and (min-width: 576px) {
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.25);
+    @include blurry;
+    @media screen and (min-width: 768px) {
+      position: static;
       flex-flow: row;
+      box-shadow: none;
+      @include notBlurry;
     }
   }
 
   &-item {
     position: relative;
-    width: 100%;
     height: 100%;
     display: block;
-    margin-right: 0;
+    flex-grow: 1;
+    margin-inline: 2.5rem;
+    margin-block: 0.1em;
+    
     padding: 1.6rem clamp(1rem, 2vw, 3rem);
-    border-radius: 0;
+    border: 2px solid transparent;
+    border-radius: 0.5em;
     font-weight: 400;
+    letter-spacing: 0.08em;
+    text-align: center;
     text-decoration: none;
     color: inherit;
-    letter-spacing: 0.08em;
-    flex-grow: 1;
 
-    &:hover::before,
-    &:focus::before,
-    &--active::before {
-      position: absolute;
-      bottom: 0.25em;
-      left: 10%;
-      width: 80%;
-      height: 0.25em;
-      border-radius: 1em;
-      background-color: currentColor;
-      content: "";
+    &:first-of-type { margin-top: 2.5rem; }
+    &:last-of-type { margin-bottom: 2.5rem; }
+    &:hover,
+    &:focus {
+      border-color: currentColor;
+    }
+    &--active {
+      border-color: currentColor;
+      background-color: var(--red-100-t50);
     }
     &--active {
       pointer-events: none;
@@ -95,9 +91,37 @@
         filter: blur(1px) brightness(110%);
       }
     }
+
+    @media screen and (min-width: 768px) {
+      margin-top: none;
+      margin-right: 0;
+      margin-inline: 0;
+      &:first-of-type { margin-top: 0; }
+      &:last-of-type { margin-bottom: 0; }
+      &:hover,
+      &:focus {
+        border-color: transparent;
+      }
+      &--active {
+        border-color: transparent;
+        background-color: transparent;
+      }
+      &:hover::before,
+      &:focus::before,
+      &--active::before {
+        content: "";
+        position: absolute;
+        bottom: 0.25em;
+        left: 10%;
+        width: 80%;
+        height: 0.25em;
+        border-radius: 1em;
+        background-color: currentColor;
+      }
+    }
   }
 
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 768px) {
     position: relative;
     top: auto;
     right: auto;

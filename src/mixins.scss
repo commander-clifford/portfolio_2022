@@ -70,3 +70,15 @@
   clip-path: polygon(0 calc(var(--clip-size)*2), var(--clip-size) var(--clip-size), calc(100% - var(--clip-size)) var(--clip-size), 100% 0, 100% calc(100% - var(--clip-size)), calc(100% - var(--clip-size)) 100%, 0 100%);
 
 }
+
+@mixin blurry() {
+  background-color: hsl(210, 17%, 98%);
+  @supports (filter: blur(0)) {
+    background-color: hsla(210, 17%, 98%, 0.96);
+    backdrop-filter: blur(4px) brightness(1.1);  
+  }
+}
+@mixin notBlurry() {
+  background-color: transparent;
+  backdrop-filter: blur(0);
+}

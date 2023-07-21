@@ -30,4 +30,8 @@
   }
 
   @include primary-gradient();
+
+  .social-link {
+    font-size: 2em;
+  }
 }

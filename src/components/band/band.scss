@@ -2,20 +2,25 @@
 
 .band {
   display: flex;
-  // flex-wrap: wrap;
-  // max-width: 100%; /* Ensures the container doesn't overflow its parent */
   flex-direction: column;
-  gap: var(--size-10);
-
-  &.grid-3 > * {
-    flex: 1 0 33.33%; /* Each item occupies 33.33% of the container's width */
-    max-width: 33.33%; /* Limits the width of each item to 33.33% */
-  }
+  gap: var(--component-gap);
   
+  &.grid {
+    display: grid;
+    grid-template-columns: 1fr
+  }
+
   @media screen and (min-width: 576px){ /* SM */ }
-  @media screen and (min-width: 768px){ /* MD */ }
+  @media screen and (min-width: 768px){ /* MD */ 
+    &.grid {
+      grid-template-columns: 1fr 1fr
+    }
+  }
   @media screen and (min-width: 992px){ /* LG */ 
     flex-direction: row;
+    &.grid {
+      grid-template-columns: 1fr 1fr 1fr
+    }
   }
   @media screen and (min-width: 1200px){ /* XL */ }
   @media screen and (min-width: 1400px){ /* XXL */ }
