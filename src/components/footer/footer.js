@@ -7,7 +7,9 @@ const Footer = ({ socialLinks, sitePaths }) => {
 
   const buildSocialLinks = () => {
     return socialLinks.map((item, key) => 
-      <a key={item.id || key} className="footer__nav-item" href={item.link} target="_blank" rel="noreferrer">{item.title}</a>
+      <a key={item.id || key} className="footer__nav-item social-link" href={item.link} target="_blank" rel="noreferrer" aria-label={item.title}>
+        <span className="icon" dangerouslySetInnerHTML={{ __html: item.iconType }}></span>
+      </a>
     );
   }
 
@@ -20,21 +22,17 @@ const Footer = ({ socialLinks, sitePaths }) => {
   return (
     <footer className="footer">
       <div className="footer__container container">
+        
+        <nav className="footer__items">
+          {buildSitePaths()}
+        </nav>
 
         <nav className="footer__items">
           {buildSocialLinks()}
         </nav>
 
-        <nav className="footer__items">
-          {buildSitePaths()}
-        </nav>
-
         <div className="footer__items">
           <p>© {new Date().getFullYear()} Clifford Nelson</p>
-        </div>
-
-        <div className="footer__items">
-          <p>!! Please, Check back often as I'm making updates regularly !!</p>
         </div>
 
       </div>
@@ -44,15 +42,14 @@ const Footer = ({ socialLinks, sitePaths }) => {
 
 Footer.propTypes = {
   socialLinks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
-  })).isRequired,
+    title: PropTypes.string,
+    link: PropTypes.string,
+    id: PropTypes.string
+  })),
   sitePaths: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
-  })).isRequired
+    title: PropTypes.string,
+    path: PropTypes.string
+  }))
 };
 
 export default Footer;

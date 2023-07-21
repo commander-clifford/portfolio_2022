@@ -19,16 +19,16 @@ export const sitePaths = [{
 export const socialLinks = [{
     title: "LinkedIn",
     link: "https://www.linkedin.com/in/clifford-nelson-bba47459/",
-    iconType: "search"
+    iconType: "&#xf30c;"
   },
   {
     title: "GitHub",
     link: "https://github.com/commander-clifford/",
-    iconType: "home"
+    iconType: "&#xf300;"
   },
   {
     title: "Instagram",
     link: "https://www.instagram.com/highestcliff/",
-    iconType: "settings"
+    iconType: "&#xf16d;"
   }
 ]
