@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries, getContentfulComponents } from '../../services/contentfulAPI';
+import { fetchContentfulEntries, buildContentfulComponents } from '../../services/contentfulAPI';
 
 
 const About = (props) => {
@@ -26,7 +26,7 @@ const About = (props) => {
 
   }, []);
 
-  const components = getContentfulComponents(pageData);
+  const components = buildContentfulComponents(pageData);
 
   return (
     <article className="about">

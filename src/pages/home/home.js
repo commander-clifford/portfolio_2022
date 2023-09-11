@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchContentfulEntries, getContentfulComponents } from '../../services/contentfulAPI';
+import { fetchContentfulEntries, buildContentfulComponents } from '../../services/contentfulAPI';
 import './home.scss';
 
 const Home = (props) => {
@@ -26,7 +26,7 @@ const Home = (props) => {
     
   }, []);
 
-  const components = getContentfulComponents(pageData);
+  const components = buildContentfulComponents(pageData);
 
   return (
     <article className='home'>

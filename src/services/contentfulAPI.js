@@ -30,7 +30,7 @@ export function fetchContentfulAsset(id) {
   return asset;
 }
 
-export const getContentfulComponents = (pageData) => {
+export const buildContentfulComponents = (pageData) => {
 
   return pageData.fields?.sections.map((section, i) => {
 
