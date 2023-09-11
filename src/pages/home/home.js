@@ -29,7 +29,7 @@ const Home = (props) => {
   const components = getContentfulComponents(pageData);
 
   return (
-    <article className='home container'>
+    <article className='home'>
 
       {components}
       

@@ -50,7 +50,7 @@ const Resume = (props) => {
   }, [isLoaded]);
   
   return (
-    <article className="resume container">
+    <article className="resume">
 
       <section className="container d-flex align-items-end justify-content-end">
         <a className='btn btn-secondary btn-md' href={resumePdfData?.fields?.file?.url} target="_blank" rel="noreferrer" role="button">
@@ -58,7 +58,7 @@ const Resume = (props) => {
         </a>
       </section>
 
-      <section className="">
+      <section className="container">
         <h1 className='w-border'>Professional Experience</h1>
       </section>
 
@@ -66,7 +66,7 @@ const Resume = (props) => {
         <ResumeItem key={i} item={item.fields} />
       ).reverse()}
 
-      <section className="">
+      <section className="container">
         <h1 className='w-border'>Education</h1>
       </section>
 

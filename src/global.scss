@@ -26,7 +26,7 @@ main > article > section:first-child > *:first-child {
 article > section {
   position: relative;
   z-index: 1;
-  padding-inline: 0 !important;
+  // padding-inline: 0 !important;
 }
 article > section.container {
   margin-block: var(--component-gap);

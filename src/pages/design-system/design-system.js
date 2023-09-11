@@ -9,7 +9,7 @@ class DesignSystem extends Component {
   render() {
     return (
       <>
-        <article className="design-system container">
+        <article className="design-system">
           
           <section>
             
