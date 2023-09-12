@@ -1,32 +1,43 @@
-import React, { Component } from 'react';
-// import { gsap } from "gsap";
-// import './design-system.scss';
+import React, { useEffect, useState } from 'react';
+import { fetchContentfulEntries } from '../../services/contentfulAPI';
+import { buildComponents } from '../../services/buildComponents';
 
-class DesignSystem extends Component {
+const DesignSystem = (props) => {
 
-  componentDidMount(){}
+  const [pageData, setPageData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  render() {
-    return (
-      <>
-        <article className="design-system">
-          
-          <section>
-            
-            <h1 className="art__stagger-in art__stagger-out w-border">Headline 1 wBorder</h1>
-            <h1 className="art__stagger-in art__stagger-out">Headline 1</h1>
-            <h2 className="art__stagger-in art__stagger-out">Headline 2</h2>
-            <h3 className="art__stagger-in art__stagger-out">Headline 3</h3>
-            <h4 className="art__stagger-in art__stagger-out">Headline 4</h4>
-            <h5 className="art__stagger-in art__stagger-out">Headline 5</h5>
-            <h6 className="art__stagger-in art__stagger-out">Headline 6</h6>
-            
-          </section>
+  useEffect(() => {
 
-        </article>
-      </>
-    );
-  }
+    const fetchData = async () => {
+      try {
+
+        const contentfulPageEntries = await fetchContentfulEntries('page');
+        const pageDataResponse = contentfulPageEntries.items.find(obj => obj.fields.slug === 'design-system');
+        setPageData(pageDataResponse);
+        setLoading(false);
+
+      } catch (error) {
+        console.error(error);
+        setError(error);
+        setLoading(false);
+      } finally {
+        // it's about time
+      }
+    };
+
+    fetchData();
+    
+  }, []);
+
+  const components = pageData ? buildComponents(pageData) : null;
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading design system.</div>;
+
+  return (<article className='design-system'>{components}</article>);
+  
 }
 
 export default DesignSystem;
