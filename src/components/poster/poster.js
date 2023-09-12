@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '../button/button';
 import Text from '../text/text';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -7,9 +6,9 @@ import './poster.scss';
 
 const Poster = ({ data = {} }) => {
 
-  console.log("Poster DATA:", data);
+  // console.log("Poster DATA:", data);
 
-  const { zHeight = '', type = '', subHeadline = '', headline = '', classNames = '' } = data;
+  const { zHeight = '', type = '', subHeadline = '', headline = '', classNames = '', cardContent, cta } = data;
 
   const heightMapping = {
     'Level 0': 'shadow-none',
@@ -29,32 +28,17 @@ const Poster = ({ data = {} }) => {
         {headline && <h2>{headline}</h2>}
       </div>
       <div className={'poster__copy'}>
-        {documentToReactComponents(data.cardContent)}
+        {documentToReactComponents(cardContent)}
       </div>
+      {cta ? 
+        <Button className={'poster__cta'}>
+          CTA Button
+        </Button> 
+        : null
+      }
+      
     </div>
   );
-};
-
-Poster.propTypes = {
-  data: PropTypes.shape({
-    height: PropTypes.string,
-    type: PropTypes.string,
-    subHeadline: PropTypes.string,
-    headline: PropTypes.string,
-    classNames: PropTypes.string,
-    cardContent: PropTypes.arrayOf(PropTypes.shape({
-      sys: PropTypes.shape({
-        contentType: PropTypes.shape({
-          sys: PropTypes.shape({
-            id: PropTypes.string,
-          }),
-        }),
-      }),
-      fields: PropTypes.shape({
-        copy: PropTypes.string,
-      }),
-    })),
-  }),
 };
 
 export default Poster;

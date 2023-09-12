@@ -43,7 +43,7 @@ function Header(props) {
         <div className="">
           <Link className="" to="/">
             <h1 className='aniwrapper'>
-              <span id="splitHeadline" className="art__stagger-in">Clifford</span>
+              <span id="splitHeadline" className="">Clifford</span>
             </h1>
           </Link>
         </div>
