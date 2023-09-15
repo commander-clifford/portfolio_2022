@@ -1,4 +1,4 @@
-import { gsap, Power2 } from 'gsap';
+import { gsap, Power1 } from 'gsap';
 
 /**
 
@@ -21,15 +21,19 @@ const DRIFTIN = "-80px";
 const DRIFTOUT = "80px";
 const ROTATIONIN = 0;
 const ROTATIONOUT = -0;
-const HEADERHEIGHT = 0; // TODO get actual header.outterHeight
-const EASE = Power2.easeInOut;
+const EASE = Power1.easeOut;
 
-/* ENTER ANIMATION TIMELINES */
+/* ENTER: ANIMATION TIMELINES */
 
 /* Enter: Slide in from Left */
-const enterSlideInFromLeftTimeline = (node) => {
+const enterTimeline = (node) => {
+
+  console.log('ENTER TIMELINE');
+  console.log("enter->", node);
+
   const staggerInElements = node.querySelectorAll('.art__stagger-in');
-  const timeline = gsap.timeline({ 
+
+  let timeline = gsap.timeline({ 
     paused: true,
     defaults: {
       duration: DURATION,
@@ -37,10 +41,12 @@ const enterSlideInFromLeftTimeline = (node) => {
       ease: EASE
     }
   });
+
   timeline
   .from( node, {
     autoAlpha: 0,
-    delay: DURATION,
+    x: '4rem',
+    delay: DURATION*0.9,
   })
   .from( staggerInElements, {
     stagger: STAGGER,
@@ -83,7 +89,15 @@ const enterSlideInFromRightTimeline = (node) => {
 /* EXIT ANIMATION TIMELINES */
 
 /* Exit: Slide out to Left */
-const exitSlideOutToLeftTimeline = (node) => {
+const exitTimeline = (node) => {
+
+  console.log('EXIT TIMELINE');
+  console.log("exit->", node);
+
+  // const staggerOutElements = node.querySelectorAll('.art__stagger-out');
+  // const staggerOutColumnElements = node.querySelectorAll('.art__stagger-out--columns');
+  const footer = document.getElementById('footer');
+
   const timeline = gsap.timeline({ 
     paused: true,
     defaults: {
@@ -92,33 +106,38 @@ const exitSlideOutToLeftTimeline = (node) => {
       ease: EASE
     }
   });
-  const staggerOutElements = node.querySelectorAll('.art__stagger-out');
-  const staggerOutColumnElements = node.querySelectorAll('.art__stagger-out--columns');
+
   timeline
+  .set(footer, {
+    autoAlpha: 0,
+  })
   .set(node, {
-    // set position to take this node out of natural flow to prevent flash
     position: 'absolute',
-    top: HEADERHEIGHT, // TODO: match height of header
-    left: 0, // must match relative padding
-    right: 0, // must match relative padding
+    top: 0,
+    left: 0,
+    right: 0,
     zIndex: 0,
   })
-  .to(staggerOutElements, {
-    stagger: STAGGER,
-    autoAlpha: 0,
-    scale: SCALETO,
-    y: DRIFTOUT,
-    rotationY: ROTATIONOUT,
-  }, )
-  .to(staggerOutColumnElements, {
-    stagger: STAGGER,
-    autoAlpha: 0,
-    scale: SCALETO,
-    y: DRIFTOUT,
-    rotationY: ROTATIONOUT,
-  },'<')
+  // .to(staggerOutElements, {
+  //   stagger: STAGGER,
+  //   autoAlpha: 0,
+  //   scale: SCALETO,
+  //   y: DRIFTOUT,
+  //   rotationY: ROTATIONOUT,
+  // }, )
+  // .to(staggerOutColumnElements, {
+  //   stagger: STAGGER,
+  //   autoAlpha: 0,
+  //   scale: SCALETO,
+  //   y: DRIFTOUT,
+  //   rotationY: ROTATIONOUT,
+  // },'<')
   .to( node, {
     autoAlpha: 0,
+    x: '-4rem',
+  })
+  .to(footer, {
+    autoAlpha: 1
   })
   return timeline;
 }
@@ -159,23 +178,24 @@ const exitSlideOutToRightTimeline = (node) => {
   return timeline;
 }
 
+
 /* EXPORT TIMELINES */
 
 /* ENTER */
-export const enter = (node, pathname, prevPathname) => {
+export const enter = (node, currentPath, previousPath) => {
   
   let timeline;
+  // console.log('--- compare Next',currentPath,'to Previous',previousPath);
   
-  console.log('compare',pathname,'to',prevPathname);
-  
-  // TODO: pathname === prevPathname ? route must be back : Do reverse animation
-  if(pathname !== prevPathname){
-    console.log('they do not match: go forward');
-    timeline = enterSlideInFromLeftTimeline(node); // do it forwards
-  } else {
-    console.log('they do match: go backward');
-    timeline = enterSlideInFromRightTimeline(node); // do it backwards
-  }
+  // if(currentPath !== previousPath){
+  //   // do it forwards
+  //   console.log('they do not match: go forward');
+    timeline = enterTimeline(node);
+  // } else {
+  //   // do it backwards
+  //   console.log('they do match: go backward');
+  //   timeline = enterSlideInFromRightTimeline(node); 
+  // }
   
   window.loadPromise = new Promise(resolve => {
     window.addEventListener("DOMContentLoaded", timeline.play())
@@ -184,19 +204,19 @@ export const enter = (node, pathname, prevPathname) => {
 }
 
 /* EXIT */
-export const exit = (node, pathname, prevPathname) => {
+export const exit = (node, currentPath, previousPath) => {
   
-  let timeline;
+  let timelineExit;
   
-  // TODO: pathname === prevPathname ? route must be back : Do reverse animation
-  if(pathname !== prevPathname){
-    timeline = exitSlideOutToLeftTimeline(node); // do it forwards
-  } else {
-    timeline = exitSlideOutToRightTimeline(node); // do it backwards
-  }
+  // TODO: currentPath === previousPath ? route must be back : Do reverse animation
+  // if(currentPath !== previousPath){
+    timelineExit = exitTimeline(node); // do it forwards
+  // } else {
+  //   timelineExit = exitSlideOutToRightTimeline(node); // do it backwards
+  // }
   
   window.loadPromise = new Promise(resolve => {
-    window.addEventListener("DOMContentLoaded", timeline.play())
+    window.addEventListener("DOMContentLoaded", timelineExit.play())
   });
   
 }

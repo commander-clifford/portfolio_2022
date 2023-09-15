@@ -31,6 +31,9 @@ article > section {
 article > section.container {
   margin-block: var(--component-gap);
 }
+article > section.container:first-of-type {
+  margin-top: 0;
+}
 
 h1,h2,h3,h4,h5,h6,p,ul,li,blockquote {
   max-inline-size: none;

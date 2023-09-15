@@ -15,12 +15,9 @@ const Projects = () => {
 
     const fetchData = async () => {
       try {
-
         const positionsResponse = await fetchContentfulEntries('project', 'fields.originalCreationDate');
         setProjectsData(positionsResponse.items);
-
         setIsLoaded(true);
-
       } catch (error) {
         console.error(error);
       } finally {
@@ -36,56 +33,53 @@ const Projects = () => {
       document.documentElement.classList.remove('projects');
       setProjectsData([]);
     };
+
   }, []);
 
   useEffect(() => {
     if (isLoaded) {
-
     }
   }, [isLoaded]);
 
   return (
     <article className="projects">
 
-      <div id='projects-container' className='projects-container container'>
+      {projectsData.map((data, i) => {
+        // TODO data. ...build data structure for spotlight
+        return (
+          // TODO call spotlight component here
+          <section key={i} id={data?.fields?.slug} className="container project-item panel spotlight">
 
-        {projectsData.map((data, i) => {
-          // TODO data. ...build data structure for spotlight
-          return (
-            // TODO call spotlight component here
-            <section key={i} id={data?.fields?.slug} className="project-item panel spotlight">
+            <div className="project-item__display">
+              <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
+            </div>
 
-              <div className="project-item__display">
-                <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
-              </div>
+            <div className='project-item__details'>
 
-              <div className='project-item__details'>
-
-                <div className="project-item__headline-block">
-                  <div>
-                    <h2 className="headline">{data?.fields?.title}</h2>
-                    <div className='d-flex flex-row'><FormatDate date={data?.fields?.originalCreationDate}/></div>
-                  </div>
+              <div className="project-item__headline-block">
+                <div>
+                  <h2 className="headline">{data?.fields?.title}</h2>
+                  <div className='d-flex flex-row'><FormatDate date={data?.fields?.originalCreationDate}/></div>
                 </div>
-                
-                <div className="d-flex align-items-center">
-                  <h5 className="headline">{data?.fields?.subtitle}</h5>
-                </div>
-                
-                <div className="project-item__description p-indent">
-                  {documentToReactComponents(data?.fields?.briefDescription)}  
-                  {data?.fields?.projectTags}
-                </div>
-                
-                <Link to={"/projects/" + data?.fields?.slug}>See More</Link>
-
               </div>
               
-            </section>
-          );
-        }).reverse()}
+              <div className="d-flex align-items-center">
+                <h5 className="headline">{data?.fields?.subtitle}</h5>
+              </div>
+              
+              <div className="project-item__description p-indent">
+                {documentToReactComponents(data?.fields?.briefDescription)}  
+                {data?.fields?.projectTags}
+              </div>
+              
+              <Link to={"/projects/" + data?.fields?.slug}>See More</Link>
 
-      </div>
+            </div>
+            
+          </section>
+        );
+      }).reverse()}
+
     </article>
   );
 

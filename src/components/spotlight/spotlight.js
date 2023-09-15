@@ -5,7 +5,7 @@ import { addNonBreakingSpace } from '../../services/addNonBreakingSpaces.js';
 
 const Spotlight = ({ data = {} }) => {
 
-  console.log("Spotlight", data);
+  // console.log("Spotlight", data);
 
   const { content = '', height = '', image = '' } = data;
 

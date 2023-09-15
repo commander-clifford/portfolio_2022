@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { fetchContentfulEntries, getContentfulComponents } from '../services/contentfulAPI';
+import { fetchContentfulEntries } from '../services/contentfulAPI';
+import { buildComponents } from '../services/buildComponents';
 // import './page.scss';
 
 const Page = ({ slug }) => {
@@ -19,7 +20,7 @@ const Page = ({ slug }) => {
     fetchData();
   }, [slug]);
 
-  const components = getContentfulComponents(pageData);
+  const components = buildComponents(pageData);
 
   return (
     <article className={`page-${slug}`}>

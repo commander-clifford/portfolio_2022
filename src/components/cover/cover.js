@@ -6,7 +6,7 @@ import { addNonBreakingSpace } from '../../services/addNonBreakingSpaces.js';
 
 const Cover = (props) => {
 
-  console.log("Cover", props.data?.fields?.heroImage?.fields);
+  // console.log("Cover", props.data?.fields?.heroImage?.fields);
 
   useEffect(() => {
 

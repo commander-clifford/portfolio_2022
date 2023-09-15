@@ -50,7 +50,7 @@
       }
     }
     &__desc-block {
-      @media screen and (min-width: 576px){ /* SM */
+      @media screen and (min-width: 1024px){
         display: flex;
         justify-content: space-between;
         align-items: start;
