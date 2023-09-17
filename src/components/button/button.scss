@@ -68,8 +68,9 @@
       outline: 2px solid var(--button-primary-color);
     }
     &:focus {
-      border-color: var(--button-primary-color);
-      background-color: transparent;
+      border-color: transparent;
+      background-color: var(--button-primary-color);
+      color: white;
       outline: 2px solid var(--button-primary-color) !important;
     }
   }
