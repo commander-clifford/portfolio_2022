@@ -1,12 +1,12 @@
-.project-nav {
+nav.project-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   padding-block: 2em;
+  gap: 1em;
 }
 
 .project {
-  &-header {
-    display: flex;
-    justify-content: space-between;
+  .btn {
+    display: inline-block;
   }
 }

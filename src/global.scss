@@ -14,7 +14,7 @@ body {
   color: var(--foreground);
 }
 
-main {
+main.main {
   position: relative;
   margin-top: calc(91px + var(--component-gap)); /* 91px is a magic number == header height */
 }
