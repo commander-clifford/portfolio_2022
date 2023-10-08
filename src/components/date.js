@@ -16,7 +16,7 @@ const FormatDate = (props) => {
   };
 
   return (
-    <span>{formatDate(props.date)}</span>
+    <span className='date'>{formatDate(props.date)}</span>
   )
 
 }
