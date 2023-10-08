@@ -36,6 +36,19 @@ const App = () => {
         console.log("pageResponse",pageResponse);
 
         const projectsResponse = await fetchContentfulEntries('project');
+        projectsResponse.items.sort((a, b) => {
+          const dateA = new Date(a.fields.originalCreationDate);
+          const dateB = new Date(b.fields.originalCreationDate);
+      
+          // For ascending order
+          // return dateA - dateB;
+          
+          // For descending order
+          return dateB - dateA;
+      });
+      
+      // Now, pageResponse is sorted based on originalCreationDate.
+      
         setProjectsData(projectsResponse.items);
 
         setIsLoaded(true);
@@ -98,11 +111,11 @@ const App = () => {
                               }}
                             />
                             <Route
-                              path='/projects/:projectId'
+                              path='/projects/:urlSlug'
                               render={({ match }) => {
-                                const { projectId } = match.params; 
-                                const project = projectsData.find(project => project.fields?.slug === projectId);
-                                const currentIndex = projectsData.findIndex(project => project.fields?.slug === projectId);
+                                const { urlSlug } = match.params; 
+                                const project = projectsData.find(project => project.fields?.slug === urlSlug);
+                                const currentIndex = projectsData.findIndex(project => project.fields?.slug === urlSlug);
                                 const previousProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
                                 const nextProject = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
                                 return <Project project={project} previousProject={previousProject} nextProject={nextProject} />;
