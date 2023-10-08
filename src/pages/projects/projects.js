@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchContentfulEntries } from '../../services/contentfulAPI';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import FormatDate from '../../components/date';
 import { Link } from 'react-router-dom';
 import './projects.scss';
 
@@ -51,28 +50,21 @@ const Projects = () => {
           <section key={i} id={data?.fields?.slug} className="container project-item panel spotlight">
 
             <div className="project-item__display">
-              <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
+              <Link tabindex="-1" to={"/projects/" + data?.fields?.slug}>
+                <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
+              </Link>
             </div>
 
             <div className='project-item__details'>
 
-              <div className="project-item__headline-block">
-                <div>
+              <div className="project-item__copy">
                   <h2 className="headline">{data?.fields?.title}</h2>
-                  <div className='d-flex flex-row'><FormatDate date={data?.fields?.originalCreationDate}/></div>
-                </div>
+                  <h5 className="subheadline">{data?.fields?.subtitle}</h5>
+                  {documentToReactComponents(data?.fields?.briefDescription)}  
+                  {data?.fields?.projectTags}
               </div>
               
-              <div className="d-flex align-items-center">
-                <h5 className="headline">{data?.fields?.subtitle}</h5>
-              </div>
-              
-              <div className="project-item__description p-indent">
-                {documentToReactComponents(data?.fields?.briefDescription)}  
-                {data?.fields?.projectTags}
-              </div>
-              
-              <Link to={"/projects/" + data?.fields?.slug}>See More</Link>
+              <Link className="btn btn-secondary btn-md" to={"/projects/" + data?.fields?.slug}>See More</Link>
 
             </div>
             

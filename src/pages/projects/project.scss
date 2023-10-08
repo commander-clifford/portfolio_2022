@@ -1,12 +1,36 @@
-.project-nav {
+nav.project-nav {
   display: flex;
-  justify-content: space-between;
-  padding-block: 2em;
+  justify-content: end;
+  padding-bottom: 2em;
+  gap: 1em;
 }
 
 .project {
-  &-header {
-    display: flex;
-    justify-content: space-between;
+
+  main {
+  
+    > img {
+      margin-block: 1rem;
+    }
+  
+    .headline {
+      margin-bottom: 0;
+    }
+
+    .subheadline {
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .date {
+      display: block;
+      margin-bottom: 1em;
+    }
+
+    .btn {
+      display: inline-block;
+    }
+
   }
+
 }
