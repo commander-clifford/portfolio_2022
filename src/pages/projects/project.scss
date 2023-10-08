@@ -1,12 +1,36 @@
 nav.project-nav {
   display: flex;
   justify-content: end;
-  padding-block: 2em;
+  padding-bottom: 2em;
   gap: 1em;
 }
 
 .project {
-  .btn {
-    display: inline-block;
+
+  main {
+  
+    > img {
+      margin-block: 1rem;
+    }
+  
+    .headline {
+      margin-bottom: 0;
+    }
+
+    .subheadline {
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .date {
+      display: block;
+      margin-bottom: 1em;
+    }
+
+    .btn {
+      display: inline-block;
+    }
+
   }
+
 }

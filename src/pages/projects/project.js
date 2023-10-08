@@ -8,7 +8,8 @@ import './project.scss';
 const ProjectDetails = (props) => {
 
   useEffect(() => {
-    console.log("ProjectDetails", props.project?.fields)
+    console.log("ProjectDetails", props.project?.fields);
+    console.log("-- Project Props", props);
   }, [props.project?.fields]);
 
   const options = {
@@ -30,45 +31,40 @@ const ProjectDetails = (props) => {
     <section className='project container'>
 
       <header className='project-header'>
-
         <nav className='project-nav'>
           <Link className={'btn btn-secondary btn-sm'} to="/projects">All Projects</Link>
           {props.previousProject?.fields?.slug ? <Link className={'back btn btn-secondary btn-sm'} to={'/projects/' + props.previousProject?.fields?.slug}>{props.previousProject?.fields?.title}</Link>: null }
           {props.nextProject?.fields?.slug ? <Link className={'next btn btn-secondary btn-sm'} to={'/projects/' + props.nextProject?.fields?.slug} >{props.nextProject?.fields?.title}</Link>: null }
         </nav>
-
-        <div className='headline'>
-          <h1>{props.project?.fields?.title}</h1>
-          <h5>{props.project?.fields?.subtitle}</h5>
-          <FormatDate date={props.project?.fields?.originalCreationDate}/>
-        </div>
-
       </header>
 
       <main>
 
-        <img alt={props.project?.fields?.heroImage?.fields?.title} src={props.project?.fields?.heroImage?.fields?.file?.url} />
+        <a className="" href={props.project?.fields?.liveUrl} target="_blank" rel="noopener noreferrer">
+          <img alt={props.project?.fields?.heroImage?.fields?.title} src={props.project?.fields?.heroImage?.fields?.file?.url} />
+        </a> 
 
-        
-        
-        <div>
-          {documentToReactComponents(props.project?.fields?.briefDescription, options)}
+        <h1 className='headline'>{props.project?.fields?.title}</h1>
+        <h5 className='subheadline'>{props.project?.fields?.subtitle}</h5>
+        <FormatDate date={props.project?.fields?.originalCreationDate}/>
+
+        {props.project?.fields?.projectTags ? 
           <p>{props.project?.fields?.projectTags}</p>
-        </div>
+        : null }
 
-        <div>        
-          {props.project?.fields?.liveUrl ? 
-            <a className="btn btn-secondary btn-md" href={props.project?.fields?.liveUrl} target="_blank" rel="noopener noreferrer">Visit</a> 
-          : null }
-        
-          {props.project?.fields?.codePenUrl ? 
-            <a className="btn btn-secondary btn-md" href={props.project?.fields?.codePenUrl} target="_blank" rel="noopener noreferrer">CodePen</a> 
-          : null }
-        
-          {props.project?.fields?.githubUrl ? 
-            <a className="btn btn-secondary btn-md" href={props.project?.fields?.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a> 
-          : null }
-        </div>
+        {props.project?.fields?.liveUrl ? 
+          <a className="btn btn-secondary btn-md" href={props.project?.fields?.liveUrl} target="_blank" rel="noopener noreferrer">See Demo</a> 
+        : null }
+      
+        {props.project?.fields?.codePenUrl ? 
+          <a className="btn btn-secondary btn-md" href={props.project?.fields?.codePenUrl} target="_blank" rel="noopener noreferrer">CodePen</a> 
+        : null }
+      
+        {props.project?.fields?.githubUrl ? 
+          <a className="btn btn-secondary btn-md" href={props.project?.fields?.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a> 
+        : null }
+
+        {documentToReactComponents(props.project?.fields?.fullDescription, options)}
         
         {props.project?.fields?.sections?.map((section, i) => (
           <div key={i}>
@@ -80,7 +76,7 @@ const ProjectDetails = (props) => {
 
       </main>
 
-      <footer>
+      <footer className='project-footer'>
         <nav className='project-nav'>
           <Link className={'btn btn-secondary btn-sm'} to="/projects">All Projects</Link>
           {props.previousProject?.fields?.slug ? <Link className={'back btn btn-secondary btn-sm'} to={'/projects/' + props.previousProject?.fields?.slug}>{props.previousProject?.fields?.title}</Link>: null }
