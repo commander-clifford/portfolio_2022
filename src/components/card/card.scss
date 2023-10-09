@@ -1,8 +1,8 @@
 @import './../../mixins';
 
 .card {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   
   border: 1px solid var(--background);
   @include rounded;
@@ -13,8 +13,8 @@
   overflow-inline: hidden;
 
   // centered by default
-  text-align: center;
-  align-items: center;
+  // text-align: center;
+  // align-items: center;
 
   &.flat {
     box-shadow: none;
@@ -45,6 +45,11 @@
   }
 
   a { text-decoration: none; }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__link-wrapper {
     width: 100%;

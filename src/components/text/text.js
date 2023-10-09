@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { addNonBreakingSpace } from '../../services/addNonBreakingSpaces.js';
 import './text.scss';
 
-const Text = ({children, data = {}}) => {
+const Text = ({parentAlignment, children, data = {}}) => {
+
+  const componentRef = useRef(null);
+
+  useEffect(() => {
+
+    if (componentRef.current) {
+      addNonBreakingSpace(componentRef.current);
+    }
+    
+  }, []);
 
   const { alignment } = data;
+
+  const calculatedAlignment = parentAlignment ? parentAlignment : alignment;
 
   const alignmentClassMap = {
     "Left": "text-left",
@@ -11,12 +24,12 @@ const Text = ({children, data = {}}) => {
     "Center": "text-center"
   };
 
-  const alignmentClass = alignmentClassMap[alignment] || "text-center";
+  const alignmentClass = alignmentClassMap[calculatedAlignment] || "text-left";
 
   const classes = ['text', alignmentClass].filter(Boolean).join(' ');
 
   return (
-    <div className={classes}>
+    <div className={classes} ref={componentRef}>
       {children}
     </div>
   );

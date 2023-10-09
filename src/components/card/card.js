@@ -6,7 +6,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import './card.scss';
 
 const Card = ({ data = {} }) => {
-  const { height = '', type = '', subHeadline = '', headline = '', additionalClassNames = '' } = data;
+  const { alignment = '', height = '', type = '', subHeadline = '', headline = '', additionalClassNames = '' } = data;
+
+  console.log('CARD alignment',alignment);
 
   const heightMapping = {
     'Flat': 'shadow-none',
@@ -15,6 +17,14 @@ const Card = ({ data = {} }) => {
     'Level 3': 'shadow-lg'
   };
 
+  const alignmentClassMap = {
+    "Left": "text-left",
+    "Right": "text-right",
+    "Center": "text-center"
+  };
+  
+  const alignmentClass = alignmentClassMap[alignment] || "text-left";
+
   const formattedHeight = heightMapping[height] || '';
 
   const renderCardContent = (item, i) => {
@@ -22,19 +32,21 @@ const Card = ({ data = {} }) => {
 
     if (componentType === 'text') {
       return (
-        <Text key={i}>
+        <Text key={i} parentAlignment={alignment} data={item?.fields}>
           {documentToReactComponents(item.fields.copy)}
         </Text>
       );
     } else if (componentType === 'button') {
-      return <Button key={i} data={item?.fields} />;
+      return (
+        <Button classNames={alignment} key={i} data={item?.fields} alignment={alignment} />
+      );
     } else {
       console.error(`Error: unsupported componentType ${componentType}`);
       return null;
     }
   };
 
-  const classes = ['card', type, formattedHeight, additionalClassNames].filter(Boolean).join(' ');
+  const classes = ['card', type, formattedHeight, additionalClassNames, alignmentClass].filter(Boolean).join(' ');
 
   return (
     <div className={classes}>
@@ -47,28 +59,6 @@ const Card = ({ data = {} }) => {
       </div>
     </div>
   );
-};
-
-Card.propTypes = {
-  data: PropTypes.shape({
-    height: PropTypes.string,
-    type: PropTypes.string,
-    subHeadline: PropTypes.string,
-    headline: PropTypes.string,
-    additionalClassNames: PropTypes.string,
-    cardContent: PropTypes.arrayOf(PropTypes.shape({
-      sys: PropTypes.shape({
-        contentType: PropTypes.shape({
-          sys: PropTypes.shape({
-            id: PropTypes.string,
-          }),
-        }),
-      }),
-      fields: PropTypes.shape({
-        copy: PropTypes.string,
-      }),
-    })),
-  }),
 };
 
 export default Card;

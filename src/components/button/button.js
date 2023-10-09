@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import './button.scss';
 
-const Button = ({ data = {} }) => {
+const Button = ({alignment, data = {} }) => {
   const { classNames, link, copy, style = 'default', size = 'medium' } = data;
   const history = useHistory();
 
@@ -18,7 +17,14 @@ const Button = ({ data = {} }) => {
     medium: 'btn-md',
     small: 'btn-sm',
   };
+  
+  const alignmentClassMap = {
+    Left: 'btn-align-start',
+    Center: 'btn-align-center',
+    Right: 'btn-align-end',
+  };
 
+  const alignmentClass = alignmentClassMap[alignment];
   const styleClass = styleClassMap[style];
   const sizeClass = sizeClassMap[size];
 
@@ -28,24 +34,10 @@ const Button = ({ data = {} }) => {
   };
 
   return (
-    <button className={`btn ${styleClass} ${sizeClass} ${classNames ? classNames : ''}`} onClick={handleButtonClick}>
+    <button className={`btn ${styleClass} ${sizeClass} ${alignmentClass} ${classNames ? classNames : ''}`} onClick={handleButtonClick}>
       {copy}
     </button>
   );
-};
-
-Button.propTypes = {
-  data: PropTypes.shape({
-    classNames: PropTypes.string,
-    link: PropTypes.string.isRequired,
-    copy: PropTypes.string.isRequired,
-    style: PropTypes.oneOf(['default', 'primary', 'secondary']),
-    size: PropTypes.oneOf(['large', 'medium', 'small']),
-  }),
-};
-
-Button.defaultProps = {
-  data: {},
 };
 
 export default Button;

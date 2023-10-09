@@ -1,6 +1,8 @@
-export const addNonBreakingSpace = () => {
+export const addNonBreakingSpace = (componentRoot) => {
   // get all p elements in the DOM
-  const paragraphs = document.getElementsByTagName('p');
+  const paragraphs = componentRoot.getElementsByTagName('p');
+
+  console.log('-paragraphs',paragraphs);
 
   // iterate over each p element
   for (let i = 0; i < paragraphs.length; i++) {

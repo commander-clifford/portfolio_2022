@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './spotlight.scss';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { addNonBreakingSpace } from '../../services/addNonBreakingSpaces.js';
+import Text from '../text/text';
 
 const Spotlight = ({ data = {} }) => {
 
@@ -20,12 +20,6 @@ const Spotlight = ({ data = {} }) => {
 
   const classes = ['spotlight card', formattedHeight].filter(Boolean).join(' ');
 
-  useEffect(() => {
-
-    addNonBreakingSpace();
-    
-  }, []);
-
   return (
     <section className={classes}>
       <div className="spotlight__container">
@@ -38,7 +32,9 @@ const Spotlight = ({ data = {} }) => {
         </div>
 
         <div className="spotlight__content">
-          {documentToReactComponents(content)}
+          <Text>
+            {documentToReactComponents(content)}
+          </Text>
         </div>
 
       </div>

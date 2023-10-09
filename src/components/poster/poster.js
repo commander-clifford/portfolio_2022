@@ -28,7 +28,9 @@ const Poster = ({ data = {} }) => {
         {headline && <h2>{headline}</h2>}
       </div>
       <div className={'poster__copy'}>
-        {documentToReactComponents(cardContent)}
+        <Text>
+          {documentToReactComponents(cardContent)}
+        </Text>
       </div>
       {cta ? 
         <Button className={'poster__cta'}>

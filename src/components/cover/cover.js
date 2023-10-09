@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import './cover.scss';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { addNonBreakingSpace } from '../../services/addNonBreakingSpaces.js';
+import Text from '../text/text';
 
 const Cover = (props) => {
 
   // console.log("Cover", props.data?.fields?.heroImage?.fields);
 
   useEffect(() => {
-
-    addNonBreakingSpace();
 
     let timeline = new gsap.timeline({
       delay: 1
@@ -37,7 +35,9 @@ const Cover = (props) => {
             <div className=''>
               <h4>{props.data?.fields?.title}</h4>
               <h1>{props.data?.fields?.name}</h1>
-              {documentToReactComponents(props.data?.fields?.description)}
+              <Text>
+                {documentToReactComponents(props.data?.fields?.description)}
+              </Text>
             </div>
           </div>
         </div>
