@@ -47,27 +47,23 @@ const Projects = () => {
         // TODO data. ...build data structure for spotlight
         return (
           // TODO call spotlight component here
-          <section key={i} id={data?.fields?.slug} className="container project-item panel spotlight">
-
-            <div className="project-item__display">
-              <Link tabindex="-1" to={"/projects/" + data?.fields?.slug}>
-                <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
-              </Link>
-            </div>
-
-            <div className='project-item__details'>
-
-              <div className="project-item__copy">
-                  <h2 className="headline">{data?.fields?.title}</h2>
-                  <h5 className="subheadline">{data?.fields?.subtitle}</h5>
-                  {documentToReactComponents(data?.fields?.briefDescription)}  
-                  {data?.fields?.projectTags}
+          <section key={i} id={data?.fields?.slug} className="container">
+            <div className='project-item panel spotlight card'>
+              <div className="project-item__display">
+                <Link tabindex="-1" to={"/projects/" + data?.fields?.slug}>
+                  <img alt="placeholder" src={data?.fields?.heroImage?.fields?.file?.url} />
+                </Link>
               </div>
-              
-              <Link className="btn btn-secondary btn-md" to={"/projects/" + data?.fields?.slug}>See More</Link>
-
+              <div className='project-item__details'>
+                <div className="project-item__copy">
+                    <h2 className="headline">{data?.fields?.title}</h2>
+                    <h5 className="subheadline">{data?.fields?.subtitle}</h5>
+                    {documentToReactComponents(data?.fields?.briefDescription)}  
+                    {data?.fields?.projectTags}
+                </div>
+                <Link className="btn btn-secondary btn-md" to={"/projects/" + data?.fields?.slug}>See More</Link>
+              </div>
             </div>
-            
           </section>
         );
       }).reverse()}
