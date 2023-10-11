@@ -17,8 +17,8 @@
 // }
 
 @mixin rounded(){
+  // padding: var(--radius-4);
   border-radius: var(--radius-3);
-  padding: var(--radius-4);
 }
 @mixin primary-gradient(){
   background-attachment: fixed;
@@ -43,11 +43,11 @@
 }
 @mixin lower-clip($down) {
   $percentage: unquote("%");
+  padding: var(--clip-size);
   // clip-path: polygon( 0 #{$down}, 100% 0, 100% 100%, 0% 100% );
   // clip-path: polygon(50% var(--clip-size), 100% 0, 100% 100%, 0 100%, 0 0);
   clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, 100% 100%, 100% 100%, 100% 0);
   clip-path: polygon(var(--clip-size) 0%, 0% var(--clip-size), 0 100%, calc(100% - var(--clip-size)) 100%, 100% calc(100% - var(--clip-size)), 100% 0);
-  padding: var(--clip-size);
   box-shadow: var(--shadow-4);
 }
 @mixin dual-clip($amount) {
@@ -81,4 +81,29 @@
 @mixin notBlurry() {
   background-color: transparent;
   backdrop-filter: blur(0);
+}
+
+@mixin headline-decoration($alignment: 'center') {
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 2em;
+    height: 1px;
+    background-color: currentColor;
+  }
+
+  &::before { 
+    right: calc(100% + 0.5em);
+    content: if($alignment == 'left', none, '');
+  }
+
+  &::after { 
+    left: calc(100% + 0.5em); 
+    content: if($alignment == 'right', none, '');
+  }
 }

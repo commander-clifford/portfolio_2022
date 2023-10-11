@@ -73,10 +73,15 @@ h3 {
 h4 {
   margin-top: var(--font-size-4);
   font-family: var(--headline-font);
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-4);
   font-weight: 500;
   color: var(--headline-color);
 }
+
+.text-left h5 { @include headline-decoration('left') }
+.text-right h5 { @include headline-decoration('right') }
+.text-center h5 { @include headline-decoration('center') }
+
 
 h5,
 h6 {
