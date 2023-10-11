@@ -6,6 +6,7 @@
   
   border: 1px solid var(--background);
   @include rounded;
+  padding: var(--radius-4);
   background: var(--background);
   flex-basis: var(--size-content-1);
   box-shadow: var(--shadow-3);
