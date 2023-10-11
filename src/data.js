@@ -13,6 +13,10 @@ export const sitePaths = [{
   {
     path: "/projects",
     title: "Projects"
+  },
+  {
+    path: "/design-system",
+    title: "DS"
   }
 ]
 
