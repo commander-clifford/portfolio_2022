@@ -1,22 +1,23 @@
-@import './../../mixins';
+@import './../../style/mixins';
 
 .poster {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--gray-0);
+  background-color: var(--background-color-alt);
+  color: var(--copy-color-alt);
   flex-basis: var(--size-content-1);
   box-shadow: var(--shadow-3);
   flex-basis: 100%;
-  overflow-inline: hidden;
+  overflow: hidden;
 
   &__headline {
     padding-inline: 1em;
     padding-top: var(--radius-2);    
     width: 100%;
-    background-color: var(--red-600);
-    color: white;
+    color: var(--gray-1);
+    @include primary-gradient();
   }
 
   h2 {
@@ -59,7 +60,6 @@
   &__title {
     margin-bottom: var(--size-4);
     padding-bottom: var(--size-4);
-    border-bottom: 1px solid var(--background-300);
   }
 
   &__top {
@@ -68,13 +68,6 @@
     padding-bottom: var(--size-8);
   }
 
-  .circle {
-    width: var(--size-12);
-    height: var(--size-12);
-    display: block;
-    border-radius: 50%;
-    background-color: var(--background-300);
-  }
   @include rounded;
 }
 

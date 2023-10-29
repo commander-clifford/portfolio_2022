@@ -4,7 +4,7 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
 import { fetchContentfulEntries } from './services/contentfulAPI';
 
-import './App.css';
+import './style/props.css';
 
 import ScrollToTop from "./scrollToTop";
 import Header from './components/header/header';

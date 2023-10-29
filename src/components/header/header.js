@@ -42,7 +42,7 @@ function Header(props) {
 
         <div className="">
           <Link className="" to="/">
-            <h1 className='aniwrapper'>
+            <h1 className='animation-wrapper'>
               <span id="splitHeadline" className="">Clifford</span>
             </h1>
           </Link>

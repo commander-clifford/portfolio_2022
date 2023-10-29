@@ -24,7 +24,7 @@ const Text = ({parentAlignment, children, data = {}}) => {
     "Center": "text-center"
   };
 
-  const alignmentClass = alignmentClassMap[calculatedAlignment] || "text-left";
+  const alignmentClass = alignmentClassMap[calculatedAlignment] || "text-center";
 
   const classes = ['text', alignmentClass].filter(Boolean).join(' ');
 

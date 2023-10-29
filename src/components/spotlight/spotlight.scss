@@ -1,33 +1,38 @@
-.band {
-  .spotlight {
-    border: 0;
-    padding: 0;
-    text-align: left;
-    &__content {
-      width: 100%;
-      padding: var(--radius-4);
-    }
-  }
-  @media screen and (min-width: 576px){/* SM */}
-  @media screen and (min-width: 576px){/* SM */}
-  @media screen and (min-width: 768px){/* MD */}
-  @media screen and (min-width: 992px){ /* LG */
-    .spotlight{
-      &__container {
-        display: flex;
-        gap: var(--size-10);
-        
-      }
-      &__image {}
-      &__content {}
-    }
-    .spotlight:nth-child(odd) .spotlight__container  {
-      flex-direction: row-reverse;
-    }
-  }
-  @media screen and (min-width: 1024px){/* ~LG */}
-  @media screen and (min-width: 1025px){/* CMS-LG */}
-  @media screen and (min-width: 1200px){/* XL */}
-  @media screen and (min-width: 1400px){/* XXL */}
-}
+@import './../../style/mixins';
 
+.spotlight {
+  @include rounded;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  text-shadow: none;
+  background-color: var(--background-color-alt);
+  color: var(--copy-color-alt);
+
+  &__content {
+    width: 100%;
+    padding: var(--radius-4);
+    * {text-shadow: none}
+  }
+  &__image {}
+}
+@media screen and (min-width: 576px){/* SM */}
+@media screen and (min-width: 576px){/* SM */}
+@media screen and (min-width: 768px){/* MD */}
+@media screen and (min-width: 992px){ /* LG */
+  .spotlight{
+    &__container {
+      display: flex;
+      gap: var(--primary-gap);
+    }
+    &__image {}
+    &__content {}
+  }
+  .spotlight:nth-child(odd) .spotlight__container  {
+    flex-direction: row-reverse;
+  }
+}
+@media screen and (min-width: 1024px){/* ~LG */}
+@media screen and (min-width: 1025px){/* CMS-LG */}
+@media screen and (min-width: 1200px){/* XL */}
+@media screen and (min-width: 1400px){/* XXL */}

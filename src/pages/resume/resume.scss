@@ -1,4 +1,4 @@
-@import './../../mixins';
+@import './../../style/mixins';
 
 .resume {
 
@@ -102,7 +102,7 @@
           left: 6px;
           z-index: 1;
           border-radius: 64px;
-          background: var(--background);
+          background: var(--background-color);
           width: 4px;
           height: 4px;
           content: "";

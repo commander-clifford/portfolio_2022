@@ -1,53 +1,29 @@
 .btn {
 
   --button-primary-color: var(--headline-color);
-  --link-visited: var(--button-primary-color);
-  transform: translateY(0);
+
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1em;
   padding-inline: 1em;
   border-radius: 0.3em;
   font-size: 1.25rem;
   color: var(--button-primary-color);
   transition: 200ms all ease-in-out;
-  box-shadow: none;
+  box-shadow: none !important;
   outline: 0px solid transparent;
-
-  &:hover {
-    color: var(--button-primary-color);
-    outline-offset: 2px;
-    outline: 2px solid var(--button-primary-color);
-    box-shadow: none !important;
-  }
-  &:active {
-    transform: scale(0.96);
-    background-color: var(--button-primary-color);
-    color: var(--button-primary-color);
-    box-shadow: none !important;
-  }
-  &:focus {
-    color: var(--button-primary-color);
-    outline-offset: 2px;
-    box-shadow: none;
-  }
-
-  &-md {
-    font-size: 1.75rem;
-  }
-  &-lg {
-    font-size: 2.25rem;
-  }
+  outline-offset: 2px;
 
   &-primary {
-    border-color: var(--button-primary-color);
-    background-color: var(--button-primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    background-image: var(--primary-gradient);
     color: white;
     &:hover {
       border-color: var(--button-primary-color);
       background-color: var(--button-primary-color);
       color: white;
-      outline-offset: 2px;
       outline: 2px solid var(--button-primary-color);
     }
     &:focus {
@@ -59,20 +35,13 @@
     }
   }
   &-secondary {
-    border-color: var(--button-primary-color);
+    border-color: var(--copy-color);
     border-width: 2px;
-    background-color: transparent;
-    &:hover {
-      border-color: var(--button-primary-color);
-      background-color: transparent;
-      outline-offset: 2px;
-      outline: 2px solid var(--button-primary-color);
-    }
+    background-color: var(--copy-color);
+    color: white;
+    &:hover ,
     &:focus {
-      border-color: transparent;
-      background-color: var(--button-primary-color);
-      color: white;
-      outline: 2px solid var(--button-primary-color) !important;
+      outline: 2px solid var(--copy-color);
     }
   }
 
@@ -80,10 +49,7 @@
   &-align-center { align-self: center; }
   &-align-end { align-self: flex-end; }
 
-  margin-top: 1em;
-
-  + .btn {
-
-  }
+  &-md { font-size: 1.75rem; }
+  &-lg { font-size: 2.25rem; }
 
 }

@@ -1,0 +1,53 @@
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@function hsl-to-rgb($hsl-color) {
+  @return mix($hsl-color,$hsl-color);
+}
+
+@mixin rounded() {
+  overflow: hidden;
+  border-radius: var(--radius-3);
+}
+@mixin primary-gradient(){
+  background-attachment: fixed;
+  background-color: var(--red-600);
+  background-image: var(--primary-gradient);
+}
+
+@mixin blurry($isBlurry) {
+  @if $isBlurry {
+    @supports (filter: blur(0)) {
+      backdrop-filter: blur(1em) brightness(0.96);
+    }
+  } @else {
+    backdrop-filter: blur(0);
+  }
+}
+
+
+@mixin headline-decoration($alignment: 'center') {
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 2em;
+    height: 1px;
+    background-color: currentColor;
+  }
+
+  &::before { 
+    right: calc(100% + 0.5em);
+    content: if($alignment == 'left', none, '');
+  }
+
+  &::after { 
+    left: calc(100% + 0.5em); 
+    content: if($alignment == 'right', none, '');
+  }
+}

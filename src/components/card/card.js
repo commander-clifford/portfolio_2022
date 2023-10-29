@@ -68,7 +68,7 @@ const Card = ({ data = {} }) => {
 
   return (
     // Render the Card component
-    <div className={classes} tabIndex={'0'}>
+    <div className={classes}>
       <div className={'card__headline'}>
         {subHeadline && <h5>{subHeadline}</h5>}
         {headline && <h2>{headline}</h2>}

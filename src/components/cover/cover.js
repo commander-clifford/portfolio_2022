@@ -32,12 +32,10 @@ const Cover = (props) => {
 
         <div id="copy" className="cover__content">
           <div className="cover__copy">
-            <div className=''>
+            <div className='text'>
               <h4>{props.data?.fields?.title}</h4>
               <h1>{props.data?.fields?.name}</h1>
-              <Text>
-                {documentToReactComponents(props.data?.fields?.description)}
-              </Text>
+              {documentToReactComponents(props.data?.fields?.description)}
             </div>
           </div>
         </div>

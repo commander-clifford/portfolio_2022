@@ -1,0 +1,65 @@
+/* This is CSS not SCSS */
+@import "open-props/style";
+@import "open-props/normalize";
+
+:root {
+
+  /* fonts */
+  --body-font: 'Open Sans', sans-serif;
+  --headline-font: 'Oswald', sans-serif;
+  --quote-font: 'Amaranth', sans-serif;
+
+  --primary-gap: var(--size-4);
+  --component-gap: var(--size-6);
+
+}
+
+@media screen and (min-width: 576px){/* SM */
+  :root {
+    --component-gap: var(--size-10);
+  }
+}
+@media screen and (min-width: 768px){/* MD */}
+@media screen and (min-width: 992px){/* LG */}
+@media screen and (min-width: 1024px){/* ~LG */}
+@media screen and (min-width: 1025px){/* CMS-LG */}
+@media screen and (min-width: 1200px){/* XL */}
+@media screen and (min-width: 1400px){/* XXL */}
+
+/* --constant-color */
+:root{
+  --primary-color-light: var(--red-800);
+  --primary-color-dark: var(--gray-1);
+  --footer-color: var(--gray-1);
+}
+
+/* default/prefers-color-scheme: light */
+:root {
+  --primary-color: var(--primary-color-light);
+  --copy-color: var(--gray-8);
+  --copy-color-alt: var(--gray-8);
+  --headline-color: var(--primary-color);
+  --headline-accent-color: var(--primary-color);
+  --background-color: var(--gray-1);
+  --background-color-alt: var(--gray-0);
+  --selection-color: var(--red-500);
+  --primary-gradient: var(--primary-gradient-light);
+}
+
+/* Dark color scheme - enhanced by users system settings */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: var(--primary-color-dark);
+    --copy-color: var(--primary-color);
+    --headline-color: var(--primary-color);
+    --headline-accent-color: var(--primary-color-light);
+    --background-color: var(--gray-9);
+    --background-color-alt: var(--gray-1);
+    --selection-color: var(--red-500);
+    --primary-gradient: var(--primary-gradient-dark);
+
+
+
+    
+  }
+}
