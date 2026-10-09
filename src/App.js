@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react';
+import { Route, Switch, withRouter } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
-import { enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
+import { addTransitionEndListener, enter, exit } from './timelines'; // https://css-tricks.com/animating-between-views-in-react/
 import { fetchContentfulEntries } from './services/contentfulAPI';
 
 import './App.css';
 
-import ScrollToTop from "./scrollToTop";
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 
@@ -18,22 +17,64 @@ import ProjectsData from './pages/projects/projects-data';
 import Project from './pages/projects/project';
 import Page from './pages/page';
 import DesignSystem from './pages/design-system/design-system';
+import WorkCaseStudy from './pages/work/work-case-study';
+import { featuredWork } from './content/publicCopy';
 
 import { sitePaths } from './data';
 import { socialLinks } from './data';
 
-const App = () => {
+const App = ({ history, location }) => {
 
   const [projectsData, setProjectsData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [currentPath, setCurrentPath] = useState('');
+  const routeDirection = useRef('forward');
+  const projectTransition = useRef(false);
+  const routeHistory = useRef(null);
+
+  const initialKey = location.key || location.pathname;
+  if (!routeHistory.current) {
+    routeHistory.current = { keys: [initialKey], index: 0, lastKey: initialKey, lastPathname: location.pathname };
+  } else if (initialKey !== routeHistory.current.lastKey) {
+    const stack = routeHistory.current;
+    const previousProject = stack.lastPathname.match(/^(?:\/projects|\/work)\/([^/]+)$/);
+    const nextProject = location.pathname.match(/^(?:\/projects|\/work)\/([^/]+)$/);
+    projectTransition.current = Boolean(previousProject && nextProject && previousProject[1] !== nextProject[1]);
+
+    if (history.action === 'POP') {
+      const nextIndex = stack.keys.indexOf(initialKey);
+      routeDirection.current = nextIndex >= 0 && nextIndex < stack.index ? 'backward' : 'forward';
+      if (nextIndex >= 0) stack.index = nextIndex;
+      else {
+        stack.keys.push(initialKey);
+        stack.index = stack.keys.length - 1;
+      }
+    } else if (history.action === 'REPLACE') {
+      routeDirection.current = 'forward';
+      stack.keys[stack.index] = initialKey;
+    } else {
+      routeDirection.current = 'forward';
+      if (previousProject && nextProject) {
+        const order = stack.lastPathname.startsWith('/work/')
+          ? featuredWork.map(project => project.slug)
+          : projectsData.map(project => project.fields?.slug);
+        const previousIndex = order.indexOf(previousProject[1]);
+        const nextIndex = order.indexOf(nextProject[1]);
+        if (previousIndex >= 0 && nextIndex >= 0 && nextIndex !== previousIndex) {
+          routeDirection.current = nextIndex < previousIndex ? 'backward' : 'forward';
+        }
+      }
+      stack.keys.splice(stack.index + 1);
+      stack.keys.push(initialKey);
+      stack.index = stack.keys.length - 1;
+    }
+
+    stack.lastKey = initialKey;
+    stack.lastPathname = location.pathname;
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-
-        const pageResponse = await fetchContentfulEntries('page');
-        console.log("pageResponse",pageResponse);
 
         const projectsResponse = await fetchContentfulEntries('project');
         projectsResponse.items.sort((a, b) => {
@@ -47,55 +88,42 @@ const App = () => {
           return dateB - dateA;
       });
       
-      // Now, pageResponse is sorted based on originalCreationDate.
-      
         setProjectsData(projectsResponse.items);
-
-        setIsLoaded(true);
 
       } catch (error) {
         console.error(error);
       } finally {
-
+        setIsLoaded(true);
       }
     };
   
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (isLoaded) {
-      console.log("App -> projectsData ", projectsData)
-    }
-  }, [isLoaded, projectsData]);
-
   return (
     <div className="app">
       <div className="view-wrapper" style={{position: 'relative', height: '100%'}}>
         
-          <Route render={({ location }) => {            
+          <Route render={({ location }) => {
             const { pathname, key } = location;
-            setCurrentPath(pathname);
-            const prevPathname = null;
             return (
               <>
-                <Header path={location.pathname} currentPath={currentPath} />
-                <ScrollToTop>
+                <Header path={location.pathname} currentPath={pathname} />
                   <main className="main">
                     <TransitionGroup component={null}>
                       <Transition
-                        key={key}
+                        key={key || pathname}
                         appear={true}
-                        onEnter={(node) => enter(node, pathname, prevPathname)}
-                        onExit={(node) => exit(node, pathname, prevPathname)}
-                        timeout={{enter: 2000, exit: 2000 }}
+                        onEnter={(node) => enter(node, routeDirection.current, projectTransition.current)}
+                        onExit={(node) => exit(node, routeDirection.current)}
+                        addEndListener={(node, done) => addTransitionEndListener(node, done)}
                         >
                           
                         <Switch location={location}>
                             <Route
                               exact path={['/']}
                               render={({ ...props }) => {
-                                return <Home {...props} />
+                                return <Home {...props} projectsData={projectsData} isLoaded={isLoaded} />
                               }}
                             />
                             <Route
@@ -109,6 +137,10 @@ const App = () => {
                               render={({ ...props }) => {
                                 return <Resume {...props} />
                               }}
+                            />
+                            <Route
+                              path='/work/:slug'
+                              render={({ match }) => <WorkCaseStudy match={match} projectsData={projectsData} />}
                             />
                             <Route
                               path='/projects/:urlSlug'
@@ -125,7 +157,7 @@ const App = () => {
                               path={['/projects']}
                               render={({ ...props }) => {
                                 return (                                  
-                                  <Projects {...props} projectsData={projectsData} />
+                                  <Projects {...props} projectsData={projectsData} isLoaded={isLoaded} />
                                 );
                               }}
                             />
@@ -154,7 +186,6 @@ const App = () => {
                       </Transition>
                     </TransitionGroup>
                   </main>
-                </ScrollToTop>
                 <Footer path={location.pathname} sitePaths={sitePaths} socialLinks={socialLinks} />
               </>
             )
@@ -165,4 +196,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default withRouter(App);

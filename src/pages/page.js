@@ -5,6 +5,7 @@ import { buildComponents } from '../services/buildComponents';
 
 const Page = ({ slug }) => {
   const [pageData, setPageData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +15,8 @@ const Page = ({ slug }) => {
         setPageData(specificPageDataResponse);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -23,7 +26,7 @@ const Page = ({ slug }) => {
   const components = buildComponents(pageData);
 
   return (
-    <article className={`page-${slug}`}>
+    <article className={`page-${slug}`} data-transition-ready={isLoading ? 'false' : 'true'}>
       {components}
     </article>
   );

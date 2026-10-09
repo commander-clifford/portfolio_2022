@@ -1,222 +1,165 @@
 import { gsap, Power1 } from 'gsap';
 
-/**
-
-Animated Router Transitions (ART)
-
-https://css-tricks.com/animating-between-views-in-react/
-GSAP Cheat Sheet: https://ihatetomatoes.net/wp-content/uploads/2016/07/GreenSock-Cheatsheet-4.pdf
-GSAP Docs https://greensock.com/docs/
-example of similar transition https://codesandbox.io/s/mqy3mmznn
-another example https://stackblitz.com/edit/react-transition-group-gsap-test?file=src%2FRoutes.jsx
-trouble shooting https://greensock.com/forums/topic/27321-transitions-not-working-with-react-router-dom-gsap-and-react-transition-group/
-https://reactcommunity.org/react-transition-group/with-react-router/
-
-*/
-
 const DURATION = 1;
 const STAGGER = 0.08;
 const SCALETO = 0.98;
-const DRIFTIN = "-80px";
-const DRIFTOUT = "80px";
-const ROTATIONIN = 0;
-const ROTATIONOUT = -0;
+const DRIFTIN = '-80px';
+const DRIFTOUT = '80px';
 const EASE = Power1.easeOut;
+const activeTransitions = new WeakMap();
+const endListeners = new WeakMap();
 
-/* ENTER: ANIMATION TIMELINES */
+const restoreInlineStyle = (node, styleAttribute) => {
+  if (styleAttribute === null) node.removeAttribute('style');
+  else node.setAttribute('style', styleAttribute);
+};
 
-/* Enter: Slide in from Left */
-const enterTimeline = (node) => {
+const waitForRouteReady = (node, callback) => {
+  if (node.getAttribute('data-transition-ready') !== 'false') {
+    callback();
+    return () => {};
+  }
 
-  console.log('ENTER TIMELINE');
-  console.log("enter->", node);
+  let finished = false;
+  let observer;
+  let timeoutId;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    observer?.disconnect();
+    window.clearTimeout(timeoutId);
+    callback();
+  };
 
+  observer = new MutationObserver(() => {
+    if (node.getAttribute('data-transition-ready') !== 'false') finish();
+  });
+  timeoutId = window.setTimeout(finish, 3000);
+  observer.observe(node, { attributes: true, attributeFilter: ['data-transition-ready'] });
+  return () => {
+    finished = true;
+    observer.disconnect();
+    window.clearTimeout(timeoutId);
+  };
+};
+
+const cancelTransition = (node) => {
+  const active = activeTransitions.get(node);
+  if (!active) return;
+
+  active.cancelWait?.();
+  active.context?.revert();
+  if (active.restoreStyle !== undefined) restoreInlineStyle(node, active.restoreStyle);
+  activeTransitions.delete(node);
+};
+
+const startTransition = (node, buildTimeline, waitUntilReady = false, options = {}) => {
+  cancelTransition(node);
+
+  const active = { context: null, timeline: null, cancelWait: null, restoreStyle: options.restoreStyle };
+  activeTransitions.set(node, active);
+
+  const start = () => {
+    if (activeTransitions.get(node) !== active) return;
+
+    active.context = gsap.context(() => {
+      active.timeline = buildTimeline();
+    }, node);
+    active.timeline.eventCallback('onComplete', () => {
+      if (activeTransitions.get(node) !== active) return;
+
+      activeTransitions.delete(node);
+      if (options.restoreOnComplete) {
+        active.context.revert();
+        if (active.restoreStyle !== undefined) restoreInlineStyle(node, active.restoreStyle);
+      }
+      const done = endListeners.get(node);
+      endListeners.delete(node);
+      done?.();
+    });
+    active.timeline.play(0);
+  };
+
+  if (waitUntilReady) active.cancelWait = waitForRouteReady(node, start);
+  else start();
+};
+
+export const addTransitionEndListener = (node, done) => {
+  if (!activeTransitions.has(node)) {
+    done();
+    return;
+  }
+
+  endListeners.set(node, done);
+};
+
+const enterTimeline = (node, direction, simultaneous) => {
   const staggerInElements = node.querySelectorAll('.art__stagger-in');
+  const fromX = direction === 'backward' ? '-4rem' : '4rem';
 
-  let timeline = gsap.timeline({ 
+  const timeline = gsap.timeline({
     paused: true,
-    defaults: {
-      duration: DURATION,
-      stagger: STAGGER,
-      ease: EASE
-    }
+    defaults: { duration: DURATION, stagger: STAGGER, ease: EASE },
   });
 
-  timeline
-  .from( node, {
+  timeline.fromTo(node, {
     autoAlpha: 0,
-    x: '4rem',
-    delay: DURATION*0.9,
-  })
-  .from( staggerInElements, {
-    stagger: STAGGER,
-    autoAlpha: 0,
-    scale: SCALETO,
-    y: DRIFTIN,
-    rotationY: ROTATIONIN,
-    clearProps: "opacity",
-  }, "<")
-  return timeline;
-}
-
-/* Enter: Slide in from Right */
-const enterSlideInFromRightTimeline = (node) => {
-  const timeline = gsap.timeline({ 
-    paused: true,
-    defaults: {
-      duration: DURATION,
-      stagger: STAGGER,
-      ease: EASE
-    }
+    x: fromX,
+  }, {
+    autoAlpha: 1,
+    x: 0,
+    delay: simultaneous ? 0 : DURATION * 0.9,
   });
-  const staggerInElements = node.querySelectorAll('.art__stagger-in');
-  timeline
-  .from( node, {
-    autoAlpha: 0,
-    delay: DURATION,
-  })
-  .from( staggerInElements, {
-    stagger: STAGGER,
-    duration: DURATION,
-    autoAlpha: 0,
-    scale: SCALETO,
-    y: DRIFTOUT,
-    rotationY: ROTATIONOUT,
-  }, "<")
+
+  if (staggerInElements.length) {
+    timeline.from(staggerInElements, {
+      stagger: STAGGER,
+      autoAlpha: 0,
+      scale: SCALETO,
+      y: direction === 'backward' ? DRIFTOUT : DRIFTIN,
+    }, '<');
+  }
+
   return timeline;
-}
+};
 
-/* EXIT ANIMATION TIMELINES */
-
-/* Exit: Slide out to Left */
-const exitTimeline = (node) => {
-
-  console.log('EXIT TIMELINE');
-  console.log("exit->", node);
-
-  // const staggerOutElements = node.querySelectorAll('.art__stagger-out');
-  // const staggerOutColumnElements = node.querySelectorAll('.art__stagger-out--columns');
+const exitTimeline = (node, direction) => {
+  const scrollOffset = window.scrollY || window.pageYOffset || document.scrollingElement?.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  const viewportTop = node.getBoundingClientRect().top;
   const footer = document.getElementById('footer');
+  const toX = direction === 'backward' ? '4rem' : '-4rem';
 
-  const timeline = gsap.timeline({ 
-    paused: true,
-    defaults: {
-      duration: DURATION,
-      stagger: STAGGER,
-      ease: EASE
-    }
-  });
-
-  timeline
-  .set(footer, {
-    autoAlpha: 0,
-  })
-  .set(node, {
-    position: 'absolute',
+  // Pin the outgoing page at its current viewport position before resetting
+  // scroll. This preserves the section the visitor was reading during exit.
+  gsap.set(node, {
+    position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
+    y: viewportTop,
     zIndex: 0,
-  })
-  // .to(staggerOutElements, {
-  //   stagger: STAGGER,
-  //   autoAlpha: 0,
-  //   scale: SCALETO,
-  //   y: DRIFTOUT,
-  //   rotationY: ROTATIONOUT,
-  // }, )
-  // .to(staggerOutColumnElements, {
-  //   stagger: STAGGER,
-  //   autoAlpha: 0,
-  //   scale: SCALETO,
-  //   y: DRIFTOUT,
-  //   rotationY: ROTATIONOUT,
-  // },'<')
-  .to( node, {
-    autoAlpha: 0,
-    x: '-4rem',
-  })
-  .to(footer, {
-    autoAlpha: 1
-  })
-  return timeline;
-}
+  });
+  if (scrollOffset) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-/* Exit: Slide out to right */
-const exitSlideOutToRightTimeline = (node) => {
-  const timeline = gsap.timeline({ 
+  const timeline = gsap.timeline({
     paused: true,
-    defaults: {
-      duration: DURATION,
-      stagger: STAGGER,
-      ease: EASE
-    }
+    defaults: { duration: DURATION, stagger: STAGGER, ease: EASE },
   });
-  const staggerOutElements = node.querySelectorAll('.art__stagger-out');
-  timeline
-  .set(node,{
-    // set position to take this node out of natural flow to prevent flash
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0, // must match app padding
-    right: 0, // must match app padding
-    zIndex: 0,
-  })
-  .to(staggerOutElements, {
-    duration: DURATION,
-    stagger: STAGGER,
-    autoAlpha: 0,
-    scale: SCALETO,
-    y: DRIFTIN,
-    rotationY: ROTATIONIN,
-  },"<")
-  .to( node, {
-    duration: DURATION,
-    autoAlpha: 0,
-  },"<")
+
+  if (footer) timeline.to(footer, { autoAlpha: 0, duration: 0.2 }, 0);
+  timeline.to(node, { autoAlpha: 0, x: toX }, 0);
+  if (footer) timeline.to(footer, { autoAlpha: 1, duration: 0.2 }, '>-0.2');
+
   return timeline;
-}
+};
 
+export const enter = (node, direction = 'forward', simultaneous = false) => {
+  // Keep asynchronous CMS pages hidden until their route data has landed.
+  const restoreStyle = node.getAttribute('style');
+  gsap.set(node, { autoAlpha: 0 });
+  startTransition(node, () => enterTimeline(node, direction, simultaneous), true, { restoreOnComplete: true, restoreStyle });
+};
 
-/* EXPORT TIMELINES */
-
-/* ENTER */
-export const enter = (node, currentPath, previousPath) => {
-  
-  let timeline;
-  // console.log('--- compare Next',currentPath,'to Previous',previousPath);
-  
-  // if(currentPath !== previousPath){
-  //   // do it forwards
-  //   console.log('they do not match: go forward');
-    timeline = enterTimeline(node);
-  // } else {
-  //   // do it backwards
-  //   console.log('they do match: go backward');
-  //   timeline = enterSlideInFromRightTimeline(node); 
-  // }
-  
-  window.loadPromise = new Promise(resolve => {
-    window.addEventListener("DOMContentLoaded", timeline.play())
-  });
-  
-}
-
-/* EXIT */
-export const exit = (node, currentPath, previousPath) => {
-  
-  let timelineExit;
-  
-  // TODO: currentPath === previousPath ? route must be back : Do reverse animation
-  // if(currentPath !== previousPath){
-    timelineExit = exitTimeline(node); // do it forwards
-  // } else {
-  //   timelineExit = exitSlideOutToRightTimeline(node); // do it backwards
-  // }
-  
-  window.loadPromise = new Promise(resolve => {
-    window.addEventListener("DOMContentLoaded", timelineExit.play())
-  });
-  
-}
+export const exit = (node, direction = 'forward') => {
+  startTransition(node, () => exitTimeline(node, direction));
+};

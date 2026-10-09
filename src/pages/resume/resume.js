@@ -50,7 +50,7 @@ const Resume = (props) => {
   }, [isLoaded]);
   
   return (
-    <article className="resume">
+    <article className="resume" data-transition-ready={isLoading ? 'false' : 'true'}>
 
       <section className="container d-flex align-items-end justify-content-end">
         <a className='btn btn-secondary btn-md' href={resumePdfData?.fields?.file?.url} target="_blank" rel="noreferrer" role="button">

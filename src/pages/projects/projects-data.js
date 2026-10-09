@@ -8,6 +8,7 @@ import './projects.scss';
 const ProjectsData = () => {
 
   const [projectsData, setProjectsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
 
@@ -20,7 +21,7 @@ const ProjectsData = () => {
       } catch (error) {
         console.error(error);
       } finally {
-
+        setIsLoading(false);
       }
     };
     
@@ -45,7 +46,7 @@ const ProjectsData = () => {
   // };
 
   return (
-    <article className="projects-data">
+    <article className="projects-data" data-transition-ready={isLoading ? 'false' : 'true'}>
 
       <ul className='container'>
 
@@ -55,7 +56,7 @@ const ProjectsData = () => {
               
               <p>#{i+1} <b className="headline">{data?.fields?.title}</b></p>
 
-              <img alt="placeholder" width="100" height="auto" src={data?.fields?.heroImage?.fields?.file?.url} />
+              <img alt={`${data?.fields?.title || 'Project'} preview`} width="100" height="auto" src={data?.fields?.heroImage?.fields?.file?.url} />
 
               <br/>
 

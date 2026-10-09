@@ -23,7 +23,7 @@ export const buildComponents = (pageData) => {
     // COVER COMPONENT
     if (componentType === "cover") {
       return (
-        <section className='container'>
+        <section className='container art__stagger-in'>
           <Cover key={i} data={section} />
         </section>
       );
@@ -32,7 +32,7 @@ export const buildComponents = (pageData) => {
     // BAND COMPONENT 
     else if (componentType === "band") {
       return (
-        <section className='container'>
+        <section className='container art__stagger-in'>
 
           <Band key={i} data={section?.fields}>
             {section?.fields?.sections.map((item, j) => {
