@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   padding-block: 2rem;
-  text-shadow: 3px 5px 10px var(--black-t30);
+  text-shadow: 0 1px 3px var(--black-t20);
   color: var(--gray-700);
   @include blurry;
   box-shadow: 0 0px 6px 0px rgba(0, 0, 0, 0.2);

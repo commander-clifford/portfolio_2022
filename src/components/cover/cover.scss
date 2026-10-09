@@ -66,18 +66,7 @@
     h1 {
       margin-block: 0.5rem 3rem;
       font-size: clamp(4rem, 4vw, 7rem);
-      text-shadow:
-        -1px 1px 0 var(--gray-400),
-        -2px 2px 0 var(--gray-500),
-        -3px 3px 0 var(--gray-600),
-        // -4px 4px 0 var(--gray-400),
-        // -5px 5px 0 var(--gray-500),
-        -6px 6px 1px var(--black-t10),
-        -1px 1px 3px var(--black-t30),
-        -3px 3px 5px var(--black-t20),
-        -5px 5px 10px var(--black-t30),
-        -10px 10px 10px var(--black-t20),
-        -20px 20px 20px var(--black-t10);
+      text-shadow: 0 2px 8px var(--black-t20);
       color: inherit;
     }
     p,h4 {
@@ -136,18 +125,7 @@
 
     .headline {
       font-size: clamp(7rem, 12vw, 18rem);
-      text-shadow:
-        -1px 1px 0 var(--gray-100),
-        -2px 2px 0 var(--gray-200),
-        -3px 3px 0 var(--gray-300),
-        -4px 4px 0 var(--gray-400),
-        -5px 5px 0 var(--gray-500),
-        -6px 6px 1px var(--black-t10),
-        -1px 1px 3px var(--black-t30),
-        -3px 3px 5px var(--black-t20),
-        -5px 5px 10px var(--black-t30),
-        -10px 10px 10px var(--black-t20),
-        -20px 20px 20px var(--black-t10);
+      text-shadow: 0 2px 8px var(--black-t20);
     }
   }
 

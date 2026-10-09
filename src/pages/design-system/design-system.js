@@ -33,10 +33,10 @@ const DesignSystem = (props) => {
 
   const components = pageData ? buildComponents(pageData) : null;
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading design system.</div>;
+  if (loading) return <article className='design-system' data-transition-ready="false">Loading...</article>;
+  if (error) return <article className='design-system' data-transition-ready="true">Error loading design system.</article>;
 
-  return (<article className='design-system'>{components}</article>);
+  return (<article className='design-system' data-transition-ready="true">{components}</article>);
   
 }
 

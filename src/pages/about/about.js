@@ -1,38 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { fetchContentfulEntries } from '../../services/contentfulAPI';
-import { buildComponents } from '../../services/buildComponents';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { aboutCopy, publicProfileLinks } from '../../content/publicCopy';
+import './about.scss';
 
-const About = (props) => {
+const About = () => (
+  <article className="about portfolio-about" data-transition-ready="true">
+    <header className="about-intro container">
+      <p className="eyebrow">{aboutCopy.eyebrow}</p>
+      <h1>{aboutCopy.title}</h1>
+      <p className="about-intro__lead">{aboutCopy.introduction}</p>
+    </header>
 
-  const [pageData, setPageData] = useState([]);
+    <section className="about-story container" aria-label="Experience and interests">
+      {aboutCopy.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+    </section>
 
-  useEffect(() => {
-
-    const fetchData = async () => {
-      try {
-
-        const contentfulPageEntries = await fetchContentfulEntries('page');
-        const pageDataResponse = contentfulPageEntries.items.find(obj => obj.fields.slug === 'about');
-        setPageData(pageDataResponse);
-
-      } catch (error) {
-        console.error(error);
-      } finally {
-
-      }
-    };
-  
-    fetchData();
-
-  }, []);
-
-  const components = buildComponents(pageData);
-
-  return (
-    <article className="about">
-      {components}
-    </article>
-  );
-}
+    <nav className="about-actions container" aria-label="More about Clifford">
+      <Link className="button button--dark" to="/resume">View résumé</Link>
+      <a className="button button--quiet" href={publicProfileLinks.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    </nav>
+  </article>
+);
 
 export default About;

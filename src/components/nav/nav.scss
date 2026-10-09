@@ -3,6 +3,13 @@
   margin: 0;
   padding: 0.5rem 1rem;
   background: none;
+  border: 0;
+  color: var(--headline-color);
+
+  &:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+  }
 
   .wrapper {
     position: relative;
@@ -25,6 +32,10 @@
     &:nth-child(2), &:nth-child(3) { top: calc(var(--bar-height) * 4); }
     &:nth-child(4) { top: calc(var(--bar-height) * 8); }
   }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 .nav {
   position: absolute;
@@ -42,16 +53,31 @@
 
   &-items {
     position: fixed;
+    z-index: 10;
     top: 88px;
+    bottom: 0;
     right: 0;
     width: 100%;
+    min-height: calc(100dvh - 88px);
+    overflow-y: auto;
+    align-items: center;
     display: flex;
     flex-flow: column;
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.25);
-    @include blurry;
+    padding-block: 0.5rem;
+    border-top: 1px solid var(--gray-200);
+    background-color: var(--background);
+    box-shadow: none;
     @media screen and (min-width: 768px) {
       position: static;
+      bottom: auto;
+      min-height: 0;
+      overflow: visible;
+      align-items: stretch;
+      z-index: auto;
       flex-flow: row;
+      padding-block: 0;
+      border-bottom: 0;
+      background-color: transparent;
       box-shadow: none;
       @include notBlurry;
     }
@@ -85,11 +111,7 @@
       background-color: var(--red-100-t50);
     }
     &--active {
-      pointer-events: none;
-      cursor: not-allowed;
-      &:hover {
-        filter: blur(1px) brightness(110%);
-      }
+      cursor: default;
     }
 
     @media screen and (min-width: 768px) {

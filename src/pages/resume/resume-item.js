@@ -3,15 +3,19 @@ import FormatDate from '../../components/date';
 import Tag from '../../components/tag/tag';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const ResumeItem = (props) => {
+    const employer = props.item.company || props.item.school || '';
+    const hideUnresolvedWbdDates = /warner bros/i.test(employer);
   
     return (
-      <section className="resume-item container">
+    <section className="resume-item container art__stagger-in">
               
         <div className="resume-item__headline-block d-flex align-items-end justify-content-between">
           <h2 className="headline">{props.item.title}{props.item.educationLevel}</h2>
-          <p>
-            <i><FormatDate date={props.item.startDate}/></i>&nbsp;-&nbsp;<i><FormatDate date={props.item.endDate}/></i>
-          </p>
+          {!hideUnresolvedWbdDates ? (
+            <p>
+              <i><FormatDate date={props.item.startDate}/></i>&nbsp;-&nbsp;<i><FormatDate date={props.item.endDate}/></i>
+            </p>
+          ) : null}
         </div>
 
         <div className="d-flex align-items-center justify-content- resume-item__employer-block">
